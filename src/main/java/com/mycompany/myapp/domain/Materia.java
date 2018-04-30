@@ -42,7 +42,6 @@ public class Materia implements Serializable {
     private Set<Aula> aulas = new HashSet<>();
 
     @OneToMany(mappedBy = "materia")
-    @JsonIgnore
     private Set<Tema> temas = new HashSet<>();
 
     @ManyToMany(mappedBy = "materias")
