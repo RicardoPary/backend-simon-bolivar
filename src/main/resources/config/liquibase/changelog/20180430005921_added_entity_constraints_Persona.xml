@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Persona.
+    -->
+    <changeSet id="20180430005921-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="personas_id"
+                                 baseTableName="persona_reunion"
+                                 constraintName="fk_persona_reunion_personas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="persona"/>
+        <addForeignKeyConstraint baseColumnNames="reunions_id"
+                                 baseTableName="persona_reunion"
+                                 constraintName="fk_persona_reunion_reunions_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reunion"/>
+        
+    </changeSet>
+</databaseChangeLog>

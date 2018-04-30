@@ -23,6 +23,9 @@ public class Tema implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
+    @ManyToOne
+    private Materia materia;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -43,6 +46,19 @@ public class Tema implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Materia getMateria() {
+        return materia;
+    }
+
+    public Tema materia(Materia materia) {
+        this.materia = materia;
+        return this;
+    }
+
+    public void setMateria(Materia materia) {
+        this.materia = materia;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

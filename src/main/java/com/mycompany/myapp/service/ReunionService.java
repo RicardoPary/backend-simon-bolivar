@@ -57,7 +57,7 @@ public class ReunionService {
     @Transactional(readOnly = true)
     public Reunion findOne(Long id) {
         log.debug("Request to get Reunion : {}", id);
-        return reunionRepository.findOne(id);
+        return reunionRepository.findOneWithEagerRelationships(id);
     }
 
     /**

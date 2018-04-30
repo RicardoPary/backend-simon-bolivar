@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Docente.
+    -->
+    <changeSet id="20180430005656-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="docentes_id"
+                                 baseTableName="docente_materia"
+                                 constraintName="fk_docente_materia_docentes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="docente"/>
+        <addForeignKeyConstraint baseColumnNames="materias_id"
+                                 baseTableName="docente_materia"
+                                 constraintName="fk_docente_materia_materias_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="materia"/>
+        
+        <addForeignKeyConstraint baseColumnNames="persona_id"
+                                 baseTableName="docente"
+                                 constraintName="fk_docente_persona_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="persona"/>
+
+        <addForeignKeyConstraint baseColumnNames="docentes_id"
+                                 baseTableName="docente_actividad_civica"
+                                 constraintName="fk_docente_actividad_civica_docentes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="docente"/>
+        <addForeignKeyConstraint baseColumnNames="actividad_civicas_id"
+                                 baseTableName="docente_actividad_civica"
+                                 constraintName="fk_docente_actividad_civica_actividad_civicas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="actividad_civica"/>
+        
+    </changeSet>
+</databaseChangeLog>

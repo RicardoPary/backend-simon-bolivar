@@ -1,6 +1,21 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "materia",
+            "otherEntityName": "materia",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "estudiante"
+        },
+        {
+            "relationshipName": "persona",
+            "otherEntityName": "persona",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
     "fields": [
         {
             "fieldName": "matricula",

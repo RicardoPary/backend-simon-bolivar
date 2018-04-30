@@ -23,6 +23,9 @@ public class Curso implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
+    @ManyToOne
+    private Nivel nivel;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -43,6 +46,19 @@ public class Curso implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Nivel getNivel() {
+        return nivel;
+    }
+
+    public Curso nivel(Nivel nivel) {
+        this.nivel = nivel;
+        return this;
+    }
+
+    public void setNivel(Nivel nivel) {
+        this.nivel = nivel;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

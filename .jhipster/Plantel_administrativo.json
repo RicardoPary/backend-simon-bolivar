@@ -1,6 +1,15 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "actividad_civica",
+            "otherEntityName": "actividad_civica",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "plantel_administrativo"
+        }
+    ],
     "fields": [
         {
             "fieldName": "nombre",

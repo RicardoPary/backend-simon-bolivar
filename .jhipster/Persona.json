@@ -1,6 +1,33 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "estudiante",
+            "otherEntityName": "estudiante",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "persona"
+        },
+        {
+            "relationshipName": "docente",
+            "otherEntityName": "docente",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "persona"
+        },
+        {
+            "relationshipName": "familiar",
+            "otherEntityName": "familiar",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "persona"
+        },
+        {
+            "relationshipName": "reunion",
+            "otherEntityName": "reunion",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "id",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "persona"
+        }
+    ],
     "fields": [
         {
             "fieldName": "nombre",

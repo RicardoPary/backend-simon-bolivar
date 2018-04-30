@@ -57,7 +57,7 @@ public class DocenteService {
     @Transactional(readOnly = true)
     public Docente findOne(Long id) {
         log.debug("Request to get Docente : {}", id);
-        return docenteRepository.findOne(id);
+        return docenteRepository.findOneWithEagerRelationships(id);
     }
 
     /**

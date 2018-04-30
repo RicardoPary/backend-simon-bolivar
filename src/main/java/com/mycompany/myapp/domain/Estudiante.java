@@ -4,6 +4,8 @@ package com.mycompany.myapp.domain;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -22,6 +24,15 @@ public class Estudiante implements Serializable {
 
     @Column(name = "matricula")
     private String matricula;
+
+    @ManyToMany
+    @JoinTable(name = "estudiante_materia",
+               joinColumns = @JoinColumn(name="estudiantes_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="materias_id", referencedColumnName="id"))
+    private Set<Materia> materias = new HashSet<>();
+
+    @ManyToOne
+    private Persona persona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -43,6 +54,44 @@ public class Estudiante implements Serializable {
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
+    }
+
+    public Set<Materia> getMaterias() {
+        return materias;
+    }
+
+    public Estudiante materias(Set<Materia> materias) {
+        this.materias = materias;
+        return this;
+    }
+
+    public Estudiante addMateria(Materia materia) {
+        this.materias.add(materia);
+        materia.getEstudiantes().add(this);
+        return this;
+    }
+
+    public Estudiante removeMateria(Materia materia) {
+        this.materias.remove(materia);
+        materia.getEstudiantes().remove(this);
+        return this;
+    }
+
+    public void setMaterias(Set<Materia> materias) {
+        this.materias = materias;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public Estudiante persona(Persona persona) {
+        this.persona = persona;
+        return this;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

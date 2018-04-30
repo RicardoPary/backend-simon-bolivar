@@ -1,9 +1,12 @@
 package com.mycompany.myapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -22,6 +25,14 @@ public class Actividad_civica implements Serializable {
 
     @Column(name = "nombre")
     private String nombre;
+
+    @ManyToMany(mappedBy = "actividad_civicas")
+    @JsonIgnore
+    private Set<Docente> docentes = new HashSet<>();
+
+    @ManyToMany(mappedBy = "actividad_civicas")
+    @JsonIgnore
+    private Set<Plantel_administrativo> plantel_administrativos = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -43,6 +54,56 @@ public class Actividad_civica implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Set<Docente> getDocentes() {
+        return docentes;
+    }
+
+    public Actividad_civica docentes(Set<Docente> docentes) {
+        this.docentes = docentes;
+        return this;
+    }
+
+    public Actividad_civica addDocente(Docente docente) {
+        this.docentes.add(docente);
+        docente.getActividad_civicas().add(this);
+        return this;
+    }
+
+    public Actividad_civica removeDocente(Docente docente) {
+        this.docentes.remove(docente);
+        docente.getActividad_civicas().remove(this);
+        return this;
+    }
+
+    public void setDocentes(Set<Docente> docentes) {
+        this.docentes = docentes;
+    }
+
+    public Set<Plantel_administrativo> getPlantel_administrativos() {
+        return plantel_administrativos;
+    }
+
+    public Actividad_civica plantel_administrativos(Set<Plantel_administrativo> plantel_administrativos) {
+        this.plantel_administrativos = plantel_administrativos;
+        return this;
+    }
+
+    public Actividad_civica addPlantel_administrativo(Plantel_administrativo plantel_administrativo) {
+        this.plantel_administrativos.add(plantel_administrativo);
+        plantel_administrativo.getActividad_civicas().add(this);
+        return this;
+    }
+
+    public Actividad_civica removePlantel_administrativo(Plantel_administrativo plantel_administrativo) {
+        this.plantel_administrativos.remove(plantel_administrativo);
+        plantel_administrativo.getActividad_civicas().remove(this);
+        return this;
+    }
+
+    public void setPlantel_administrativos(Set<Plantel_administrativo> plantel_administrativos) {
+        this.plantel_administrativos = plantel_administrativos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

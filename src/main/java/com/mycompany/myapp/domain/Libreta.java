@@ -1,9 +1,12 @@
 package com.mycompany.myapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -22,6 +25,10 @@ public class Libreta implements Serializable {
 
     @Column(name = "nombre")
     private String nombre;
+
+    @OneToMany(mappedBy = "libreta")
+    @JsonIgnore
+    private Set<Nota> notas = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -43,6 +50,31 @@ public class Libreta implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Set<Nota> getNotas() {
+        return notas;
+    }
+
+    public Libreta notas(Set<Nota> notas) {
+        this.notas = notas;
+        return this;
+    }
+
+    public Libreta addNota(Nota nota) {
+        this.notas.add(nota);
+        nota.setLibreta(this);
+        return this;
+    }
+
+    public Libreta removeNota(Nota nota) {
+        this.notas.remove(nota);
+        nota.setLibreta(null);
+        return this;
+    }
+
+    public void setNotas(Set<Nota> notas) {
+        this.notas = notas;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

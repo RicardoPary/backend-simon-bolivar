@@ -22,5 +22,17 @@
     <include file="config/liquibase/changelog/20180430005921_added_entity_Persona.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180430005951_added_entity_Reunion.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180430005441_added_entity_constraints_Aula.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430005728_added_entity_constraints_Contrato.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430005110_added_entity_constraints_Curso.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430005656_added_entity_constraints_Docente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430005554_added_entity_constraints_Estudiante.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430005628_added_entity_constraints_Familiar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430005316_added_entity_constraints_Horario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430005340_added_entity_constraints_Nota.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430005921_added_entity_constraints_Persona.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430005851_added_entity_constraints_Plantel_administrativo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430005522_added_entity_constraints_Tema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430005951_added_entity_constraints_Reunion.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

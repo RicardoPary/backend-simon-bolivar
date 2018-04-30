@@ -23,6 +23,9 @@ public class Contrato implements Serializable {
     @Column(name = "sueldo")
     private Double sueldo;
 
+    @ManyToOne
+    private Docente docente;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -43,6 +46,19 @@ public class Contrato implements Serializable {
 
     public void setSueldo(Double sueldo) {
         this.sueldo = sueldo;
+    }
+
+    public Docente getDocente() {
+        return docente;
+    }
+
+    public Contrato docente(Docente docente) {
+        this.docente = docente;
+        return this;
+    }
+
+    public void setDocente(Docente docente) {
+        this.docente = docente;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

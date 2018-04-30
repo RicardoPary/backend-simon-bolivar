@@ -25,8 +25,34 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="persona_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
+        
+        <createTable tableName="docente_materia">
+            <column name="materias_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="docentes_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="docentes_id, materias_id" tableName="docente_materia"/>
+        
+        <createTable tableName="docente_actividad_civica">
+            <column name="actividad_civicas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="docentes_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="docentes_id, actividad_civicas_id" tableName="docente_actividad_civica"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

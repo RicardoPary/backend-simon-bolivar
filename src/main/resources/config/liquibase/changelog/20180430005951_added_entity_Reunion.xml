@@ -28,6 +28,17 @@
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         
+        <createTable tableName="reunion_persona">
+            <column name="personas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reunions_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="reunions_id, personas_id" tableName="reunion_persona"/>
+        
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>

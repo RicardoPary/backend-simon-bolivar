@@ -1,6 +1,49 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "horario",
+            "otherEntityName": "horario",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "materia"
+        },
+        {
+            "relationshipName": "nota",
+            "otherEntityName": "nota",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "materia"
+        },
+        {
+            "relationshipName": "aula",
+            "otherEntityName": "aula",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "id",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "materia"
+        },
+        {
+            "relationshipName": "tema",
+            "otherEntityName": "tema",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "materia"
+        },
+        {
+            "relationshipName": "estudiante",
+            "otherEntityName": "estudiante",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "id",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "materia"
+        },
+        {
+            "relationshipName": "docente",
+            "otherEntityName": "docente",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "id",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "materia"
+        }
+    ],
     "fields": [
         {
             "fieldName": "nombre",

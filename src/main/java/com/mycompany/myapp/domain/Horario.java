@@ -23,6 +23,9 @@ public class Horario implements Serializable {
     @Column(name = "dia")
     private String dia;
 
+    @ManyToOne
+    private Materia materia;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -43,6 +46,19 @@ public class Horario implements Serializable {
 
     public void setDia(String dia) {
         this.dia = dia;
+    }
+
+    public Materia getMateria() {
+        return materia;
+    }
+
+    public Horario materia(Materia materia) {
+        this.materia = materia;
+        return this;
+    }
+
+    public void setMateria(Materia materia) {
+        this.materia = materia;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

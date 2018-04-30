@@ -57,7 +57,7 @@ public class Plantel_administrativoService {
     @Transactional(readOnly = true)
     public Plantel_administrativo findOne(Long id) {
         log.debug("Request to get Plantel_administrativo : {}", id);
-        return plantel_administrativoRepository.findOne(id);
+        return plantel_administrativoRepository.findOneWithEagerRelationships(id);
     }
 
     /**

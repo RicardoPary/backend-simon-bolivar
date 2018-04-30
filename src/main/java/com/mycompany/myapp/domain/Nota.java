@@ -23,6 +23,12 @@ public class Nota implements Serializable {
     @Column(name = "valor")
     private Double valor;
 
+    @ManyToOne
+    private Libreta libreta;
+
+    @ManyToOne
+    private Materia materia;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -43,6 +49,32 @@ public class Nota implements Serializable {
 
     public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    public Libreta getLibreta() {
+        return libreta;
+    }
+
+    public Nota libreta(Libreta libreta) {
+        this.libreta = libreta;
+        return this;
+    }
+
+    public void setLibreta(Libreta libreta) {
+        this.libreta = libreta;
+    }
+
+    public Materia getMateria() {
+        return materia;
+    }
+
+    public Nota materia(Materia materia) {
+        this.materia = materia;
+        return this;
+    }
+
+    public void setMateria(Materia materia) {
+        this.materia = materia;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

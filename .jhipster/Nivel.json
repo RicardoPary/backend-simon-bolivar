@@ -1,6 +1,13 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "curso",
+            "otherEntityName": "curso",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "nivel"
+        }
+    ],
     "fields": [
         {
             "fieldName": "nombre",

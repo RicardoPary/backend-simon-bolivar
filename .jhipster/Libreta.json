@@ -1,6 +1,13 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "nota",
+            "otherEntityName": "nota",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "libreta"
+        }
+    ],
     "fields": [
         {
             "fieldName": "nombre",
