@@ -6,7 +6,7 @@
             "otherEntityName": "docente",
             "relationshipType": "many-to-many",
             "otherEntityField": "id",
-            "ownerSide": false,
+            "ownerSide": true,
             "otherEntityRelationshipName": "actividad_civica"
         },
         {
@@ -14,7 +14,7 @@
             "otherEntityName": "plantel_administrativo",
             "relationshipType": "many-to-many",
             "otherEntityField": "id",
-            "ownerSide": false,
+            "ownerSide": true,
             "otherEntityRelationshipName": "actividad_civica"
         }
     ],

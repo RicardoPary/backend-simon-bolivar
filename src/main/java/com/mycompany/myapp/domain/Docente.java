@@ -26,19 +26,15 @@ public class Docente implements Serializable {
     @Column(name = "tipo")
     private String tipo;
 
-    @ManyToMany
-    @JoinTable(name = "docente_materia",
-               joinColumns = @JoinColumn(name="docentes_id", referencedColumnName="id"),
-               inverseJoinColumns = @JoinColumn(name="materias_id", referencedColumnName="id"))
+    @ManyToMany(mappedBy = "docentes")
+    @JsonIgnore
     private Set<Materia> materias = new HashSet<>();
 
     @ManyToOne
     private Persona persona;
 
-    @ManyToMany
-    @JoinTable(name = "docente_actividad_civica",
-               joinColumns = @JoinColumn(name="docentes_id", referencedColumnName="id"),
-               inverseJoinColumns = @JoinColumn(name="actividad_civicas_id", referencedColumnName="id"))
+    @ManyToMany(mappedBy = "docentes")
+    @JsonIgnore
     private Set<Actividad_civica> actividad_civicas = new HashSet<>();
 
     @OneToMany(mappedBy = "docente")

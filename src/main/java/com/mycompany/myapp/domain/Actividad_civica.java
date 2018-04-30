@@ -1,6 +1,5 @@
 package com.mycompany.myapp.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -26,12 +25,16 @@ public class Actividad_civica implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
-    @ManyToMany(mappedBy = "actividad_civicas")
-    @JsonIgnore
+    @ManyToMany
+    @JoinTable(name = "actividad_civica_docente",
+               joinColumns = @JoinColumn(name="actividad_civicas_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="docentes_id", referencedColumnName="id"))
     private Set<Docente> docentes = new HashSet<>();
 
-    @ManyToMany(mappedBy = "actividad_civicas")
-    @JsonIgnore
+    @ManyToMany
+    @JoinTable(name = "actividad_civica_plantel_administrativo",
+               joinColumns = @JoinColumn(name="actividad_civicas_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="plantel_administrativos_id", referencedColumnName="id"))
     private Set<Plantel_administrativo> plantel_administrativos = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

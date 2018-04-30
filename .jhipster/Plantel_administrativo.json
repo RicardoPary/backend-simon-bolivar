@@ -6,7 +6,7 @@
             "otherEntityName": "actividad_civica",
             "relationshipType": "many-to-many",
             "otherEntityField": "id",
-            "ownerSide": true,
+            "ownerSide": false,
             "otherEntityRelationshipName": "plantel_administrativo"
         }
     ],

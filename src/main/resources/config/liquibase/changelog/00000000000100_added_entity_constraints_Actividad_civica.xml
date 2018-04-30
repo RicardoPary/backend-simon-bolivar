@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Actividad_civica.
+    -->
+    <changeSet id="00000000000100-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="actividad_civicas_id"
+                                 baseTableName="actividad_civica_docente"
+                                 constraintName="fk_actividad_civica_docente_actividad_civicas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="actividad_civica"/>
+        <addForeignKeyConstraint baseColumnNames="docentes_id"
+                                 baseTableName="actividad_civica_docente"
+                                 constraintName="fk_actividad_civica_docente_docentes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="docente"/>
+        
+        <addForeignKeyConstraint baseColumnNames="actividad_civicas_id"
+                                 baseTableName="actividad_civica_plantel_administrativo"
+                                 constraintName="fk_actividad_civica_plantel_administrativo_actividad_civicas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="actividad_civica"/>
+        <addForeignKeyConstraint baseColumnNames="plantel_administrativos_id"
+                                 baseTableName="actividad_civica_plantel_administrativo"
+                                 constraintName="fk_actividad_civica_plantel_administrativo_plantel_administrativos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="plantel_administrativo"/>
+        
+    </changeSet>
+</databaseChangeLog>

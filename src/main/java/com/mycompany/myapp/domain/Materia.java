@@ -49,8 +49,10 @@ public class Materia implements Serializable {
     @JsonIgnore
     private Set<Estudiante> estudiantes = new HashSet<>();
 
-    @ManyToMany(mappedBy = "materias")
-    @JsonIgnore
+    @ManyToMany
+    @JoinTable(name = "materia_docente",
+               joinColumns = @JoinColumn(name="materias_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="docentes_id", referencedColumnName="id"))
     private Set<Docente> docentes = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
