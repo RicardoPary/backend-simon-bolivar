@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180430005951",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "reunion",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pager"
+}

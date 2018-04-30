@@ -1,0 +1,20 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sigla",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180430005237",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "materia",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pager"
+}

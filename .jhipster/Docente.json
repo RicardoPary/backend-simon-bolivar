@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "tipo",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180430005656",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "docente",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pager"
+}

@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "matricula",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180430005554",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "estudiante",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pager"
+}

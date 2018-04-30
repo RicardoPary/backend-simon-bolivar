@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180430005815",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "actividad_civica",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pager"
+}

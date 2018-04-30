@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "parentesco",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180430005628",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "familiar",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pager"
+}

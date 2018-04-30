@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "sueldo",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20180430005728",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "contrato",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pager"
+}
