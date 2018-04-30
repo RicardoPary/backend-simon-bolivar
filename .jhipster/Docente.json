@@ -6,7 +6,7 @@
             "otherEntityName": "materia",
             "relationshipType": "many-to-many",
             "otherEntityField": "id",
-            "ownerSide": false,
+            "ownerSide": true,
             "otherEntityRelationshipName": "docente"
         },
         {

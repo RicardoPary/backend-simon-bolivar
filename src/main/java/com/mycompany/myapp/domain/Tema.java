@@ -1,8 +1,6 @@
 package com.mycompany.myapp.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 
 import java.io.Serializable;
@@ -26,7 +24,6 @@ public class Tema implements Serializable {
     private String nombre;
 
     @ManyToOne
-    @JsonIgnore
     private Materia materia;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

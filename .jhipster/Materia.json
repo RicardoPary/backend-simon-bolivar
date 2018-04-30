@@ -40,7 +40,7 @@
             "otherEntityName": "docente",
             "relationshipType": "many-to-many",
             "otherEntityField": "id",
-            "ownerSide": true,
+            "ownerSide": false,
             "otherEntityRelationshipName": "materia"
         }
     ],

@@ -57,7 +57,7 @@ public class MateriaService {
     @Transactional(readOnly = true)
     public Materia findOne(Long id) {
         log.debug("Request to get Materia : {}", id);
-        return materiaRepository.findOneWithEagerRelationships(id);
+        return materiaRepository.findOne(id);
     }
 
     /**
