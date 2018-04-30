@@ -14,14 +14,14 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity Docente.
+        Added the entity Familiar.
     -->
-    <changeSet id="20180430005656-1" author="jhipster">
-        <createTable tableName="docente">
+    <changeSet id="00000000000700-1" author="jhipster">
+        <createTable tableName="familiar">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="tipo" type="varchar(255)">
+            <column name="parentesco" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
@@ -31,28 +31,6 @@
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-        
-        <createTable tableName="docente_materia">
-            <column name="materias_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="docentes_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="docentes_id, materias_id" tableName="docente_materia"/>
-        
-        <createTable tableName="docente_actividad_civica">
-            <column name="actividad_civicas_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="docentes_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="docentes_id, actividad_civicas_id" tableName="docente_actividad_civica"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

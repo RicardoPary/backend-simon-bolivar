@@ -22,7 +22,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180430005554",
+    "changelogDate": "00000000000600",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "estudiante",

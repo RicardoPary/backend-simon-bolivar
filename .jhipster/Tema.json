@@ -14,7 +14,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180430005522",
+    "changelogDate": "00000000007000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "tema",

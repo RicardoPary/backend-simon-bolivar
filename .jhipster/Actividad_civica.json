@@ -24,7 +24,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180430005815",
+    "changelogDate": "00000000000100",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "actividad_civica",

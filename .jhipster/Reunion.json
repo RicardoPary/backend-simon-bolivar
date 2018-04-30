@@ -16,7 +16,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180430005951",
+    "changelogDate": "00000000006000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "reunion",

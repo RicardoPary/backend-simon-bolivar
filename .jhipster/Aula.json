@@ -16,7 +16,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180430005441",
+    "changelogDate": "00000000000200",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "aula",

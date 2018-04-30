@@ -14,7 +14,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180430005316",
+    "changelogDate": "00000000000800",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "horario",

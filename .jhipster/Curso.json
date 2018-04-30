@@ -14,7 +14,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180430005110",
+    "changelogDate": "00000000000400",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "curso",

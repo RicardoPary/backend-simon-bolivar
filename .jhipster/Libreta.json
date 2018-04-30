@@ -14,7 +14,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180430005413",
+    "changelogDate": "00000000000900",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "libreta",

@@ -14,34 +14,19 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity Estudiante.
+        Added the entity Actividad_civica.
     -->
-    <changeSet id="20180430005554-1" author="jhipster">
-        <createTable tableName="estudiante">
+    <changeSet id="00000000000100-1" author="jhipster">
+        <createTable tableName="actividad_civica">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="matricula" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="persona_id" type="bigint">
+            <column name="nombre" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-        
-        <createTable tableName="estudiante_materia">
-            <column name="materias_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="estudiantes_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="estudiantes_id, materias_id" tableName="estudiante_materia"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

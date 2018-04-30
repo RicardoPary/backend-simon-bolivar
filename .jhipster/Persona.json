@@ -34,7 +34,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180430005921",
+    "changelogDate": "00000000004000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "persona",

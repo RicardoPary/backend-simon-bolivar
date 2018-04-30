@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity Aula.
     -->
-    <changeSet id="20180430005441-2" author="jhipster">
+    <changeSet id="00000000000200-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="aulas_id"
                                  baseTableName="aula_materia"

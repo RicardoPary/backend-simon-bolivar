@@ -14,22 +14,18 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity Nota.
+        Added the entity Materia.
     -->
-    <changeSet id="20180430005340-1" author="jhipster">
-        <createTable tableName="nota">
+    <changeSet id="00000000001000-1" author="jhipster">
+        <createTable tableName="materia">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="valor" type="double">
+            <column name="nombre" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="libreta_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="materia_id" type="bigint">
+            <column name="sigla" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 

@@ -54,7 +54,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180430005237",
+    "changelogDate": "00000000001000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "materia",

@@ -16,7 +16,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180430005851",
+    "changelogDate": "00000000005000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "plantel_administrativo",

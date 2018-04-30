@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity Reunion.
     -->
-    <changeSet id="20180430005951-2" author="jhipster">
+    <changeSet id="00000000006000-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="reunions_id"
                                  baseTableName="reunion_persona"

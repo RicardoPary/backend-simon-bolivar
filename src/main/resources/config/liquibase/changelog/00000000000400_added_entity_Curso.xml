@@ -16,7 +16,7 @@
     <!--
         Added the entity Curso.
     -->
-    <changeSet id="20180430005110-1" author="jhipster">
+    <changeSet id="00000000000400-1" author="jhipster">
         <createTable tableName="curso">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>

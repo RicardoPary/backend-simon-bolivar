@@ -14,7 +14,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180430005030",
+    "changelogDate": "00000000002000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "nivel",

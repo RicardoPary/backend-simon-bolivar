@@ -20,7 +20,7 @@
             "fieldType": "Double"
         }
     ],
-    "changelogDate": "20180430005340",
+    "changelogDate": "00000000003000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "nota",
