@@ -23,8 +23,32 @@ public class Persona implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    @Column(name = "ci")
+    private Long ci;
+
     @Column(name = "nombre")
     private String nombre;
+
+    @Column(name = "paterno")
+    private String paterno;
+
+    @Column(name = "materno")
+    private String materno;
+
+    @Column(name = "genero")
+    private String genero;
+
+    @Column(name = "fecha_nacimiento")
+    private String fecha_nacimiento;
+
+    @Column(name = "nacionalidad")
+    private String nacionalidad;
+
+    @Column(name = "direccion")
+    private String direccion;
+
+    @Column(name = "telefono")
+    private Long telefono;
 
     @OneToMany(mappedBy = "persona")
     @JsonIgnore
@@ -37,6 +61,10 @@ public class Persona implements Serializable {
     @OneToMany(mappedBy = "persona")
     @JsonIgnore
     private Set<Familiar> familiars = new HashSet<>();
+
+    @OneToMany(mappedBy = "persona")
+    @JsonIgnore
+    private Set<Plantel_administrativo> plantel_administrativos = new HashSet<>();
 
     @ManyToMany(mappedBy = "personas")
     @JsonIgnore
@@ -51,6 +79,19 @@ public class Persona implements Serializable {
         this.id = id;
     }
 
+    public Long getCi() {
+        return ci;
+    }
+
+    public Persona ci(Long ci) {
+        this.ci = ci;
+        return this;
+    }
+
+    public void setCi(Long ci) {
+        this.ci = ci;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -62,6 +103,97 @@ public class Persona implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getPaterno() {
+        return paterno;
+    }
+
+    public Persona paterno(String paterno) {
+        this.paterno = paterno;
+        return this;
+    }
+
+    public void setPaterno(String paterno) {
+        this.paterno = paterno;
+    }
+
+    public String getMaterno() {
+        return materno;
+    }
+
+    public Persona materno(String materno) {
+        this.materno = materno;
+        return this;
+    }
+
+    public void setMaterno(String materno) {
+        this.materno = materno;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public Persona genero(String genero) {
+        this.genero = genero;
+        return this;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getFecha_nacimiento() {
+        return fecha_nacimiento;
+    }
+
+    public Persona fecha_nacimiento(String fecha_nacimiento) {
+        this.fecha_nacimiento = fecha_nacimiento;
+        return this;
+    }
+
+    public void setFecha_nacimiento(String fecha_nacimiento) {
+        this.fecha_nacimiento = fecha_nacimiento;
+    }
+
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public Persona nacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+        return this;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public Persona direccion(String direccion) {
+        this.direccion = direccion;
+        return this;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public Long getTelefono() {
+        return telefono;
+    }
+
+    public Persona telefono(Long telefono) {
+        this.telefono = telefono;
+        return this;
+    }
+
+    public void setTelefono(Long telefono) {
+        this.telefono = telefono;
     }
 
     public Set<Estudiante> getEstudiantes() {
@@ -139,6 +271,31 @@ public class Persona implements Serializable {
         this.familiars = familiars;
     }
 
+    public Set<Plantel_administrativo> getPlantel_administrativos() {
+        return plantel_administrativos;
+    }
+
+    public Persona plantel_administrativos(Set<Plantel_administrativo> plantel_administrativos) {
+        this.plantel_administrativos = plantel_administrativos;
+        return this;
+    }
+
+    public Persona addPlantel_administrativo(Plantel_administrativo plantel_administrativo) {
+        this.plantel_administrativos.add(plantel_administrativo);
+        plantel_administrativo.setPersona(this);
+        return this;
+    }
+
+    public Persona removePlantel_administrativo(Plantel_administrativo plantel_administrativo) {
+        this.plantel_administrativos.remove(plantel_administrativo);
+        plantel_administrativo.setPersona(null);
+        return this;
+    }
+
+    public void setPlantel_administrativos(Set<Plantel_administrativo> plantel_administrativos) {
+        this.plantel_administrativos = plantel_administrativos;
+    }
+
     public Set<Reunion> getReunions() {
         return reunions;
     }
@@ -189,7 +346,15 @@ public class Persona implements Serializable {
     public String toString() {
         return "Persona{" +
             "id=" + getId() +
+            ", ci=" + getCi() +
             ", nombre='" + getNombre() + "'" +
+            ", paterno='" + getPaterno() + "'" +
+            ", materno='" + getMaterno() + "'" +
+            ", genero='" + getGenero() + "'" +
+            ", fecha_nacimiento='" + getFecha_nacimiento() + "'" +
+            ", nacionalidad='" + getNacionalidad() + "'" +
+            ", direccion='" + getDireccion() + "'" +
+            ", telefono=" + getTelefono() +
             "}";
     }
 }

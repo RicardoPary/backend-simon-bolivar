@@ -20,6 +20,12 @@
             "otherEntityRelationshipName": "persona"
         },
         {
+            "relationshipName": "plantel_administrativo",
+            "otherEntityName": "plantel_administrativo",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "persona"
+        },
+        {
             "relationshipName": "reunion",
             "otherEntityName": "reunion",
             "relationshipType": "many-to-many",
@@ -30,8 +36,40 @@
     ],
     "fields": [
         {
+            "fieldName": "ci",
+            "fieldType": "Long"
+        },
+        {
             "fieldName": "nombre",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "paterno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "materno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "genero",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecha_nacimiento",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nacionalidad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "Long"
         }
     ],
     "changelogDate": "00000000004000",

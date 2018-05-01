@@ -25,6 +25,12 @@ public class Reunion implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
+    @Column(name = "fecha")
+    private String fecha;
+
+    @Column(name = "lugar")
+    private String lugar;
+
     @ManyToMany
     @JoinTable(name = "reunion_persona",
                joinColumns = @JoinColumn(name="reunions_id", referencedColumnName="id"),
@@ -51,6 +57,32 @@ public class Reunion implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public Reunion fecha(String fecha) {
+        this.fecha = fecha;
+        return this;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public Reunion lugar(String lugar) {
+        this.lugar = lugar;
+        return this;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
     }
 
     public Set<Persona> getPersonas() {
@@ -104,6 +136,8 @@ public class Reunion implements Serializable {
         return "Reunion{" +
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
+            ", fecha='" + getFecha() + "'" +
+            ", lugar='" + getLugar() + "'" +
             "}";
     }
 }

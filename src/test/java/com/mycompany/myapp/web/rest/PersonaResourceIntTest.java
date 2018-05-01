@@ -39,8 +39,32 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SimonBolivarApp.class)
 public class PersonaResourceIntTest {
 
+    private static final Long DEFAULT_CI = 1L;
+    private static final Long UPDATED_CI = 2L;
+
     private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
     private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_PATERNO = "AAAAAAAAAA";
+    private static final String UPDATED_PATERNO = "BBBBBBBBBB";
+
+    private static final String DEFAULT_MATERNO = "AAAAAAAAAA";
+    private static final String UPDATED_MATERNO = "BBBBBBBBBB";
+
+    private static final String DEFAULT_GENERO = "AAAAAAAAAA";
+    private static final String UPDATED_GENERO = "BBBBBBBBBB";
+
+    private static final String DEFAULT_FECHA_NACIMIENTO = "AAAAAAAAAA";
+    private static final String UPDATED_FECHA_NACIMIENTO = "BBBBBBBBBB";
+
+    private static final String DEFAULT_NACIONALIDAD = "AAAAAAAAAA";
+    private static final String UPDATED_NACIONALIDAD = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DIRECCION = "AAAAAAAAAA";
+    private static final String UPDATED_DIRECCION = "BBBBBBBBBB";
+
+    private static final Long DEFAULT_TELEFONO = 1L;
+    private static final Long UPDATED_TELEFONO = 2L;
 
     @Autowired
     private PersonaRepository personaRepository;
@@ -83,7 +107,15 @@ public class PersonaResourceIntTest {
      */
     public static Persona createEntity(EntityManager em) {
         Persona persona = new Persona()
-            .nombre(DEFAULT_NOMBRE);
+            .ci(DEFAULT_CI)
+            .nombre(DEFAULT_NOMBRE)
+            .paterno(DEFAULT_PATERNO)
+            .materno(DEFAULT_MATERNO)
+            .genero(DEFAULT_GENERO)
+            .fecha_nacimiento(DEFAULT_FECHA_NACIMIENTO)
+            .nacionalidad(DEFAULT_NACIONALIDAD)
+            .direccion(DEFAULT_DIRECCION)
+            .telefono(DEFAULT_TELEFONO);
         return persona;
     }
 
@@ -107,7 +139,15 @@ public class PersonaResourceIntTest {
         List<Persona> personaList = personaRepository.findAll();
         assertThat(personaList).hasSize(databaseSizeBeforeCreate + 1);
         Persona testPersona = personaList.get(personaList.size() - 1);
+        assertThat(testPersona.getCi()).isEqualTo(DEFAULT_CI);
         assertThat(testPersona.getNombre()).isEqualTo(DEFAULT_NOMBRE);
+        assertThat(testPersona.getPaterno()).isEqualTo(DEFAULT_PATERNO);
+        assertThat(testPersona.getMaterno()).isEqualTo(DEFAULT_MATERNO);
+        assertThat(testPersona.getGenero()).isEqualTo(DEFAULT_GENERO);
+        assertThat(testPersona.getFecha_nacimiento()).isEqualTo(DEFAULT_FECHA_NACIMIENTO);
+        assertThat(testPersona.getNacionalidad()).isEqualTo(DEFAULT_NACIONALIDAD);
+        assertThat(testPersona.getDireccion()).isEqualTo(DEFAULT_DIRECCION);
+        assertThat(testPersona.getTelefono()).isEqualTo(DEFAULT_TELEFONO);
     }
 
     @Test
@@ -140,7 +180,15 @@ public class PersonaResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(persona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())));
+            .andExpect(jsonPath("$.[*].ci").value(hasItem(DEFAULT_CI.intValue())))
+            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
+            .andExpect(jsonPath("$.[*].paterno").value(hasItem(DEFAULT_PATERNO.toString())))
+            .andExpect(jsonPath("$.[*].materno").value(hasItem(DEFAULT_MATERNO.toString())))
+            .andExpect(jsonPath("$.[*].genero").value(hasItem(DEFAULT_GENERO.toString())))
+            .andExpect(jsonPath("$.[*].fecha_nacimiento").value(hasItem(DEFAULT_FECHA_NACIMIENTO.toString())))
+            .andExpect(jsonPath("$.[*].nacionalidad").value(hasItem(DEFAULT_NACIONALIDAD.toString())))
+            .andExpect(jsonPath("$.[*].direccion").value(hasItem(DEFAULT_DIRECCION.toString())))
+            .andExpect(jsonPath("$.[*].telefono").value(hasItem(DEFAULT_TELEFONO.intValue())));
     }
 
     @Test
@@ -154,7 +202,15 @@ public class PersonaResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(persona.getId().intValue()))
-            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()));
+            .andExpect(jsonPath("$.ci").value(DEFAULT_CI.intValue()))
+            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
+            .andExpect(jsonPath("$.paterno").value(DEFAULT_PATERNO.toString()))
+            .andExpect(jsonPath("$.materno").value(DEFAULT_MATERNO.toString()))
+            .andExpect(jsonPath("$.genero").value(DEFAULT_GENERO.toString()))
+            .andExpect(jsonPath("$.fecha_nacimiento").value(DEFAULT_FECHA_NACIMIENTO.toString()))
+            .andExpect(jsonPath("$.nacionalidad").value(DEFAULT_NACIONALIDAD.toString()))
+            .andExpect(jsonPath("$.direccion").value(DEFAULT_DIRECCION.toString()))
+            .andExpect(jsonPath("$.telefono").value(DEFAULT_TELEFONO.intValue()));
     }
 
     @Test
@@ -178,7 +234,15 @@ public class PersonaResourceIntTest {
         // Disconnect from session so that the updates on updatedPersona are not directly saved in db
         em.detach(updatedPersona);
         updatedPersona
-            .nombre(UPDATED_NOMBRE);
+            .ci(UPDATED_CI)
+            .nombre(UPDATED_NOMBRE)
+            .paterno(UPDATED_PATERNO)
+            .materno(UPDATED_MATERNO)
+            .genero(UPDATED_GENERO)
+            .fecha_nacimiento(UPDATED_FECHA_NACIMIENTO)
+            .nacionalidad(UPDATED_NACIONALIDAD)
+            .direccion(UPDATED_DIRECCION)
+            .telefono(UPDATED_TELEFONO);
 
         restPersonaMockMvc.perform(put("/api/personas")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -189,7 +253,15 @@ public class PersonaResourceIntTest {
         List<Persona> personaList = personaRepository.findAll();
         assertThat(personaList).hasSize(databaseSizeBeforeUpdate);
         Persona testPersona = personaList.get(personaList.size() - 1);
+        assertThat(testPersona.getCi()).isEqualTo(UPDATED_CI);
         assertThat(testPersona.getNombre()).isEqualTo(UPDATED_NOMBRE);
+        assertThat(testPersona.getPaterno()).isEqualTo(UPDATED_PATERNO);
+        assertThat(testPersona.getMaterno()).isEqualTo(UPDATED_MATERNO);
+        assertThat(testPersona.getGenero()).isEqualTo(UPDATED_GENERO);
+        assertThat(testPersona.getFecha_nacimiento()).isEqualTo(UPDATED_FECHA_NACIMIENTO);
+        assertThat(testPersona.getNacionalidad()).isEqualTo(UPDATED_NACIONALIDAD);
+        assertThat(testPersona.getDireccion()).isEqualTo(UPDATED_DIRECCION);
+        assertThat(testPersona.getTelefono()).isEqualTo(UPDATED_TELEFONO);
     }
 
     @Test

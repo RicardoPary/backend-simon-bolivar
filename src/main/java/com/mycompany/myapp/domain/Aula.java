@@ -25,6 +25,15 @@ public class Aula implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
+    @Column(name = "sigla")
+    private String sigla;
+
+    @Column(name = "tipo")
+    private String tipo;
+
+    @Column(name = "descripcion")
+    private String descripcion;
+
     @ManyToMany
     @JoinTable(name = "aula_materia",
                joinColumns = @JoinColumn(name="aulas_id", referencedColumnName="id"),
@@ -51,6 +60,45 @@ public class Aula implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public Aula sigla(String sigla) {
+        this.sigla = sigla;
+        return this;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public Aula tipo(String tipo) {
+        this.tipo = tipo;
+        return this;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public Aula descripcion(String descripcion) {
+        this.descripcion = descripcion;
+        return this;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Set<Materia> getMaterias() {
@@ -104,6 +152,9 @@ public class Aula implements Serializable {
         return "Aula{" +
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
+            ", sigla='" + getSigla() + "'" +
+            ", tipo='" + getTipo() + "'" +
+            ", descripcion='" + getDescripcion() + "'" +
             "}";
     }
 }

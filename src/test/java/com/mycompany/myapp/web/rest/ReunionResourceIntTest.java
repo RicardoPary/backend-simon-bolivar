@@ -42,6 +42,12 @@ public class ReunionResourceIntTest {
     private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
     private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_FECHA = "AAAAAAAAAA";
+    private static final String UPDATED_FECHA = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LUGAR = "AAAAAAAAAA";
+    private static final String UPDATED_LUGAR = "BBBBBBBBBB";
+
     @Autowired
     private ReunionRepository reunionRepository;
 
@@ -83,7 +89,9 @@ public class ReunionResourceIntTest {
      */
     public static Reunion createEntity(EntityManager em) {
         Reunion reunion = new Reunion()
-            .nombre(DEFAULT_NOMBRE);
+            .nombre(DEFAULT_NOMBRE)
+            .fecha(DEFAULT_FECHA)
+            .lugar(DEFAULT_LUGAR);
         return reunion;
     }
 
@@ -108,6 +116,8 @@ public class ReunionResourceIntTest {
         assertThat(reunionList).hasSize(databaseSizeBeforeCreate + 1);
         Reunion testReunion = reunionList.get(reunionList.size() - 1);
         assertThat(testReunion.getNombre()).isEqualTo(DEFAULT_NOMBRE);
+        assertThat(testReunion.getFecha()).isEqualTo(DEFAULT_FECHA);
+        assertThat(testReunion.getLugar()).isEqualTo(DEFAULT_LUGAR);
     }
 
     @Test
@@ -140,7 +150,9 @@ public class ReunionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(reunion.getId().intValue())))
-            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())));
+            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
+            .andExpect(jsonPath("$.[*].fecha").value(hasItem(DEFAULT_FECHA.toString())))
+            .andExpect(jsonPath("$.[*].lugar").value(hasItem(DEFAULT_LUGAR.toString())));
     }
 
     @Test
@@ -154,7 +166,9 @@ public class ReunionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(reunion.getId().intValue()))
-            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()));
+            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
+            .andExpect(jsonPath("$.fecha").value(DEFAULT_FECHA.toString()))
+            .andExpect(jsonPath("$.lugar").value(DEFAULT_LUGAR.toString()));
     }
 
     @Test
@@ -178,7 +192,9 @@ public class ReunionResourceIntTest {
         // Disconnect from session so that the updates on updatedReunion are not directly saved in db
         em.detach(updatedReunion);
         updatedReunion
-            .nombre(UPDATED_NOMBRE);
+            .nombre(UPDATED_NOMBRE)
+            .fecha(UPDATED_FECHA)
+            .lugar(UPDATED_LUGAR);
 
         restReunionMockMvc.perform(put("/api/reunions")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -190,6 +206,8 @@ public class ReunionResourceIntTest {
         assertThat(reunionList).hasSize(databaseSizeBeforeUpdate);
         Reunion testReunion = reunionList.get(reunionList.size() - 1);
         assertThat(testReunion.getNombre()).isEqualTo(UPDATED_NOMBRE);
+        assertThat(testReunion.getFecha()).isEqualTo(UPDATED_FECHA);
+        assertThat(testReunion.getLugar()).isEqualTo(UPDATED_LUGAR);
     }
 
     @Test

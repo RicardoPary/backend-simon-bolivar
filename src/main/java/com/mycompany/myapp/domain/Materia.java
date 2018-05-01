@@ -29,6 +29,9 @@ public class Materia implements Serializable {
     @Column(name = "sigla")
     private String sigla;
 
+    @Column(name = "descripcion")
+    private String descripcion;
+
     @OneToMany(mappedBy = "materia")
     @JsonIgnore
     private Set<Horario> horarios = new HashSet<>();
@@ -86,6 +89,19 @@ public class Materia implements Serializable {
 
     public void setSigla(String sigla) {
         this.sigla = sigla;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public Materia descripcion(String descripcion) {
+        this.descripcion = descripcion;
+        return this;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Set<Horario> getHorarios() {
@@ -265,6 +281,7 @@ public class Materia implements Serializable {
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
             ", sigla='" + getSigla() + "'" +
+            ", descripcion='" + getDescripcion() + "'" +
             "}";
     }
 }

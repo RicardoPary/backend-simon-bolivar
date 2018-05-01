@@ -23,6 +23,12 @@ public class Curso implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
+    @Column(name = "tipo")
+    private String tipo;
+
+    @Column(name = "lugar")
+    private String lugar;
+
     @ManyToOne
     private Nivel nivel;
 
@@ -46,6 +52,32 @@ public class Curso implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public Curso tipo(String tipo) {
+        this.tipo = tipo;
+        return this;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public Curso lugar(String lugar) {
+        this.lugar = lugar;
+        return this;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
     }
 
     public Nivel getNivel() {
@@ -87,6 +119,8 @@ public class Curso implements Serializable {
         return "Curso{" +
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
+            ", tipo='" + getTipo() + "'" +
+            ", lugar='" + getLugar() + "'" +
             "}";
     }
 }

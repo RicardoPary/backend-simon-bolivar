@@ -25,6 +25,18 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="bimestre" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="observacion" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="area" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
             <column name="libreta_id" type="bigint">
                 <constraints nullable="true" />
             </column>

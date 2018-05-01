@@ -20,6 +20,12 @@ public class Horario implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    @Column(name = "hora_inicio")
+    private String hora_inicio;
+
+    @Column(name = "hora_fin")
+    private String hora_fin;
+
     @Column(name = "dia")
     private String dia;
 
@@ -33,6 +39,32 @@ public class Horario implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getHora_inicio() {
+        return hora_inicio;
+    }
+
+    public Horario hora_inicio(String hora_inicio) {
+        this.hora_inicio = hora_inicio;
+        return this;
+    }
+
+    public void setHora_inicio(String hora_inicio) {
+        this.hora_inicio = hora_inicio;
+    }
+
+    public String getHora_fin() {
+        return hora_fin;
+    }
+
+    public Horario hora_fin(String hora_fin) {
+        this.hora_fin = hora_fin;
+        return this;
+    }
+
+    public void setHora_fin(String hora_fin) {
+        this.hora_fin = hora_fin;
     }
 
     public String getDia() {
@@ -86,6 +118,8 @@ public class Horario implements Serializable {
     public String toString() {
         return "Horario{" +
             "id=" + getId() +
+            ", hora_inicio='" + getHora_inicio() + "'" +
+            ", hora_fin='" + getHora_fin() + "'" +
             ", dia='" + getDia() + "'" +
             "}";
     }

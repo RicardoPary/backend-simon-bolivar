@@ -42,6 +42,18 @@ public class Actividad_civicaResourceIntTest {
     private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
     private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_TIPO = "AAAAAAAAAA";
+    private static final String UPDATED_TIPO = "BBBBBBBBBB";
+
+    private static final String DEFAULT_FECHA = "AAAAAAAAAA";
+    private static final String UPDATED_FECHA = "BBBBBBBBBB";
+
+    private static final String DEFAULT_HORA = "AAAAAAAAAA";
+    private static final String UPDATED_HORA = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LUGAR = "AAAAAAAAAA";
+    private static final String UPDATED_LUGAR = "BBBBBBBBBB";
+
     @Autowired
     private Actividad_civicaRepository actividad_civicaRepository;
 
@@ -83,7 +95,11 @@ public class Actividad_civicaResourceIntTest {
      */
     public static Actividad_civica createEntity(EntityManager em) {
         Actividad_civica actividad_civica = new Actividad_civica()
-            .nombre(DEFAULT_NOMBRE);
+            .nombre(DEFAULT_NOMBRE)
+            .tipo(DEFAULT_TIPO)
+            .fecha(DEFAULT_FECHA)
+            .hora(DEFAULT_HORA)
+            .lugar(DEFAULT_LUGAR);
         return actividad_civica;
     }
 
@@ -108,6 +124,10 @@ public class Actividad_civicaResourceIntTest {
         assertThat(actividad_civicaList).hasSize(databaseSizeBeforeCreate + 1);
         Actividad_civica testActividad_civica = actividad_civicaList.get(actividad_civicaList.size() - 1);
         assertThat(testActividad_civica.getNombre()).isEqualTo(DEFAULT_NOMBRE);
+        assertThat(testActividad_civica.getTipo()).isEqualTo(DEFAULT_TIPO);
+        assertThat(testActividad_civica.getFecha()).isEqualTo(DEFAULT_FECHA);
+        assertThat(testActividad_civica.getHora()).isEqualTo(DEFAULT_HORA);
+        assertThat(testActividad_civica.getLugar()).isEqualTo(DEFAULT_LUGAR);
     }
 
     @Test
@@ -140,7 +160,11 @@ public class Actividad_civicaResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(actividad_civica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())));
+            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
+            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
+            .andExpect(jsonPath("$.[*].fecha").value(hasItem(DEFAULT_FECHA.toString())))
+            .andExpect(jsonPath("$.[*].hora").value(hasItem(DEFAULT_HORA.toString())))
+            .andExpect(jsonPath("$.[*].lugar").value(hasItem(DEFAULT_LUGAR.toString())));
     }
 
     @Test
@@ -154,7 +178,11 @@ public class Actividad_civicaResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(actividad_civica.getId().intValue()))
-            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()));
+            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
+            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
+            .andExpect(jsonPath("$.fecha").value(DEFAULT_FECHA.toString()))
+            .andExpect(jsonPath("$.hora").value(DEFAULT_HORA.toString()))
+            .andExpect(jsonPath("$.lugar").value(DEFAULT_LUGAR.toString()));
     }
 
     @Test
@@ -178,7 +206,11 @@ public class Actividad_civicaResourceIntTest {
         // Disconnect from session so that the updates on updatedActividad_civica are not directly saved in db
         em.detach(updatedActividad_civica);
         updatedActividad_civica
-            .nombre(UPDATED_NOMBRE);
+            .nombre(UPDATED_NOMBRE)
+            .tipo(UPDATED_TIPO)
+            .fecha(UPDATED_FECHA)
+            .hora(UPDATED_HORA)
+            .lugar(UPDATED_LUGAR);
 
         restActividad_civicaMockMvc.perform(put("/api/actividad-civicas")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -190,6 +222,10 @@ public class Actividad_civicaResourceIntTest {
         assertThat(actividad_civicaList).hasSize(databaseSizeBeforeUpdate);
         Actividad_civica testActividad_civica = actividad_civicaList.get(actividad_civicaList.size() - 1);
         assertThat(testActividad_civica.getNombre()).isEqualTo(UPDATED_NOMBRE);
+        assertThat(testActividad_civica.getTipo()).isEqualTo(UPDATED_TIPO);
+        assertThat(testActividad_civica.getFecha()).isEqualTo(UPDATED_FECHA);
+        assertThat(testActividad_civica.getHora()).isEqualTo(UPDATED_HORA);
+        assertThat(testActividad_civica.getLugar()).isEqualTo(UPDATED_LUGAR);
     }
 
     @Test

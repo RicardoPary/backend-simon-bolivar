@@ -10,6 +10,14 @@
     ],
     "fields": [
         {
+            "fieldName": "hora_inicio",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hora_fin",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "dia",
             "fieldType": "String"
         }

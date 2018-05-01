@@ -42,6 +42,12 @@ public class CursoResourceIntTest {
     private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
     private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_TIPO = "AAAAAAAAAA";
+    private static final String UPDATED_TIPO = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LUGAR = "AAAAAAAAAA";
+    private static final String UPDATED_LUGAR = "BBBBBBBBBB";
+
     @Autowired
     private CursoRepository cursoRepository;
 
@@ -83,7 +89,9 @@ public class CursoResourceIntTest {
      */
     public static Curso createEntity(EntityManager em) {
         Curso curso = new Curso()
-            .nombre(DEFAULT_NOMBRE);
+            .nombre(DEFAULT_NOMBRE)
+            .tipo(DEFAULT_TIPO)
+            .lugar(DEFAULT_LUGAR);
         return curso;
     }
 
@@ -108,6 +116,8 @@ public class CursoResourceIntTest {
         assertThat(cursoList).hasSize(databaseSizeBeforeCreate + 1);
         Curso testCurso = cursoList.get(cursoList.size() - 1);
         assertThat(testCurso.getNombre()).isEqualTo(DEFAULT_NOMBRE);
+        assertThat(testCurso.getTipo()).isEqualTo(DEFAULT_TIPO);
+        assertThat(testCurso.getLugar()).isEqualTo(DEFAULT_LUGAR);
     }
 
     @Test
@@ -140,7 +150,9 @@ public class CursoResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(curso.getId().intValue())))
-            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())));
+            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
+            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
+            .andExpect(jsonPath("$.[*].lugar").value(hasItem(DEFAULT_LUGAR.toString())));
     }
 
     @Test
@@ -154,7 +166,9 @@ public class CursoResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(curso.getId().intValue()))
-            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()));
+            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
+            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
+            .andExpect(jsonPath("$.lugar").value(DEFAULT_LUGAR.toString()));
     }
 
     @Test
@@ -178,7 +192,9 @@ public class CursoResourceIntTest {
         // Disconnect from session so that the updates on updatedCurso are not directly saved in db
         em.detach(updatedCurso);
         updatedCurso
-            .nombre(UPDATED_NOMBRE);
+            .nombre(UPDATED_NOMBRE)
+            .tipo(UPDATED_TIPO)
+            .lugar(UPDATED_LUGAR);
 
         restCursoMockMvc.perform(put("/api/cursos")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -190,6 +206,8 @@ public class CursoResourceIntTest {
         assertThat(cursoList).hasSize(databaseSizeBeforeUpdate);
         Curso testCurso = cursoList.get(cursoList.size() - 1);
         assertThat(testCurso.getNombre()).isEqualTo(UPDATED_NOMBRE);
+        assertThat(testCurso.getTipo()).isEqualTo(UPDATED_TIPO);
+        assertThat(testCurso.getLugar()).isEqualTo(UPDATED_LUGAR);
     }
 
     @Test

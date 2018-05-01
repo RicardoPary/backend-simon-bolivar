@@ -42,6 +42,9 @@ public class EstudianteResourceIntTest {
     private static final String DEFAULT_MATRICULA = "AAAAAAAAAA";
     private static final String UPDATED_MATRICULA = "BBBBBBBBBB";
 
+    private static final String DEFAULT_TIPO = "AAAAAAAAAA";
+    private static final String UPDATED_TIPO = "BBBBBBBBBB";
+
     @Autowired
     private EstudianteRepository estudianteRepository;
 
@@ -83,7 +86,8 @@ public class EstudianteResourceIntTest {
      */
     public static Estudiante createEntity(EntityManager em) {
         Estudiante estudiante = new Estudiante()
-            .matricula(DEFAULT_MATRICULA);
+            .matricula(DEFAULT_MATRICULA)
+            .tipo(DEFAULT_TIPO);
         return estudiante;
     }
 
@@ -108,6 +112,7 @@ public class EstudianteResourceIntTest {
         assertThat(estudianteList).hasSize(databaseSizeBeforeCreate + 1);
         Estudiante testEstudiante = estudianteList.get(estudianteList.size() - 1);
         assertThat(testEstudiante.getMatricula()).isEqualTo(DEFAULT_MATRICULA);
+        assertThat(testEstudiante.getTipo()).isEqualTo(DEFAULT_TIPO);
     }
 
     @Test
@@ -140,7 +145,8 @@ public class EstudianteResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(estudiante.getId().intValue())))
-            .andExpect(jsonPath("$.[*].matricula").value(hasItem(DEFAULT_MATRICULA.toString())));
+            .andExpect(jsonPath("$.[*].matricula").value(hasItem(DEFAULT_MATRICULA.toString())))
+            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())));
     }
 
     @Test
@@ -154,7 +160,8 @@ public class EstudianteResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(estudiante.getId().intValue()))
-            .andExpect(jsonPath("$.matricula").value(DEFAULT_MATRICULA.toString()));
+            .andExpect(jsonPath("$.matricula").value(DEFAULT_MATRICULA.toString()))
+            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()));
     }
 
     @Test
@@ -178,7 +185,8 @@ public class EstudianteResourceIntTest {
         // Disconnect from session so that the updates on updatedEstudiante are not directly saved in db
         em.detach(updatedEstudiante);
         updatedEstudiante
-            .matricula(UPDATED_MATRICULA);
+            .matricula(UPDATED_MATRICULA)
+            .tipo(UPDATED_TIPO);
 
         restEstudianteMockMvc.perform(put("/api/estudiantes")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -190,6 +198,7 @@ public class EstudianteResourceIntTest {
         assertThat(estudianteList).hasSize(databaseSizeBeforeUpdate);
         Estudiante testEstudiante = estudianteList.get(estudianteList.size() - 1);
         assertThat(testEstudiante.getMatricula()).isEqualTo(UPDATED_MATRICULA);
+        assertThat(testEstudiante.getTipo()).isEqualTo(UPDATED_TIPO);
     }
 
     @Test

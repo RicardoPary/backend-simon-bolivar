@@ -12,6 +12,14 @@
         {
             "fieldName": "nombre",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "tipo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "observacion",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "00000000000900",

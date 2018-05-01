@@ -10,8 +10,28 @@
     ],
     "fields": [
         {
+            "fieldName": "fecha_inicio",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecha_fin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipo",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "sueldo",
             "fieldType": "Double"
+        },
+        {
+            "fieldName": "vacaciones",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "jornada_diaria",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "00000000000300",

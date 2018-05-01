@@ -25,6 +25,9 @@ public class Estudiante implements Serializable {
     @Column(name = "matricula")
     private String matricula;
 
+    @Column(name = "tipo")
+    private String tipo;
+
     @ManyToMany
     @JoinTable(name = "estudiante_materia",
                joinColumns = @JoinColumn(name="estudiantes_id", referencedColumnName="id"),
@@ -54,6 +57,19 @@ public class Estudiante implements Serializable {
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public Estudiante tipo(String tipo) {
+        this.tipo = tipo;
+        return this;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public Set<Materia> getMaterias() {
@@ -120,6 +136,7 @@ public class Estudiante implements Serializable {
         return "Estudiante{" +
             "id=" + getId() +
             ", matricula='" + getMatricula() + "'" +
+            ", tipo='" + getTipo() + "'" +
             "}";
     }
 }

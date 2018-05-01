@@ -18,6 +18,18 @@
         {
             "fieldName": "valor",
             "fieldType": "Double"
+        },
+        {
+            "fieldName": "bimestre",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "observacion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "area",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "00000000003000",

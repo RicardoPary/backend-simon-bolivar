@@ -26,8 +26,13 @@ public class Libreta implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
+    @Column(name = "tipo")
+    private String tipo;
+
+    @Column(name = "observacion")
+    private String observacion;
+
     @OneToMany(mappedBy = "libreta")
-    @JsonIgnore
     private Set<Nota> notas = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -50,6 +55,32 @@ public class Libreta implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public Libreta tipo(String tipo) {
+        this.tipo = tipo;
+        return this;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getObservacion() {
+        return observacion;
+    }
+
+    public Libreta observacion(String observacion) {
+        this.observacion = observacion;
+        return this;
+    }
+
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
     }
 
     public Set<Nota> getNotas() {
@@ -103,6 +134,8 @@ public class Libreta implements Serializable {
         return "Libreta{" +
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
+            ", tipo='" + getTipo() + "'" +
+            ", observacion='" + getObservacion() + "'" +
             "}";
     }
 }

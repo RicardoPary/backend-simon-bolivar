@@ -30,6 +30,9 @@ public class Plantel_administrativo implements Serializable {
     @JsonIgnore
     private Set<Actividad_civica> actividad_civicas = new HashSet<>();
 
+    @ManyToOne
+    private Persona persona;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -75,6 +78,19 @@ public class Plantel_administrativo implements Serializable {
 
     public void setActividad_civicas(Set<Actividad_civica> actividad_civicas) {
         this.actividad_civicas = actividad_civicas;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public Plantel_administrativo persona(Persona persona) {
+        this.persona = persona;
+        return this;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

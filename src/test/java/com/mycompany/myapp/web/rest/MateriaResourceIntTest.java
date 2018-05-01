@@ -45,6 +45,9 @@ public class MateriaResourceIntTest {
     private static final String DEFAULT_SIGLA = "AAAAAAAAAA";
     private static final String UPDATED_SIGLA = "BBBBBBBBBB";
 
+    private static final String DEFAULT_DESCRIPCION = "AAAAAAAAAA";
+    private static final String UPDATED_DESCRIPCION = "BBBBBBBBBB";
+
     @Autowired
     private MateriaRepository materiaRepository;
 
@@ -87,7 +90,8 @@ public class MateriaResourceIntTest {
     public static Materia createEntity(EntityManager em) {
         Materia materia = new Materia()
             .nombre(DEFAULT_NOMBRE)
-            .sigla(DEFAULT_SIGLA);
+            .sigla(DEFAULT_SIGLA)
+            .descripcion(DEFAULT_DESCRIPCION);
         return materia;
     }
 
@@ -113,6 +117,7 @@ public class MateriaResourceIntTest {
         Materia testMateria = materiaList.get(materiaList.size() - 1);
         assertThat(testMateria.getNombre()).isEqualTo(DEFAULT_NOMBRE);
         assertThat(testMateria.getSigla()).isEqualTo(DEFAULT_SIGLA);
+        assertThat(testMateria.getDescripcion()).isEqualTo(DEFAULT_DESCRIPCION);
     }
 
     @Test
@@ -146,7 +151,8 @@ public class MateriaResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(materia.getId().intValue())))
             .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
-            .andExpect(jsonPath("$.[*].sigla").value(hasItem(DEFAULT_SIGLA.toString())));
+            .andExpect(jsonPath("$.[*].sigla").value(hasItem(DEFAULT_SIGLA.toString())))
+            .andExpect(jsonPath("$.[*].descripcion").value(hasItem(DEFAULT_DESCRIPCION.toString())));
     }
 
     @Test
@@ -161,7 +167,8 @@ public class MateriaResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(materia.getId().intValue()))
             .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
-            .andExpect(jsonPath("$.sigla").value(DEFAULT_SIGLA.toString()));
+            .andExpect(jsonPath("$.sigla").value(DEFAULT_SIGLA.toString()))
+            .andExpect(jsonPath("$.descripcion").value(DEFAULT_DESCRIPCION.toString()));
     }
 
     @Test
@@ -186,7 +193,8 @@ public class MateriaResourceIntTest {
         em.detach(updatedMateria);
         updatedMateria
             .nombre(UPDATED_NOMBRE)
-            .sigla(UPDATED_SIGLA);
+            .sigla(UPDATED_SIGLA)
+            .descripcion(UPDATED_DESCRIPCION);
 
         restMateriaMockMvc.perform(put("/api/materias")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -199,6 +207,7 @@ public class MateriaResourceIntTest {
         Materia testMateria = materiaList.get(materiaList.size() - 1);
         assertThat(testMateria.getNombre()).isEqualTo(UPDATED_NOMBRE);
         assertThat(testMateria.getSigla()).isEqualTo(UPDATED_SIGLA);
+        assertThat(testMateria.getDescripcion()).isEqualTo(UPDATED_DESCRIPCION);
     }
 
     @Test

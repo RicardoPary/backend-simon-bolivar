@@ -39,8 +39,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SimonBolivarApp.class)
 public class TemaResourceIntTest {
 
-    private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
-    private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
+    private static final String DEFAULT_TITULO = "AAAAAAAAAA";
+    private static final String UPDATED_TITULO = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DESCRIPCION = "AAAAAAAAAA";
+    private static final String UPDATED_DESCRIPCION = "BBBBBBBBBB";
 
     @Autowired
     private TemaRepository temaRepository;
@@ -83,7 +86,8 @@ public class TemaResourceIntTest {
      */
     public static Tema createEntity(EntityManager em) {
         Tema tema = new Tema()
-            .nombre(DEFAULT_NOMBRE);
+            .titulo(DEFAULT_TITULO)
+            .descripcion(DEFAULT_DESCRIPCION);
         return tema;
     }
 
@@ -107,7 +111,8 @@ public class TemaResourceIntTest {
         List<Tema> temaList = temaRepository.findAll();
         assertThat(temaList).hasSize(databaseSizeBeforeCreate + 1);
         Tema testTema = temaList.get(temaList.size() - 1);
-        assertThat(testTema.getNombre()).isEqualTo(DEFAULT_NOMBRE);
+        assertThat(testTema.getTitulo()).isEqualTo(DEFAULT_TITULO);
+        assertThat(testTema.getDescripcion()).isEqualTo(DEFAULT_DESCRIPCION);
     }
 
     @Test
@@ -140,7 +145,8 @@ public class TemaResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(tema.getId().intValue())))
-            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())));
+            .andExpect(jsonPath("$.[*].titulo").value(hasItem(DEFAULT_TITULO.toString())))
+            .andExpect(jsonPath("$.[*].descripcion").value(hasItem(DEFAULT_DESCRIPCION.toString())));
     }
 
     @Test
@@ -154,7 +160,8 @@ public class TemaResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(tema.getId().intValue()))
-            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()));
+            .andExpect(jsonPath("$.titulo").value(DEFAULT_TITULO.toString()))
+            .andExpect(jsonPath("$.descripcion").value(DEFAULT_DESCRIPCION.toString()));
     }
 
     @Test
@@ -178,7 +185,8 @@ public class TemaResourceIntTest {
         // Disconnect from session so that the updates on updatedTema are not directly saved in db
         em.detach(updatedTema);
         updatedTema
-            .nombre(UPDATED_NOMBRE);
+            .titulo(UPDATED_TITULO)
+            .descripcion(UPDATED_DESCRIPCION);
 
         restTemaMockMvc.perform(put("/api/temas")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -189,7 +197,8 @@ public class TemaResourceIntTest {
         List<Tema> temaList = temaRepository.findAll();
         assertThat(temaList).hasSize(databaseSizeBeforeUpdate);
         Tema testTema = temaList.get(temaList.size() - 1);
-        assertThat(testTema.getNombre()).isEqualTo(UPDATED_NOMBRE);
+        assertThat(testTema.getTitulo()).isEqualTo(UPDATED_TITULO);
+        assertThat(testTema.getDescripcion()).isEqualTo(UPDATED_DESCRIPCION);
     }
 
     @Test

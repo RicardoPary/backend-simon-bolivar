@@ -42,6 +42,15 @@ public class NotaResourceIntTest {
     private static final Double DEFAULT_VALOR = 1D;
     private static final Double UPDATED_VALOR = 2D;
 
+    private static final Integer DEFAULT_BIMESTRE = 1;
+    private static final Integer UPDATED_BIMESTRE = 2;
+
+    private static final String DEFAULT_OBSERVACION = "AAAAAAAAAA";
+    private static final String UPDATED_OBSERVACION = "BBBBBBBBBB";
+
+    private static final String DEFAULT_AREA = "AAAAAAAAAA";
+    private static final String UPDATED_AREA = "BBBBBBBBBB";
+
     @Autowired
     private NotaRepository notaRepository;
 
@@ -83,7 +92,10 @@ public class NotaResourceIntTest {
      */
     public static Nota createEntity(EntityManager em) {
         Nota nota = new Nota()
-            .valor(DEFAULT_VALOR);
+            .valor(DEFAULT_VALOR)
+            .bimestre(DEFAULT_BIMESTRE)
+            .observacion(DEFAULT_OBSERVACION)
+            .area(DEFAULT_AREA);
         return nota;
     }
 
@@ -108,6 +120,9 @@ public class NotaResourceIntTest {
         assertThat(notaList).hasSize(databaseSizeBeforeCreate + 1);
         Nota testNota = notaList.get(notaList.size() - 1);
         assertThat(testNota.getValor()).isEqualTo(DEFAULT_VALOR);
+        assertThat(testNota.getBimestre()).isEqualTo(DEFAULT_BIMESTRE);
+        assertThat(testNota.getObservacion()).isEqualTo(DEFAULT_OBSERVACION);
+        assertThat(testNota.getArea()).isEqualTo(DEFAULT_AREA);
     }
 
     @Test
@@ -140,7 +155,10 @@ public class NotaResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(nota.getId().intValue())))
-            .andExpect(jsonPath("$.[*].valor").value(hasItem(DEFAULT_VALOR.doubleValue())));
+            .andExpect(jsonPath("$.[*].valor").value(hasItem(DEFAULT_VALOR.doubleValue())))
+            .andExpect(jsonPath("$.[*].bimestre").value(hasItem(DEFAULT_BIMESTRE)))
+            .andExpect(jsonPath("$.[*].observacion").value(hasItem(DEFAULT_OBSERVACION.toString())))
+            .andExpect(jsonPath("$.[*].area").value(hasItem(DEFAULT_AREA.toString())));
     }
 
     @Test
@@ -154,7 +172,10 @@ public class NotaResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(nota.getId().intValue()))
-            .andExpect(jsonPath("$.valor").value(DEFAULT_VALOR.doubleValue()));
+            .andExpect(jsonPath("$.valor").value(DEFAULT_VALOR.doubleValue()))
+            .andExpect(jsonPath("$.bimestre").value(DEFAULT_BIMESTRE))
+            .andExpect(jsonPath("$.observacion").value(DEFAULT_OBSERVACION.toString()))
+            .andExpect(jsonPath("$.area").value(DEFAULT_AREA.toString()));
     }
 
     @Test
@@ -178,7 +199,10 @@ public class NotaResourceIntTest {
         // Disconnect from session so that the updates on updatedNota are not directly saved in db
         em.detach(updatedNota);
         updatedNota
-            .valor(UPDATED_VALOR);
+            .valor(UPDATED_VALOR)
+            .bimestre(UPDATED_BIMESTRE)
+            .observacion(UPDATED_OBSERVACION)
+            .area(UPDATED_AREA);
 
         restNotaMockMvc.perform(put("/api/notas")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -190,6 +214,9 @@ public class NotaResourceIntTest {
         assertThat(notaList).hasSize(databaseSizeBeforeUpdate);
         Nota testNota = notaList.get(notaList.size() - 1);
         assertThat(testNota.getValor()).isEqualTo(UPDATED_VALOR);
+        assertThat(testNota.getBimestre()).isEqualTo(UPDATED_BIMESTRE);
+        assertThat(testNota.getObservacion()).isEqualTo(UPDATED_OBSERVACION);
+        assertThat(testNota.getArea()).isEqualTo(UPDATED_AREA);
     }
 
     @Test

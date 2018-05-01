@@ -20,8 +20,11 @@ public class Tema implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "nombre")
-    private String nombre;
+    @Column(name = "titulo")
+    private String titulo;
+
+    @Column(name = "descripcion")
+    private String descripcion;
 
     @ManyToOne
     private Materia materia;
@@ -35,17 +38,30 @@ public class Tema implements Serializable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public Tema nombre(String nombre) {
-        this.nombre = nombre;
+    public Tema titulo(String titulo) {
+        this.titulo = titulo;
         return this;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public Tema descripcion(String descripcion) {
+        this.descripcion = descripcion;
+        return this;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Materia getMateria() {
@@ -86,7 +102,8 @@ public class Tema implements Serializable {
     public String toString() {
         return "Tema{" +
             "id=" + getId() +
-            ", nombre='" + getNombre() + "'" +
+            ", titulo='" + getTitulo() + "'" +
+            ", descripcion='" + getDescripcion() + "'" +
             "}";
     }
 }

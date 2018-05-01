@@ -42,6 +42,15 @@ public class AulaResourceIntTest {
     private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
     private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_SIGLA = "AAAAAAAAAA";
+    private static final String UPDATED_SIGLA = "BBBBBBBBBB";
+
+    private static final String DEFAULT_TIPO = "AAAAAAAAAA";
+    private static final String UPDATED_TIPO = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DESCRIPCION = "AAAAAAAAAA";
+    private static final String UPDATED_DESCRIPCION = "BBBBBBBBBB";
+
     @Autowired
     private AulaRepository aulaRepository;
 
@@ -83,7 +92,10 @@ public class AulaResourceIntTest {
      */
     public static Aula createEntity(EntityManager em) {
         Aula aula = new Aula()
-            .nombre(DEFAULT_NOMBRE);
+            .nombre(DEFAULT_NOMBRE)
+            .sigla(DEFAULT_SIGLA)
+            .tipo(DEFAULT_TIPO)
+            .descripcion(DEFAULT_DESCRIPCION);
         return aula;
     }
 
@@ -108,6 +120,9 @@ public class AulaResourceIntTest {
         assertThat(aulaList).hasSize(databaseSizeBeforeCreate + 1);
         Aula testAula = aulaList.get(aulaList.size() - 1);
         assertThat(testAula.getNombre()).isEqualTo(DEFAULT_NOMBRE);
+        assertThat(testAula.getSigla()).isEqualTo(DEFAULT_SIGLA);
+        assertThat(testAula.getTipo()).isEqualTo(DEFAULT_TIPO);
+        assertThat(testAula.getDescripcion()).isEqualTo(DEFAULT_DESCRIPCION);
     }
 
     @Test
@@ -140,7 +155,10 @@ public class AulaResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(aula.getId().intValue())))
-            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())));
+            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
+            .andExpect(jsonPath("$.[*].sigla").value(hasItem(DEFAULT_SIGLA.toString())))
+            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
+            .andExpect(jsonPath("$.[*].descripcion").value(hasItem(DEFAULT_DESCRIPCION.toString())));
     }
 
     @Test
@@ -154,7 +172,10 @@ public class AulaResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(aula.getId().intValue()))
-            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()));
+            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
+            .andExpect(jsonPath("$.sigla").value(DEFAULT_SIGLA.toString()))
+            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
+            .andExpect(jsonPath("$.descripcion").value(DEFAULT_DESCRIPCION.toString()));
     }
 
     @Test
@@ -178,7 +199,10 @@ public class AulaResourceIntTest {
         // Disconnect from session so that the updates on updatedAula are not directly saved in db
         em.detach(updatedAula);
         updatedAula
-            .nombre(UPDATED_NOMBRE);
+            .nombre(UPDATED_NOMBRE)
+            .sigla(UPDATED_SIGLA)
+            .tipo(UPDATED_TIPO)
+            .descripcion(UPDATED_DESCRIPCION);
 
         restAulaMockMvc.perform(put("/api/aulas")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -190,6 +214,9 @@ public class AulaResourceIntTest {
         assertThat(aulaList).hasSize(databaseSizeBeforeUpdate);
         Aula testAula = aulaList.get(aulaList.size() - 1);
         assertThat(testAula.getNombre()).isEqualTo(UPDATED_NOMBRE);
+        assertThat(testAula.getSigla()).isEqualTo(UPDATED_SIGLA);
+        assertThat(testAula.getTipo()).isEqualTo(UPDATED_TIPO);
+        assertThat(testAula.getDescripcion()).isEqualTo(UPDATED_DESCRIPCION);
     }
 
     @Test

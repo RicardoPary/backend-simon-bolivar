@@ -14,6 +14,18 @@
         {
             "fieldName": "nombre",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "sigla",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "00000000000200",

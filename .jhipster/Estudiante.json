@@ -20,6 +20,10 @@
         {
             "fieldName": "matricula",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "tipo",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "00000000000600",

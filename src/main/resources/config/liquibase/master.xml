@@ -37,5 +37,6 @@
     <include file="config/liquibase/changelog/00000000003000_added_entity_constraints_Nota.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/00000000006000_added_entity_constraints_Reunion.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/00000000007000_added_entity_constraints_Tema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000005000_added_entity_constraints_Plantel_administrativo.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

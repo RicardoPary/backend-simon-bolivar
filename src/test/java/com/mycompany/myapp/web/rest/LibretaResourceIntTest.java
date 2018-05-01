@@ -42,6 +42,12 @@ public class LibretaResourceIntTest {
     private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
     private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_TIPO = "AAAAAAAAAA";
+    private static final String UPDATED_TIPO = "BBBBBBBBBB";
+
+    private static final String DEFAULT_OBSERVACION = "AAAAAAAAAA";
+    private static final String UPDATED_OBSERVACION = "BBBBBBBBBB";
+
     @Autowired
     private LibretaRepository libretaRepository;
 
@@ -83,7 +89,9 @@ public class LibretaResourceIntTest {
      */
     public static Libreta createEntity(EntityManager em) {
         Libreta libreta = new Libreta()
-            .nombre(DEFAULT_NOMBRE);
+            .nombre(DEFAULT_NOMBRE)
+            .tipo(DEFAULT_TIPO)
+            .observacion(DEFAULT_OBSERVACION);
         return libreta;
     }
 
@@ -108,6 +116,8 @@ public class LibretaResourceIntTest {
         assertThat(libretaList).hasSize(databaseSizeBeforeCreate + 1);
         Libreta testLibreta = libretaList.get(libretaList.size() - 1);
         assertThat(testLibreta.getNombre()).isEqualTo(DEFAULT_NOMBRE);
+        assertThat(testLibreta.getTipo()).isEqualTo(DEFAULT_TIPO);
+        assertThat(testLibreta.getObservacion()).isEqualTo(DEFAULT_OBSERVACION);
     }
 
     @Test
@@ -140,7 +150,9 @@ public class LibretaResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(libreta.getId().intValue())))
-            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())));
+            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
+            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
+            .andExpect(jsonPath("$.[*].observacion").value(hasItem(DEFAULT_OBSERVACION.toString())));
     }
 
     @Test
@@ -154,7 +166,9 @@ public class LibretaResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(libreta.getId().intValue()))
-            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()));
+            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
+            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
+            .andExpect(jsonPath("$.observacion").value(DEFAULT_OBSERVACION.toString()));
     }
 
     @Test
@@ -178,7 +192,9 @@ public class LibretaResourceIntTest {
         // Disconnect from session so that the updates on updatedLibreta are not directly saved in db
         em.detach(updatedLibreta);
         updatedLibreta
-            .nombre(UPDATED_NOMBRE);
+            .nombre(UPDATED_NOMBRE)
+            .tipo(UPDATED_TIPO)
+            .observacion(UPDATED_OBSERVACION);
 
         restLibretaMockMvc.perform(put("/api/libretas")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -190,6 +206,8 @@ public class LibretaResourceIntTest {
         assertThat(libretaList).hasSize(databaseSizeBeforeUpdate);
         Libreta testLibreta = libretaList.get(libretaList.size() - 1);
         assertThat(testLibreta.getNombre()).isEqualTo(UPDATED_NOMBRE);
+        assertThat(testLibreta.getTipo()).isEqualTo(UPDATED_TIPO);
+        assertThat(testLibreta.getObservacion()).isEqualTo(UPDATED_OBSERVACION);
     }
 
     @Test

@@ -1,6 +1,8 @@
 package com.mycompany.myapp.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 import java.io.Serializable;
@@ -23,7 +25,17 @@ public class Nota implements Serializable {
     @Column(name = "valor")
     private Double valor;
 
+    @Column(name = "bimestre")
+    private Integer bimestre;
+
+    @Column(name = "observacion")
+    private String observacion;
+
+    @Column(name = "area")
+    private String area;
+
     @ManyToOne
+    @JsonIgnore
     private Libreta libreta;
 
     @ManyToOne
@@ -49,6 +61,45 @@ public class Nota implements Serializable {
 
     public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    public Integer getBimestre() {
+        return bimestre;
+    }
+
+    public Nota bimestre(Integer bimestre) {
+        this.bimestre = bimestre;
+        return this;
+    }
+
+    public void setBimestre(Integer bimestre) {
+        this.bimestre = bimestre;
+    }
+
+    public String getObservacion() {
+        return observacion;
+    }
+
+    public Nota observacion(String observacion) {
+        this.observacion = observacion;
+        return this;
+    }
+
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public Nota area(String area) {
+        this.area = area;
+        return this;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
 
     public Libreta getLibreta() {
@@ -103,6 +154,9 @@ public class Nota implements Serializable {
         return "Nota{" +
             "id=" + getId() +
             ", valor=" + getValor() +
+            ", bimestre=" + getBimestre() +
+            ", observacion='" + getObservacion() + "'" +
+            ", area='" + getArea() + "'" +
             "}";
     }
 }

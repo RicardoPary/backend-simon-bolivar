@@ -39,6 +39,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SimonBolivarApp.class)
 public class HorarioResourceIntTest {
 
+    private static final String DEFAULT_HORA_INICIO = "AAAAAAAAAA";
+    private static final String UPDATED_HORA_INICIO = "BBBBBBBBBB";
+
+    private static final String DEFAULT_HORA_FIN = "AAAAAAAAAA";
+    private static final String UPDATED_HORA_FIN = "BBBBBBBBBB";
+
     private static final String DEFAULT_DIA = "AAAAAAAAAA";
     private static final String UPDATED_DIA = "BBBBBBBBBB";
 
@@ -83,6 +89,8 @@ public class HorarioResourceIntTest {
      */
     public static Horario createEntity(EntityManager em) {
         Horario horario = new Horario()
+            .hora_inicio(DEFAULT_HORA_INICIO)
+            .hora_fin(DEFAULT_HORA_FIN)
             .dia(DEFAULT_DIA);
         return horario;
     }
@@ -107,6 +115,8 @@ public class HorarioResourceIntTest {
         List<Horario> horarioList = horarioRepository.findAll();
         assertThat(horarioList).hasSize(databaseSizeBeforeCreate + 1);
         Horario testHorario = horarioList.get(horarioList.size() - 1);
+        assertThat(testHorario.getHora_inicio()).isEqualTo(DEFAULT_HORA_INICIO);
+        assertThat(testHorario.getHora_fin()).isEqualTo(DEFAULT_HORA_FIN);
         assertThat(testHorario.getDia()).isEqualTo(DEFAULT_DIA);
     }
 
@@ -140,6 +150,8 @@ public class HorarioResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(horario.getId().intValue())))
+            .andExpect(jsonPath("$.[*].hora_inicio").value(hasItem(DEFAULT_HORA_INICIO.toString())))
+            .andExpect(jsonPath("$.[*].hora_fin").value(hasItem(DEFAULT_HORA_FIN.toString())))
             .andExpect(jsonPath("$.[*].dia").value(hasItem(DEFAULT_DIA.toString())));
     }
 
@@ -154,6 +166,8 @@ public class HorarioResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(horario.getId().intValue()))
+            .andExpect(jsonPath("$.hora_inicio").value(DEFAULT_HORA_INICIO.toString()))
+            .andExpect(jsonPath("$.hora_fin").value(DEFAULT_HORA_FIN.toString()))
             .andExpect(jsonPath("$.dia").value(DEFAULT_DIA.toString()));
     }
 
@@ -178,6 +192,8 @@ public class HorarioResourceIntTest {
         // Disconnect from session so that the updates on updatedHorario are not directly saved in db
         em.detach(updatedHorario);
         updatedHorario
+            .hora_inicio(UPDATED_HORA_INICIO)
+            .hora_fin(UPDATED_HORA_FIN)
             .dia(UPDATED_DIA);
 
         restHorarioMockMvc.perform(put("/api/horarios")
@@ -189,6 +205,8 @@ public class HorarioResourceIntTest {
         List<Horario> horarioList = horarioRepository.findAll();
         assertThat(horarioList).hasSize(databaseSizeBeforeUpdate);
         Horario testHorario = horarioList.get(horarioList.size() - 1);
+        assertThat(testHorario.getHora_inicio()).isEqualTo(UPDATED_HORA_INICIO);
+        assertThat(testHorario.getHora_fin()).isEqualTo(UPDATED_HORA_FIN);
         assertThat(testHorario.getDia()).isEqualTo(UPDATED_DIA);
     }
 

@@ -25,6 +25,18 @@ public class Actividad_civica implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
+    @Column(name = "tipo")
+    private String tipo;
+
+    @Column(name = "fecha")
+    private String fecha;
+
+    @Column(name = "hora")
+    private String hora;
+
+    @Column(name = "lugar")
+    private String lugar;
+
     @ManyToMany
     @JoinTable(name = "actividad_civica_docente",
                joinColumns = @JoinColumn(name="actividad_civicas_id", referencedColumnName="id"),
@@ -57,6 +69,58 @@ public class Actividad_civica implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public Actividad_civica tipo(String tipo) {
+        this.tipo = tipo;
+        return this;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public Actividad_civica fecha(String fecha) {
+        this.fecha = fecha;
+        return this;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public Actividad_civica hora(String hora) {
+        this.hora = hora;
+        return this;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public Actividad_civica lugar(String lugar) {
+        this.lugar = lugar;
+        return this;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
     }
 
     public Set<Docente> getDocentes() {
@@ -135,6 +199,10 @@ public class Actividad_civica implements Serializable {
         return "Actividad_civica{" +
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
+            ", tipo='" + getTipo() + "'" +
+            ", fecha='" + getFecha() + "'" +
+            ", hora='" + getHora() + "'" +
+            ", lugar='" + getLugar() + "'" +
             "}";
     }
 }

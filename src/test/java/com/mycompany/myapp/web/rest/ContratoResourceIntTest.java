@@ -39,8 +39,23 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SimonBolivarApp.class)
 public class ContratoResourceIntTest {
 
+    private static final String DEFAULT_FECHA_INICIO = "AAAAAAAAAA";
+    private static final String UPDATED_FECHA_INICIO = "BBBBBBBBBB";
+
+    private static final String DEFAULT_FECHA_FIN = "AAAAAAAAAA";
+    private static final String UPDATED_FECHA_FIN = "BBBBBBBBBB";
+
+    private static final String DEFAULT_TIPO = "AAAAAAAAAA";
+    private static final String UPDATED_TIPO = "BBBBBBBBBB";
+
     private static final Double DEFAULT_SUELDO = 1D;
     private static final Double UPDATED_SUELDO = 2D;
+
+    private static final String DEFAULT_VACACIONES = "AAAAAAAAAA";
+    private static final String UPDATED_VACACIONES = "BBBBBBBBBB";
+
+    private static final String DEFAULT_JORNADA_DIARIA = "AAAAAAAAAA";
+    private static final String UPDATED_JORNADA_DIARIA = "BBBBBBBBBB";
 
     @Autowired
     private ContratoRepository contratoRepository;
@@ -83,7 +98,12 @@ public class ContratoResourceIntTest {
      */
     public static Contrato createEntity(EntityManager em) {
         Contrato contrato = new Contrato()
-            .sueldo(DEFAULT_SUELDO);
+            .fecha_inicio(DEFAULT_FECHA_INICIO)
+            .fecha_fin(DEFAULT_FECHA_FIN)
+            .tipo(DEFAULT_TIPO)
+            .sueldo(DEFAULT_SUELDO)
+            .vacaciones(DEFAULT_VACACIONES)
+            .jornada_diaria(DEFAULT_JORNADA_DIARIA);
         return contrato;
     }
 
@@ -107,7 +127,12 @@ public class ContratoResourceIntTest {
         List<Contrato> contratoList = contratoRepository.findAll();
         assertThat(contratoList).hasSize(databaseSizeBeforeCreate + 1);
         Contrato testContrato = contratoList.get(contratoList.size() - 1);
+        assertThat(testContrato.getFecha_inicio()).isEqualTo(DEFAULT_FECHA_INICIO);
+        assertThat(testContrato.getFecha_fin()).isEqualTo(DEFAULT_FECHA_FIN);
+        assertThat(testContrato.getTipo()).isEqualTo(DEFAULT_TIPO);
         assertThat(testContrato.getSueldo()).isEqualTo(DEFAULT_SUELDO);
+        assertThat(testContrato.getVacaciones()).isEqualTo(DEFAULT_VACACIONES);
+        assertThat(testContrato.getJornada_diaria()).isEqualTo(DEFAULT_JORNADA_DIARIA);
     }
 
     @Test
@@ -140,7 +165,12 @@ public class ContratoResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(contrato.getId().intValue())))
-            .andExpect(jsonPath("$.[*].sueldo").value(hasItem(DEFAULT_SUELDO.doubleValue())));
+            .andExpect(jsonPath("$.[*].fecha_inicio").value(hasItem(DEFAULT_FECHA_INICIO.toString())))
+            .andExpect(jsonPath("$.[*].fecha_fin").value(hasItem(DEFAULT_FECHA_FIN.toString())))
+            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
+            .andExpect(jsonPath("$.[*].sueldo").value(hasItem(DEFAULT_SUELDO.doubleValue())))
+            .andExpect(jsonPath("$.[*].vacaciones").value(hasItem(DEFAULT_VACACIONES.toString())))
+            .andExpect(jsonPath("$.[*].jornada_diaria").value(hasItem(DEFAULT_JORNADA_DIARIA.toString())));
     }
 
     @Test
@@ -154,7 +184,12 @@ public class ContratoResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(contrato.getId().intValue()))
-            .andExpect(jsonPath("$.sueldo").value(DEFAULT_SUELDO.doubleValue()));
+            .andExpect(jsonPath("$.fecha_inicio").value(DEFAULT_FECHA_INICIO.toString()))
+            .andExpect(jsonPath("$.fecha_fin").value(DEFAULT_FECHA_FIN.toString()))
+            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
+            .andExpect(jsonPath("$.sueldo").value(DEFAULT_SUELDO.doubleValue()))
+            .andExpect(jsonPath("$.vacaciones").value(DEFAULT_VACACIONES.toString()))
+            .andExpect(jsonPath("$.jornada_diaria").value(DEFAULT_JORNADA_DIARIA.toString()));
     }
 
     @Test
@@ -178,7 +213,12 @@ public class ContratoResourceIntTest {
         // Disconnect from session so that the updates on updatedContrato are not directly saved in db
         em.detach(updatedContrato);
         updatedContrato
-            .sueldo(UPDATED_SUELDO);
+            .fecha_inicio(UPDATED_FECHA_INICIO)
+            .fecha_fin(UPDATED_FECHA_FIN)
+            .tipo(UPDATED_TIPO)
+            .sueldo(UPDATED_SUELDO)
+            .vacaciones(UPDATED_VACACIONES)
+            .jornada_diaria(UPDATED_JORNADA_DIARIA);
 
         restContratoMockMvc.perform(put("/api/contratoes")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -189,7 +229,12 @@ public class ContratoResourceIntTest {
         List<Contrato> contratoList = contratoRepository.findAll();
         assertThat(contratoList).hasSize(databaseSizeBeforeUpdate);
         Contrato testContrato = contratoList.get(contratoList.size() - 1);
+        assertThat(testContrato.getFecha_inicio()).isEqualTo(UPDATED_FECHA_INICIO);
+        assertThat(testContrato.getFecha_fin()).isEqualTo(UPDATED_FECHA_FIN);
+        assertThat(testContrato.getTipo()).isEqualTo(UPDATED_TIPO);
         assertThat(testContrato.getSueldo()).isEqualTo(UPDATED_SUELDO);
+        assertThat(testContrato.getVacaciones()).isEqualTo(UPDATED_VACACIONES);
+        assertThat(testContrato.getJornada_diaria()).isEqualTo(UPDATED_JORNADA_DIARIA);
     }
 
     @Test
