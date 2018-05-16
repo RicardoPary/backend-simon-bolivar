@@ -1,17 +1,14 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "persona",
-            "otherEntityName": "persona",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "parentesco",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "idPersona",
+            "fieldType": "Long"
         }
     ],
     "changelogDate": "00000000000700",

@@ -23,8 +23,8 @@ public class Familiar implements Serializable {
     @Column(name = "parentesco")
     private String parentesco;
 
-    @ManyToOne
-    private Persona persona;
+    @Column(name = "id_persona")
+    private Long idPersona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -48,17 +48,17 @@ public class Familiar implements Serializable {
         this.parentesco = parentesco;
     }
 
-    public Persona getPersona() {
-        return persona;
+    public Long getIdPersona() {
+        return idPersona;
     }
 
-    public Familiar persona(Persona persona) {
-        this.persona = persona;
+    public Familiar idPersona(Long idPersona) {
+        this.idPersona = idPersona;
         return this;
     }
 
-    public void setPersona(Persona persona) {
-        this.persona = persona;
+    public void setIdPersona(Long idPersona) {
+        this.idPersona = idPersona;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -87,6 +87,7 @@ public class Familiar implements Serializable {
         return "Familiar{" +
             "id=" + getId() +
             ", parentesco='" + getParentesco() + "'" +
+            ", idPersona=" + getIdPersona() +
             "}";
     }
 }

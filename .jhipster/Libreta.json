@@ -1,13 +1,6 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "nota",
-            "otherEntityName": "nota",
-            "relationshipType": "one-to-many",
-            "otherEntityRelationshipName": "libreta"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "nombre",
@@ -20,9 +13,13 @@
         {
             "fieldName": "observacion",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "idEstudiante",
+            "fieldType": "Long"
         }
     ],
-    "changelogDate": "00000000000900",
+    "changelogDate": "00000000001000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "libreta",

@@ -48,6 +48,9 @@ public class LibretaResourceIntTest {
     private static final String DEFAULT_OBSERVACION = "AAAAAAAAAA";
     private static final String UPDATED_OBSERVACION = "BBBBBBBBBB";
 
+    private static final Long DEFAULT_ID_ESTUDIANTE = 1L;
+    private static final Long UPDATED_ID_ESTUDIANTE = 2L;
+
     @Autowired
     private LibretaRepository libretaRepository;
 
@@ -91,7 +94,8 @@ public class LibretaResourceIntTest {
         Libreta libreta = new Libreta()
             .nombre(DEFAULT_NOMBRE)
             .tipo(DEFAULT_TIPO)
-            .observacion(DEFAULT_OBSERVACION);
+            .observacion(DEFAULT_OBSERVACION)
+            .idEstudiante(DEFAULT_ID_ESTUDIANTE);
         return libreta;
     }
 
@@ -118,6 +122,7 @@ public class LibretaResourceIntTest {
         assertThat(testLibreta.getNombre()).isEqualTo(DEFAULT_NOMBRE);
         assertThat(testLibreta.getTipo()).isEqualTo(DEFAULT_TIPO);
         assertThat(testLibreta.getObservacion()).isEqualTo(DEFAULT_OBSERVACION);
+        assertThat(testLibreta.getIdEstudiante()).isEqualTo(DEFAULT_ID_ESTUDIANTE);
     }
 
     @Test
@@ -152,7 +157,8 @@ public class LibretaResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(libreta.getId().intValue())))
             .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
             .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
-            .andExpect(jsonPath("$.[*].observacion").value(hasItem(DEFAULT_OBSERVACION.toString())));
+            .andExpect(jsonPath("$.[*].observacion").value(hasItem(DEFAULT_OBSERVACION.toString())))
+            .andExpect(jsonPath("$.[*].idEstudiante").value(hasItem(DEFAULT_ID_ESTUDIANTE.intValue())));
     }
 
     @Test
@@ -168,7 +174,8 @@ public class LibretaResourceIntTest {
             .andExpect(jsonPath("$.id").value(libreta.getId().intValue()))
             .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
             .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
-            .andExpect(jsonPath("$.observacion").value(DEFAULT_OBSERVACION.toString()));
+            .andExpect(jsonPath("$.observacion").value(DEFAULT_OBSERVACION.toString()))
+            .andExpect(jsonPath("$.idEstudiante").value(DEFAULT_ID_ESTUDIANTE.intValue()));
     }
 
     @Test
@@ -194,7 +201,8 @@ public class LibretaResourceIntTest {
         updatedLibreta
             .nombre(UPDATED_NOMBRE)
             .tipo(UPDATED_TIPO)
-            .observacion(UPDATED_OBSERVACION);
+            .observacion(UPDATED_OBSERVACION)
+            .idEstudiante(UPDATED_ID_ESTUDIANTE);
 
         restLibretaMockMvc.perform(put("/api/libretas")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -208,6 +216,7 @@ public class LibretaResourceIntTest {
         assertThat(testLibreta.getNombre()).isEqualTo(UPDATED_NOMBRE);
         assertThat(testLibreta.getTipo()).isEqualTo(UPDATED_TIPO);
         assertThat(testLibreta.getObservacion()).isEqualTo(UPDATED_OBSERVACION);
+        assertThat(testLibreta.getIdEstudiante()).isEqualTo(UPDATED_ID_ESTUDIANTE);
     }
 
     @Test

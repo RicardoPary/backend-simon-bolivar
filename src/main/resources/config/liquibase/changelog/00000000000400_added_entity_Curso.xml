@@ -33,7 +33,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="nivel_id" type="bigint">
+            <column name="id_nivel" type="bigint">
                 <constraints nullable="true" />
             </column>
 

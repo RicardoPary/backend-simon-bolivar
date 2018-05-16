@@ -1,8 +1,6 @@
 package com.mycompany.myapp.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 
 import java.io.Serializable;
@@ -34,12 +32,11 @@ public class Nota implements Serializable {
     @Column(name = "area")
     private String area;
 
-    @ManyToOne
-    @JsonIgnore
-    private Libreta libreta;
+    @Column(name = "id_libreta")
+    private Long idLibreta;
 
-    @ManyToOne
-    private Materia materia;
+    @Column(name = "id_materia")
+    private Long idMateria;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -102,30 +99,30 @@ public class Nota implements Serializable {
         this.area = area;
     }
 
-    public Libreta getLibreta() {
-        return libreta;
+    public Long getIdLibreta() {
+        return idLibreta;
     }
 
-    public Nota libreta(Libreta libreta) {
-        this.libreta = libreta;
+    public Nota idLibreta(Long idLibreta) {
+        this.idLibreta = idLibreta;
         return this;
     }
 
-    public void setLibreta(Libreta libreta) {
-        this.libreta = libreta;
+    public void setIdLibreta(Long idLibreta) {
+        this.idLibreta = idLibreta;
     }
 
-    public Materia getMateria() {
-        return materia;
+    public Long getIdMateria() {
+        return idMateria;
     }
 
-    public Nota materia(Materia materia) {
-        this.materia = materia;
+    public Nota idMateria(Long idMateria) {
+        this.idMateria = idMateria;
         return this;
     }
 
-    public void setMateria(Materia materia) {
-        this.materia = materia;
+    public void setIdMateria(Long idMateria) {
+        this.idMateria = idMateria;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -157,6 +154,8 @@ public class Nota implements Serializable {
             ", bimestre=" + getBimestre() +
             ", observacion='" + getObservacion() + "'" +
             ", area='" + getArea() + "'" +
+            ", idLibreta=" + getIdLibreta() +
+            ", idMateria=" + getIdMateria() +
             "}";
     }
 }

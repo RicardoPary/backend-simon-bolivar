@@ -10,11 +10,11 @@
     ],
     "fields": [
         {
-            "fieldName": "fecha_inicio",
+            "fieldName": "fechaInicio",
             "fieldType": "String"
         },
         {
-            "fieldName": "fecha_fin",
+            "fieldName": "fechaFin",
             "fieldType": "String"
         },
         {
@@ -30,7 +30,7 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "jornada_diaria",
+            "fieldName": "jornadaDiaria",
             "fieldType": "String"
         }
     ],

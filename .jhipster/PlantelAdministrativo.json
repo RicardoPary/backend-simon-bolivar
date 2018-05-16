@@ -2,27 +2,25 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipName": "actividad_civica",
-            "otherEntityName": "actividad_civica",
+            "relationshipName": "actividadCivica",
+            "otherEntityName": "actividadCivica",
             "relationshipType": "many-to-many",
             "otherEntityField": "id",
             "ownerSide": false,
-            "otherEntityRelationshipName": "plantel_administrativo"
-        },
-        {
-            "relationshipName": "persona",
-            "otherEntityName": "persona",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
+            "otherEntityRelationshipName": "plantelAdministrativo"
         }
     ],
     "fields": [
         {
             "fieldName": "nombre",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "idPersona",
+            "fieldType": "Long"
         }
     ],
-    "changelogDate": "00000000005000",
+    "changelogDate": "00000000006000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "plantel_administrativo",

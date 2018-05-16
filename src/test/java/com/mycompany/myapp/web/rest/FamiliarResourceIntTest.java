@@ -42,6 +42,9 @@ public class FamiliarResourceIntTest {
     private static final String DEFAULT_PARENTESCO = "AAAAAAAAAA";
     private static final String UPDATED_PARENTESCO = "BBBBBBBBBB";
 
+    private static final Long DEFAULT_ID_PERSONA = 1L;
+    private static final Long UPDATED_ID_PERSONA = 2L;
+
     @Autowired
     private FamiliarRepository familiarRepository;
 
@@ -83,7 +86,8 @@ public class FamiliarResourceIntTest {
      */
     public static Familiar createEntity(EntityManager em) {
         Familiar familiar = new Familiar()
-            .parentesco(DEFAULT_PARENTESCO);
+            .parentesco(DEFAULT_PARENTESCO)
+            .idPersona(DEFAULT_ID_PERSONA);
         return familiar;
     }
 
@@ -108,6 +112,7 @@ public class FamiliarResourceIntTest {
         assertThat(familiarList).hasSize(databaseSizeBeforeCreate + 1);
         Familiar testFamiliar = familiarList.get(familiarList.size() - 1);
         assertThat(testFamiliar.getParentesco()).isEqualTo(DEFAULT_PARENTESCO);
+        assertThat(testFamiliar.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
     }
 
     @Test
@@ -140,7 +145,8 @@ public class FamiliarResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(familiar.getId().intValue())))
-            .andExpect(jsonPath("$.[*].parentesco").value(hasItem(DEFAULT_PARENTESCO.toString())));
+            .andExpect(jsonPath("$.[*].parentesco").value(hasItem(DEFAULT_PARENTESCO.toString())))
+            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA.intValue())));
     }
 
     @Test
@@ -154,7 +160,8 @@ public class FamiliarResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(familiar.getId().intValue()))
-            .andExpect(jsonPath("$.parentesco").value(DEFAULT_PARENTESCO.toString()));
+            .andExpect(jsonPath("$.parentesco").value(DEFAULT_PARENTESCO.toString()))
+            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA.intValue()));
     }
 
     @Test
@@ -178,7 +185,8 @@ public class FamiliarResourceIntTest {
         // Disconnect from session so that the updates on updatedFamiliar are not directly saved in db
         em.detach(updatedFamiliar);
         updatedFamiliar
-            .parentesco(UPDATED_PARENTESCO);
+            .parentesco(UPDATED_PARENTESCO)
+            .idPersona(UPDATED_ID_PERSONA);
 
         restFamiliarMockMvc.perform(put("/api/familiars")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -190,6 +198,7 @@ public class FamiliarResourceIntTest {
         assertThat(familiarList).hasSize(databaseSizeBeforeUpdate);
         Familiar testFamiliar = familiarList.get(familiarList.size() - 1);
         assertThat(testFamiliar.getParentesco()).isEqualTo(UPDATED_PARENTESCO);
+        assertThat(testFamiliar.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
     }
 
     @Test

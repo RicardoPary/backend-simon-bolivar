@@ -10,14 +10,8 @@
             "otherEntityRelationshipName": "docente"
         },
         {
-            "relationshipName": "persona",
-            "otherEntityName": "persona",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipName": "actividad_civica",
-            "otherEntityName": "actividad_civica",
+            "relationshipName": "actividadCivica",
+            "otherEntityName": "actividadCivica",
             "relationshipType": "many-to-many",
             "otherEntityField": "id",
             "ownerSide": false,
@@ -34,6 +28,10 @@
         {
             "fieldName": "tipo",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "idPersona",
+            "fieldType": "Long"
         }
     ],
     "changelogDate": "00000000000500",

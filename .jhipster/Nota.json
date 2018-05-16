@@ -1,19 +1,6 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "libreta",
-            "otherEntityName": "libreta",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipName": "materia",
-            "otherEntityName": "materia",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "valor",
@@ -30,9 +17,17 @@
         {
             "fieldName": "area",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "idLibreta",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "idMateria",
+            "fieldType": "Long"
         }
     ],
-    "changelogDate": "00000000003000",
+    "changelogDate": "00000000004000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "nota",

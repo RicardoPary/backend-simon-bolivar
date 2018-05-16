@@ -45,6 +45,9 @@ public class TemaResourceIntTest {
     private static final String DEFAULT_DESCRIPCION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPCION = "BBBBBBBBBB";
 
+    private static final Long DEFAULT_ID_MATERIA = 1L;
+    private static final Long UPDATED_ID_MATERIA = 2L;
+
     @Autowired
     private TemaRepository temaRepository;
 
@@ -87,7 +90,8 @@ public class TemaResourceIntTest {
     public static Tema createEntity(EntityManager em) {
         Tema tema = new Tema()
             .titulo(DEFAULT_TITULO)
-            .descripcion(DEFAULT_DESCRIPCION);
+            .descripcion(DEFAULT_DESCRIPCION)
+            .idMateria(DEFAULT_ID_MATERIA);
         return tema;
     }
 
@@ -113,6 +117,7 @@ public class TemaResourceIntTest {
         Tema testTema = temaList.get(temaList.size() - 1);
         assertThat(testTema.getTitulo()).isEqualTo(DEFAULT_TITULO);
         assertThat(testTema.getDescripcion()).isEqualTo(DEFAULT_DESCRIPCION);
+        assertThat(testTema.getIdMateria()).isEqualTo(DEFAULT_ID_MATERIA);
     }
 
     @Test
@@ -146,7 +151,8 @@ public class TemaResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(tema.getId().intValue())))
             .andExpect(jsonPath("$.[*].titulo").value(hasItem(DEFAULT_TITULO.toString())))
-            .andExpect(jsonPath("$.[*].descripcion").value(hasItem(DEFAULT_DESCRIPCION.toString())));
+            .andExpect(jsonPath("$.[*].descripcion").value(hasItem(DEFAULT_DESCRIPCION.toString())))
+            .andExpect(jsonPath("$.[*].idMateria").value(hasItem(DEFAULT_ID_MATERIA.intValue())));
     }
 
     @Test
@@ -161,7 +167,8 @@ public class TemaResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(tema.getId().intValue()))
             .andExpect(jsonPath("$.titulo").value(DEFAULT_TITULO.toString()))
-            .andExpect(jsonPath("$.descripcion").value(DEFAULT_DESCRIPCION.toString()));
+            .andExpect(jsonPath("$.descripcion").value(DEFAULT_DESCRIPCION.toString()))
+            .andExpect(jsonPath("$.idMateria").value(DEFAULT_ID_MATERIA.intValue()));
     }
 
     @Test
@@ -186,7 +193,8 @@ public class TemaResourceIntTest {
         em.detach(updatedTema);
         updatedTema
             .titulo(UPDATED_TITULO)
-            .descripcion(UPDATED_DESCRIPCION);
+            .descripcion(UPDATED_DESCRIPCION)
+            .idMateria(UPDATED_ID_MATERIA);
 
         restTemaMockMvc.perform(put("/api/temas")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -199,6 +207,7 @@ public class TemaResourceIntTest {
         Tema testTema = temaList.get(temaList.size() - 1);
         assertThat(testTema.getTitulo()).isEqualTo(UPDATED_TITULO);
         assertThat(testTema.getDescripcion()).isEqualTo(UPDATED_DESCRIPCION);
+        assertThat(testTema.getIdMateria()).isEqualTo(UPDATED_ID_MATERIA);
     }
 
     @Test

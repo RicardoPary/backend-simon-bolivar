@@ -7,15 +7,15 @@
             "relationshipType": "many-to-many",
             "otherEntityField": "id",
             "ownerSide": true,
-            "otherEntityRelationshipName": "actividad_civica"
+            "otherEntityRelationshipName": "actividadCivica"
         },
         {
-            "relationshipName": "plantel_administrativo",
-            "otherEntityName": "plantel_administrativo",
+            "relationshipName": "plantelAdministrativo",
+            "otherEntityName": "plantelAdministrativo",
             "relationshipType": "many-to-many",
             "otherEntityField": "id",
             "ownerSide": true,
-            "otherEntityRelationshipName": "actividad_civica"
+            "otherEntityRelationshipName": "actividadCivica"
         }
     ],
     "fields": [

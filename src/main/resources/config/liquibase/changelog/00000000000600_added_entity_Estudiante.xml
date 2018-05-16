@@ -29,23 +29,12 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="persona_id" type="bigint">
+            <column name="id_persona" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-        
-        <createTable tableName="estudiante_materia">
-            <column name="materias_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="estudiantes_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="estudiantes_id, materias_id" tableName="estudiante_materia"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

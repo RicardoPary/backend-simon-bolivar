@@ -21,16 +21,16 @@ public class Horario implements Serializable {
     private Long id;
 
     @Column(name = "hora_inicio")
-    private String hora_inicio;
+    private String horaInicio;
 
     @Column(name = "hora_fin")
-    private String hora_fin;
+    private String horaFin;
 
     @Column(name = "dia")
     private String dia;
 
-    @ManyToOne
-    private Materia materia;
+    @Column(name = "id_materia")
+    private Long idMateria;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -41,30 +41,30 @@ public class Horario implements Serializable {
         this.id = id;
     }
 
-    public String getHora_inicio() {
-        return hora_inicio;
+    public String getHoraInicio() {
+        return horaInicio;
     }
 
-    public Horario hora_inicio(String hora_inicio) {
-        this.hora_inicio = hora_inicio;
+    public Horario horaInicio(String horaInicio) {
+        this.horaInicio = horaInicio;
         return this;
     }
 
-    public void setHora_inicio(String hora_inicio) {
-        this.hora_inicio = hora_inicio;
+    public void setHoraInicio(String horaInicio) {
+        this.horaInicio = horaInicio;
     }
 
-    public String getHora_fin() {
-        return hora_fin;
+    public String getHoraFin() {
+        return horaFin;
     }
 
-    public Horario hora_fin(String hora_fin) {
-        this.hora_fin = hora_fin;
+    public Horario horaFin(String horaFin) {
+        this.horaFin = horaFin;
         return this;
     }
 
-    public void setHora_fin(String hora_fin) {
-        this.hora_fin = hora_fin;
+    public void setHoraFin(String horaFin) {
+        this.horaFin = horaFin;
     }
 
     public String getDia() {
@@ -80,17 +80,17 @@ public class Horario implements Serializable {
         this.dia = dia;
     }
 
-    public Materia getMateria() {
-        return materia;
+    public Long getIdMateria() {
+        return idMateria;
     }
 
-    public Horario materia(Materia materia) {
-        this.materia = materia;
+    public Horario idMateria(Long idMateria) {
+        this.idMateria = idMateria;
         return this;
     }
 
-    public void setMateria(Materia materia) {
-        this.materia = materia;
+    public void setIdMateria(Long idMateria) {
+        this.idMateria = idMateria;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -118,9 +118,10 @@ public class Horario implements Serializable {
     public String toString() {
         return "Horario{" +
             "id=" + getId() +
-            ", hora_inicio='" + getHora_inicio() + "'" +
-            ", hora_fin='" + getHora_fin() + "'" +
+            ", horaInicio='" + getHoraInicio() + "'" +
+            ", horaFin='" + getHoraFin() + "'" +
             ", dia='" + getDia() + "'" +
+            ", idMateria=" + getIdMateria() +
             "}";
     }
 }

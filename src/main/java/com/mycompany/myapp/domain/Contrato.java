@@ -21,10 +21,10 @@ public class Contrato implements Serializable {
     private Long id;
 
     @Column(name = "fecha_inicio")
-    private String fecha_inicio;
+    private String fechaInicio;
 
     @Column(name = "fecha_fin")
-    private String fecha_fin;
+    private String fechaFin;
 
     @Column(name = "tipo")
     private String tipo;
@@ -36,7 +36,7 @@ public class Contrato implements Serializable {
     private String vacaciones;
 
     @Column(name = "jornada_diaria")
-    private String jornada_diaria;
+    private String jornadaDiaria;
 
     @ManyToOne
     private Docente docente;
@@ -50,30 +50,30 @@ public class Contrato implements Serializable {
         this.id = id;
     }
 
-    public String getFecha_inicio() {
-        return fecha_inicio;
+    public String getFechaInicio() {
+        return fechaInicio;
     }
 
-    public Contrato fecha_inicio(String fecha_inicio) {
-        this.fecha_inicio = fecha_inicio;
+    public Contrato fechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
         return this;
     }
 
-    public void setFecha_inicio(String fecha_inicio) {
-        this.fecha_inicio = fecha_inicio;
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
-    public String getFecha_fin() {
-        return fecha_fin;
+    public String getFechaFin() {
+        return fechaFin;
     }
 
-    public Contrato fecha_fin(String fecha_fin) {
-        this.fecha_fin = fecha_fin;
+    public Contrato fechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
         return this;
     }
 
-    public void setFecha_fin(String fecha_fin) {
-        this.fecha_fin = fecha_fin;
+    public void setFechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     public String getTipo() {
@@ -115,17 +115,17 @@ public class Contrato implements Serializable {
         this.vacaciones = vacaciones;
     }
 
-    public String getJornada_diaria() {
-        return jornada_diaria;
+    public String getJornadaDiaria() {
+        return jornadaDiaria;
     }
 
-    public Contrato jornada_diaria(String jornada_diaria) {
-        this.jornada_diaria = jornada_diaria;
+    public Contrato jornadaDiaria(String jornadaDiaria) {
+        this.jornadaDiaria = jornadaDiaria;
         return this;
     }
 
-    public void setJornada_diaria(String jornada_diaria) {
-        this.jornada_diaria = jornada_diaria;
+    public void setJornadaDiaria(String jornadaDiaria) {
+        this.jornadaDiaria = jornadaDiaria;
     }
 
     public Docente getDocente() {
@@ -166,12 +166,12 @@ public class Contrato implements Serializable {
     public String toString() {
         return "Contrato{" +
             "id=" + getId() +
-            ", fecha_inicio='" + getFecha_inicio() + "'" +
-            ", fecha_fin='" + getFecha_fin() + "'" +
+            ", fechaInicio='" + getFechaInicio() + "'" +
+            ", fechaFin='" + getFechaFin() + "'" +
             ", tipo='" + getTipo() + "'" +
             ", sueldo=" + getSueldo() +
             ", vacaciones='" + getVacaciones() + "'" +
-            ", jornada_diaria='" + getJornada_diaria() + "'" +
+            ", jornadaDiaria='" + getJornadaDiaria() + "'" +
             "}";
     }
 }

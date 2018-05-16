@@ -7,11 +7,11 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A Tema.
+ * A Inscrito.
  */
 @Entity
-@Table(name = "tema")
-public class Tema implements Serializable {
+@Table(name = "inscrito")
+public class Inscrito implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -20,14 +20,14 @@ public class Tema implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "titulo")
-    private String titulo;
-
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Column(name = "id_estudiante")
+    private Long idEstudiante;
 
     @Column(name = "id_materia")
     private Long idMateria;
+
+    @Column(name = "nota")
+    private Double nota;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -38,43 +38,43 @@ public class Tema implements Serializable {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public Long getIdEstudiante() {
+        return idEstudiante;
     }
 
-    public Tema titulo(String titulo) {
-        this.titulo = titulo;
+    public Inscrito idEstudiante(Long idEstudiante) {
+        this.idEstudiante = idEstudiante;
         return this;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public Tema descripcion(String descripcion) {
-        this.descripcion = descripcion;
-        return this;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setIdEstudiante(Long idEstudiante) {
+        this.idEstudiante = idEstudiante;
     }
 
     public Long getIdMateria() {
         return idMateria;
     }
 
-    public Tema idMateria(Long idMateria) {
+    public Inscrito idMateria(Long idMateria) {
         this.idMateria = idMateria;
         return this;
     }
 
     public void setIdMateria(Long idMateria) {
         this.idMateria = idMateria;
+    }
+
+    public Double getNota() {
+        return nota;
+    }
+
+    public Inscrito nota(Double nota) {
+        this.nota = nota;
+        return this;
+    }
+
+    public void setNota(Double nota) {
+        this.nota = nota;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -86,11 +86,11 @@ public class Tema implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Tema tema = (Tema) o;
-        if (tema.getId() == null || getId() == null) {
+        Inscrito inscrito = (Inscrito) o;
+        if (inscrito.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(getId(), tema.getId());
+        return Objects.equals(getId(), inscrito.getId());
     }
 
     @Override
@@ -100,11 +100,11 @@ public class Tema implements Serializable {
 
     @Override
     public String toString() {
-        return "Tema{" +
+        return "Inscrito{" +
             "id=" + getId() +
-            ", titulo='" + getTitulo() + "'" +
-            ", descripcion='" + getDescripcion() + "'" +
+            ", idEstudiante=" + getIdEstudiante() +
             ", idMateria=" + getIdMateria() +
+            ", nota=" + getNota() +
             "}";
     }
 }

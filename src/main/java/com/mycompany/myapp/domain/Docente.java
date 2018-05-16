@@ -26,18 +26,18 @@ public class Docente implements Serializable {
     @Column(name = "tipo")
     private String tipo;
 
+    @Column(name = "id_persona")
+    private Long idPersona;
+
     @ManyToMany
     @JoinTable(name = "docente_materia",
                joinColumns = @JoinColumn(name="docentes_id", referencedColumnName="id"),
                inverseJoinColumns = @JoinColumn(name="materias_id", referencedColumnName="id"))
     private Set<Materia> materias = new HashSet<>();
 
-    @ManyToOne
-    private Persona persona;
-
     @ManyToMany(mappedBy = "docentes")
     @JsonIgnore
-    private Set<Actividad_civica> actividad_civicas = new HashSet<>();
+    private Set<ActividadCivica> actividadCivicas = new HashSet<>();
 
     @OneToMany(mappedBy = "docente")
     @JsonIgnore
@@ -65,6 +65,19 @@ public class Docente implements Serializable {
         this.tipo = tipo;
     }
 
+    public Long getIdPersona() {
+        return idPersona;
+    }
+
+    public Docente idPersona(Long idPersona) {
+        this.idPersona = idPersona;
+        return this;
+    }
+
+    public void setIdPersona(Long idPersona) {
+        this.idPersona = idPersona;
+    }
+
     public Set<Materia> getMaterias() {
         return materias;
     }
@@ -90,42 +103,29 @@ public class Docente implements Serializable {
         this.materias = materias;
     }
 
-    public Persona getPersona() {
-        return persona;
+    public Set<ActividadCivica> getActividadCivicas() {
+        return actividadCivicas;
     }
 
-    public Docente persona(Persona persona) {
-        this.persona = persona;
+    public Docente actividadCivicas(Set<ActividadCivica> actividadCivicas) {
+        this.actividadCivicas = actividadCivicas;
         return this;
     }
 
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
-
-    public Set<Actividad_civica> getActividad_civicas() {
-        return actividad_civicas;
-    }
-
-    public Docente actividad_civicas(Set<Actividad_civica> actividad_civicas) {
-        this.actividad_civicas = actividad_civicas;
+    public Docente addActividadCivica(ActividadCivica actividadCivica) {
+        this.actividadCivicas.add(actividadCivica);
+        actividadCivica.getDocentes().add(this);
         return this;
     }
 
-    public Docente addActividad_civica(Actividad_civica actividad_civica) {
-        this.actividad_civicas.add(actividad_civica);
-        actividad_civica.getDocentes().add(this);
+    public Docente removeActividadCivica(ActividadCivica actividadCivica) {
+        this.actividadCivicas.remove(actividadCivica);
+        actividadCivica.getDocentes().remove(this);
         return this;
     }
 
-    public Docente removeActividad_civica(Actividad_civica actividad_civica) {
-        this.actividad_civicas.remove(actividad_civica);
-        actividad_civica.getDocentes().remove(this);
-        return this;
-    }
-
-    public void setActividad_civicas(Set<Actividad_civica> actividad_civicas) {
-        this.actividad_civicas = actividad_civicas;
+    public void setActividadCivicas(Set<ActividadCivica> actividadCivicas) {
+        this.actividadCivicas = actividadCivicas;
     }
 
     public Set<Contrato> getContratoes() {
@@ -179,6 +179,7 @@ public class Docente implements Serializable {
         return "Docente{" +
             "id=" + getId() +
             ", tipo='" + getTipo() + "'" +
+            ", idPersona=" + getIdPersona() +
             "}";
     }
 }

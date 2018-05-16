@@ -1,20 +1,13 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "curso",
-            "otherEntityName": "curso",
-            "relationshipType": "one-to-many",
-            "otherEntityRelationshipName": "nivel"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "nombre",
             "fieldType": "String"
         }
     ],
-    "changelogDate": "00000000002000",
+    "changelogDate": "00000000003000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "nivel",

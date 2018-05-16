@@ -9,11 +9,11 @@ import java.util.Set;
 import java.util.Objects;
 
 /**
- * A Actividad_civica.
+ * A ActividadCivica.
  */
 @Entity
 @Table(name = "actividad_civica")
-public class Actividad_civica implements Serializable {
+public class ActividadCivica implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -47,7 +47,7 @@ public class Actividad_civica implements Serializable {
     @JoinTable(name = "actividad_civica_plantel_administrativo",
                joinColumns = @JoinColumn(name="actividad_civicas_id", referencedColumnName="id"),
                inverseJoinColumns = @JoinColumn(name="plantel_administrativos_id", referencedColumnName="id"))
-    private Set<Plantel_administrativo> plantel_administrativos = new HashSet<>();
+    private Set<PlantelAdministrativo> plantelAdministrativos = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -62,7 +62,7 @@ public class Actividad_civica implements Serializable {
         return nombre;
     }
 
-    public Actividad_civica nombre(String nombre) {
+    public ActividadCivica nombre(String nombre) {
         this.nombre = nombre;
         return this;
     }
@@ -75,7 +75,7 @@ public class Actividad_civica implements Serializable {
         return tipo;
     }
 
-    public Actividad_civica tipo(String tipo) {
+    public ActividadCivica tipo(String tipo) {
         this.tipo = tipo;
         return this;
     }
@@ -88,7 +88,7 @@ public class Actividad_civica implements Serializable {
         return fecha;
     }
 
-    public Actividad_civica fecha(String fecha) {
+    public ActividadCivica fecha(String fecha) {
         this.fecha = fecha;
         return this;
     }
@@ -101,7 +101,7 @@ public class Actividad_civica implements Serializable {
         return hora;
     }
 
-    public Actividad_civica hora(String hora) {
+    public ActividadCivica hora(String hora) {
         this.hora = hora;
         return this;
     }
@@ -114,7 +114,7 @@ public class Actividad_civica implements Serializable {
         return lugar;
     }
 
-    public Actividad_civica lugar(String lugar) {
+    public ActividadCivica lugar(String lugar) {
         this.lugar = lugar;
         return this;
     }
@@ -127,20 +127,20 @@ public class Actividad_civica implements Serializable {
         return docentes;
     }
 
-    public Actividad_civica docentes(Set<Docente> docentes) {
+    public ActividadCivica docentes(Set<Docente> docentes) {
         this.docentes = docentes;
         return this;
     }
 
-    public Actividad_civica addDocente(Docente docente) {
+    public ActividadCivica addDocente(Docente docente) {
         this.docentes.add(docente);
-        docente.getActividad_civicas().add(this);
+        docente.getActividadCivicas().add(this);
         return this;
     }
 
-    public Actividad_civica removeDocente(Docente docente) {
+    public ActividadCivica removeDocente(Docente docente) {
         this.docentes.remove(docente);
-        docente.getActividad_civicas().remove(this);
+        docente.getActividadCivicas().remove(this);
         return this;
     }
 
@@ -148,29 +148,29 @@ public class Actividad_civica implements Serializable {
         this.docentes = docentes;
     }
 
-    public Set<Plantel_administrativo> getPlantel_administrativos() {
-        return plantel_administrativos;
+    public Set<PlantelAdministrativo> getPlantelAdministrativos() {
+        return plantelAdministrativos;
     }
 
-    public Actividad_civica plantel_administrativos(Set<Plantel_administrativo> plantel_administrativos) {
-        this.plantel_administrativos = plantel_administrativos;
+    public ActividadCivica plantelAdministrativos(Set<PlantelAdministrativo> plantelAdministrativos) {
+        this.plantelAdministrativos = plantelAdministrativos;
         return this;
     }
 
-    public Actividad_civica addPlantel_administrativo(Plantel_administrativo plantel_administrativo) {
-        this.plantel_administrativos.add(plantel_administrativo);
-        plantel_administrativo.getActividad_civicas().add(this);
+    public ActividadCivica addPlantelAdministrativo(PlantelAdministrativo plantelAdministrativo) {
+        this.plantelAdministrativos.add(plantelAdministrativo);
+        plantelAdministrativo.getActividadCivicas().add(this);
         return this;
     }
 
-    public Actividad_civica removePlantel_administrativo(Plantel_administrativo plantel_administrativo) {
-        this.plantel_administrativos.remove(plantel_administrativo);
-        plantel_administrativo.getActividad_civicas().remove(this);
+    public ActividadCivica removePlantelAdministrativo(PlantelAdministrativo plantelAdministrativo) {
+        this.plantelAdministrativos.remove(plantelAdministrativo);
+        plantelAdministrativo.getActividadCivicas().remove(this);
         return this;
     }
 
-    public void setPlantel_administrativos(Set<Plantel_administrativo> plantel_administrativos) {
-        this.plantel_administrativos = plantel_administrativos;
+    public void setPlantelAdministrativos(Set<PlantelAdministrativo> plantelAdministrativos) {
+        this.plantelAdministrativos = plantelAdministrativos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -182,11 +182,11 @@ public class Actividad_civica implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Actividad_civica actividad_civica = (Actividad_civica) o;
-        if (actividad_civica.getId() == null || getId() == null) {
+        ActividadCivica actividadCivica = (ActividadCivica) o;
+        if (actividadCivica.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(getId(), actividad_civica.getId());
+        return Objects.equals(getId(), actividadCivica.getId());
     }
 
     @Override
@@ -196,7 +196,7 @@ public class Actividad_civica implements Serializable {
 
     @Override
     public String toString() {
-        return "Actividad_civica{" +
+        return "ActividadCivica{" +
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
             ", tipo='" + getTipo() + "'" +

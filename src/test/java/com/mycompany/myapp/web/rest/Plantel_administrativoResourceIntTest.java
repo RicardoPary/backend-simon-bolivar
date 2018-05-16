@@ -2,9 +2,6 @@ package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.SimonBolivarApp;
 
-import com.mycompany.myapp.domain.Plantel_administrativo;
-import com.mycompany.myapp.repository.Plantel_administrativoRepository;
-import com.mycompany.myapp.service.Plantel_administrativoService;
 import com.mycompany.myapp.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;

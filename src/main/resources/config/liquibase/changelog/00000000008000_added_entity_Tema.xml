@@ -14,22 +14,18 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity Horario.
+        Added the entity Tema.
     -->
-    <changeSet id="00000000000800-1" author="jhipster">
-        <createTable tableName="horario">
+    <changeSet id="00000000008000-1" author="jhipster">
+        <createTable tableName="tema">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="hora_inicio" type="varchar(255)">
+            <column name="titulo" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="hora_fin" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="dia" type="varchar(255)">
+            <column name="descripcion" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 

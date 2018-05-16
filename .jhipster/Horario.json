@@ -1,25 +1,22 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "materia",
-            "otherEntityName": "materia",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
-            "fieldName": "hora_inicio",
+            "fieldName": "horaInicio",
             "fieldType": "String"
         },
         {
-            "fieldName": "hora_fin",
+            "fieldName": "horaFin",
             "fieldType": "String"
         },
         {
             "fieldName": "dia",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "idMateria",
+            "fieldType": "Long"
         }
     ],
     "changelogDate": "00000000000800",

@@ -29,8 +29,8 @@ public class Curso implements Serializable {
     @Column(name = "lugar")
     private String lugar;
 
-    @ManyToOne
-    private Nivel nivel;
+    @Column(name = "id_nivel")
+    private Long idNivel;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -80,17 +80,17 @@ public class Curso implements Serializable {
         this.lugar = lugar;
     }
 
-    public Nivel getNivel() {
-        return nivel;
+    public Long getIdNivel() {
+        return idNivel;
     }
 
-    public Curso nivel(Nivel nivel) {
-        this.nivel = nivel;
+    public Curso idNivel(Long idNivel) {
+        this.idNivel = idNivel;
         return this;
     }
 
-    public void setNivel(Nivel nivel) {
-        this.nivel = nivel;
+    public void setIdNivel(Long idNivel) {
+        this.idNivel = idNivel;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -121,6 +121,7 @@ public class Curso implements Serializable {
             ", nombre='" + getNombre() + "'" +
             ", tipo='" + getTipo() + "'" +
             ", lugar='" + getLugar() + "'" +
+            ", idNivel=" + getIdNivel() +
             "}";
     }
 }

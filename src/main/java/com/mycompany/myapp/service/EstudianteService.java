@@ -57,7 +57,7 @@ public class EstudianteService {
     @Transactional(readOnly = true)
     public Estudiante findOne(Long id) {
         log.debug("Request to get Estudiante : {}", id);
-        return estudianteRepository.findOneWithEagerRelationships(id);
+        return estudianteRepository.findOne(id);
     }
 
     /**

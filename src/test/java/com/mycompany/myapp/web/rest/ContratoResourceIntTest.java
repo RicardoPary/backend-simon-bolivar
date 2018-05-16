@@ -98,12 +98,12 @@ public class ContratoResourceIntTest {
      */
     public static Contrato createEntity(EntityManager em) {
         Contrato contrato = new Contrato()
-            .fecha_inicio(DEFAULT_FECHA_INICIO)
-            .fecha_fin(DEFAULT_FECHA_FIN)
+            .fechaInicio(DEFAULT_FECHA_INICIO)
+            .fechaFin(DEFAULT_FECHA_FIN)
             .tipo(DEFAULT_TIPO)
             .sueldo(DEFAULT_SUELDO)
             .vacaciones(DEFAULT_VACACIONES)
-            .jornada_diaria(DEFAULT_JORNADA_DIARIA);
+            .jornadaDiaria(DEFAULT_JORNADA_DIARIA);
         return contrato;
     }
 
@@ -127,12 +127,12 @@ public class ContratoResourceIntTest {
         List<Contrato> contratoList = contratoRepository.findAll();
         assertThat(contratoList).hasSize(databaseSizeBeforeCreate + 1);
         Contrato testContrato = contratoList.get(contratoList.size() - 1);
-        assertThat(testContrato.getFecha_inicio()).isEqualTo(DEFAULT_FECHA_INICIO);
-        assertThat(testContrato.getFecha_fin()).isEqualTo(DEFAULT_FECHA_FIN);
+        assertThat(testContrato.getFechaInicio()).isEqualTo(DEFAULT_FECHA_INICIO);
+        assertThat(testContrato.getFechaFin()).isEqualTo(DEFAULT_FECHA_FIN);
         assertThat(testContrato.getTipo()).isEqualTo(DEFAULT_TIPO);
         assertThat(testContrato.getSueldo()).isEqualTo(DEFAULT_SUELDO);
         assertThat(testContrato.getVacaciones()).isEqualTo(DEFAULT_VACACIONES);
-        assertThat(testContrato.getJornada_diaria()).isEqualTo(DEFAULT_JORNADA_DIARIA);
+        assertThat(testContrato.getJornadaDiaria()).isEqualTo(DEFAULT_JORNADA_DIARIA);
     }
 
     @Test
@@ -165,12 +165,12 @@ public class ContratoResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(contrato.getId().intValue())))
-            .andExpect(jsonPath("$.[*].fecha_inicio").value(hasItem(DEFAULT_FECHA_INICIO.toString())))
-            .andExpect(jsonPath("$.[*].fecha_fin").value(hasItem(DEFAULT_FECHA_FIN.toString())))
+            .andExpect(jsonPath("$.[*].fechaInicio").value(hasItem(DEFAULT_FECHA_INICIO.toString())))
+            .andExpect(jsonPath("$.[*].fechaFin").value(hasItem(DEFAULT_FECHA_FIN.toString())))
             .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
             .andExpect(jsonPath("$.[*].sueldo").value(hasItem(DEFAULT_SUELDO.doubleValue())))
             .andExpect(jsonPath("$.[*].vacaciones").value(hasItem(DEFAULT_VACACIONES.toString())))
-            .andExpect(jsonPath("$.[*].jornada_diaria").value(hasItem(DEFAULT_JORNADA_DIARIA.toString())));
+            .andExpect(jsonPath("$.[*].jornadaDiaria").value(hasItem(DEFAULT_JORNADA_DIARIA.toString())));
     }
 
     @Test
@@ -184,12 +184,12 @@ public class ContratoResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(contrato.getId().intValue()))
-            .andExpect(jsonPath("$.fecha_inicio").value(DEFAULT_FECHA_INICIO.toString()))
-            .andExpect(jsonPath("$.fecha_fin").value(DEFAULT_FECHA_FIN.toString()))
+            .andExpect(jsonPath("$.fechaInicio").value(DEFAULT_FECHA_INICIO.toString()))
+            .andExpect(jsonPath("$.fechaFin").value(DEFAULT_FECHA_FIN.toString()))
             .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
             .andExpect(jsonPath("$.sueldo").value(DEFAULT_SUELDO.doubleValue()))
             .andExpect(jsonPath("$.vacaciones").value(DEFAULT_VACACIONES.toString()))
-            .andExpect(jsonPath("$.jornada_diaria").value(DEFAULT_JORNADA_DIARIA.toString()));
+            .andExpect(jsonPath("$.jornadaDiaria").value(DEFAULT_JORNADA_DIARIA.toString()));
     }
 
     @Test
@@ -213,12 +213,12 @@ public class ContratoResourceIntTest {
         // Disconnect from session so that the updates on updatedContrato are not directly saved in db
         em.detach(updatedContrato);
         updatedContrato
-            .fecha_inicio(UPDATED_FECHA_INICIO)
-            .fecha_fin(UPDATED_FECHA_FIN)
+            .fechaInicio(UPDATED_FECHA_INICIO)
+            .fechaFin(UPDATED_FECHA_FIN)
             .tipo(UPDATED_TIPO)
             .sueldo(UPDATED_SUELDO)
             .vacaciones(UPDATED_VACACIONES)
-            .jornada_diaria(UPDATED_JORNADA_DIARIA);
+            .jornadaDiaria(UPDATED_JORNADA_DIARIA);
 
         restContratoMockMvc.perform(put("/api/contratoes")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -229,12 +229,12 @@ public class ContratoResourceIntTest {
         List<Contrato> contratoList = contratoRepository.findAll();
         assertThat(contratoList).hasSize(databaseSizeBeforeUpdate);
         Contrato testContrato = contratoList.get(contratoList.size() - 1);
-        assertThat(testContrato.getFecha_inicio()).isEqualTo(UPDATED_FECHA_INICIO);
-        assertThat(testContrato.getFecha_fin()).isEqualTo(UPDATED_FECHA_FIN);
+        assertThat(testContrato.getFechaInicio()).isEqualTo(UPDATED_FECHA_INICIO);
+        assertThat(testContrato.getFechaFin()).isEqualTo(UPDATED_FECHA_FIN);
         assertThat(testContrato.getTipo()).isEqualTo(UPDATED_TIPO);
         assertThat(testContrato.getSueldo()).isEqualTo(UPDATED_SUELDO);
         assertThat(testContrato.getVacaciones()).isEqualTo(UPDATED_VACACIONES);
-        assertThat(testContrato.getJornada_diaria()).isEqualTo(UPDATED_JORNADA_DIARIA);
+        assertThat(testContrato.getJornadaDiaria()).isEqualTo(UPDATED_JORNADA_DIARIA);
     }
 
     @Test

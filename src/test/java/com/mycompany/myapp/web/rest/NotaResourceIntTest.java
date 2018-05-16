@@ -51,6 +51,12 @@ public class NotaResourceIntTest {
     private static final String DEFAULT_AREA = "AAAAAAAAAA";
     private static final String UPDATED_AREA = "BBBBBBBBBB";
 
+    private static final Long DEFAULT_ID_LIBRETA = 1L;
+    private static final Long UPDATED_ID_LIBRETA = 2L;
+
+    private static final Long DEFAULT_ID_MATERIA = 1L;
+    private static final Long UPDATED_ID_MATERIA = 2L;
+
     @Autowired
     private NotaRepository notaRepository;
 
@@ -95,7 +101,9 @@ public class NotaResourceIntTest {
             .valor(DEFAULT_VALOR)
             .bimestre(DEFAULT_BIMESTRE)
             .observacion(DEFAULT_OBSERVACION)
-            .area(DEFAULT_AREA);
+            .area(DEFAULT_AREA)
+            .idLibreta(DEFAULT_ID_LIBRETA)
+            .idMateria(DEFAULT_ID_MATERIA);
         return nota;
     }
 
@@ -123,6 +131,8 @@ public class NotaResourceIntTest {
         assertThat(testNota.getBimestre()).isEqualTo(DEFAULT_BIMESTRE);
         assertThat(testNota.getObservacion()).isEqualTo(DEFAULT_OBSERVACION);
         assertThat(testNota.getArea()).isEqualTo(DEFAULT_AREA);
+        assertThat(testNota.getIdLibreta()).isEqualTo(DEFAULT_ID_LIBRETA);
+        assertThat(testNota.getIdMateria()).isEqualTo(DEFAULT_ID_MATERIA);
     }
 
     @Test
@@ -158,7 +168,9 @@ public class NotaResourceIntTest {
             .andExpect(jsonPath("$.[*].valor").value(hasItem(DEFAULT_VALOR.doubleValue())))
             .andExpect(jsonPath("$.[*].bimestre").value(hasItem(DEFAULT_BIMESTRE)))
             .andExpect(jsonPath("$.[*].observacion").value(hasItem(DEFAULT_OBSERVACION.toString())))
-            .andExpect(jsonPath("$.[*].area").value(hasItem(DEFAULT_AREA.toString())));
+            .andExpect(jsonPath("$.[*].area").value(hasItem(DEFAULT_AREA.toString())))
+            .andExpect(jsonPath("$.[*].idLibreta").value(hasItem(DEFAULT_ID_LIBRETA.intValue())))
+            .andExpect(jsonPath("$.[*].idMateria").value(hasItem(DEFAULT_ID_MATERIA.intValue())));
     }
 
     @Test
@@ -175,7 +187,9 @@ public class NotaResourceIntTest {
             .andExpect(jsonPath("$.valor").value(DEFAULT_VALOR.doubleValue()))
             .andExpect(jsonPath("$.bimestre").value(DEFAULT_BIMESTRE))
             .andExpect(jsonPath("$.observacion").value(DEFAULT_OBSERVACION.toString()))
-            .andExpect(jsonPath("$.area").value(DEFAULT_AREA.toString()));
+            .andExpect(jsonPath("$.area").value(DEFAULT_AREA.toString()))
+            .andExpect(jsonPath("$.idLibreta").value(DEFAULT_ID_LIBRETA.intValue()))
+            .andExpect(jsonPath("$.idMateria").value(DEFAULT_ID_MATERIA.intValue()));
     }
 
     @Test
@@ -202,7 +216,9 @@ public class NotaResourceIntTest {
             .valor(UPDATED_VALOR)
             .bimestre(UPDATED_BIMESTRE)
             .observacion(UPDATED_OBSERVACION)
-            .area(UPDATED_AREA);
+            .area(UPDATED_AREA)
+            .idLibreta(UPDATED_ID_LIBRETA)
+            .idMateria(UPDATED_ID_MATERIA);
 
         restNotaMockMvc.perform(put("/api/notas")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -217,6 +233,8 @@ public class NotaResourceIntTest {
         assertThat(testNota.getBimestre()).isEqualTo(UPDATED_BIMESTRE);
         assertThat(testNota.getObservacion()).isEqualTo(UPDATED_OBSERVACION);
         assertThat(testNota.getArea()).isEqualTo(UPDATED_AREA);
+        assertThat(testNota.getIdLibreta()).isEqualTo(UPDATED_ID_LIBRETA);
+        assertThat(testNota.getIdMateria()).isEqualTo(UPDATED_ID_MATERIA);
     }
 
     @Test

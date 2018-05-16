@@ -1,13 +1,6 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "nivel",
-            "otherEntityName": "nivel",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "nombre",
@@ -20,6 +13,10 @@
         {
             "fieldName": "lugar",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "idNivel",
+            "fieldType": "Long"
         }
     ],
     "changelogDate": "00000000000400",

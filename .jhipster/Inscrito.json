@@ -3,22 +3,22 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "titulo",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "descripcion",
-            "fieldType": "String"
+            "fieldName": "idEstudiante",
+            "fieldType": "Long"
         },
         {
             "fieldName": "idMateria",
             "fieldType": "Long"
+        },
+        {
+            "fieldName": "nota",
+            "fieldType": "Double"
         }
     ],
-    "changelogDate": "00000000008000",
+    "changelogDate": "00000000000900",
     "dto": "no",
     "service": "serviceClass",
-    "entityTableName": "tema",
+    "entityTableName": "inscrito",
     "jpaMetamodelFiltering": false,
     "pagination": "pager"
 }

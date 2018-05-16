@@ -19,11 +19,5 @@
                                  referencedColumnNames="id"
                                  referencedTableName="materia"/>
         
-        <addForeignKeyConstraint baseColumnNames="persona_id"
-                                 baseTableName="docente"
-                                 constraintName="fk_docente_persona_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="persona"/>
-
     </changeSet>
 </databaseChangeLog>

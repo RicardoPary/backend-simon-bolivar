@@ -2,9 +2,6 @@ package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.SimonBolivarApp;
 
-import com.mycompany.myapp.domain.Actividad_civica;
-import com.mycompany.myapp.repository.Actividad_civicaRepository;
-import com.mycompany.myapp.service.Actividad_civicaService;
 import com.mycompany.myapp.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;

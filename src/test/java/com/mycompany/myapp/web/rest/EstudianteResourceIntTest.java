@@ -45,6 +45,9 @@ public class EstudianteResourceIntTest {
     private static final String DEFAULT_TIPO = "AAAAAAAAAA";
     private static final String UPDATED_TIPO = "BBBBBBBBBB";
 
+    private static final Long DEFAULT_ID_PERSONA = 1L;
+    private static final Long UPDATED_ID_PERSONA = 2L;
+
     @Autowired
     private EstudianteRepository estudianteRepository;
 
@@ -87,7 +90,8 @@ public class EstudianteResourceIntTest {
     public static Estudiante createEntity(EntityManager em) {
         Estudiante estudiante = new Estudiante()
             .matricula(DEFAULT_MATRICULA)
-            .tipo(DEFAULT_TIPO);
+            .tipo(DEFAULT_TIPO)
+            .idPersona(DEFAULT_ID_PERSONA);
         return estudiante;
     }
 
@@ -113,6 +117,7 @@ public class EstudianteResourceIntTest {
         Estudiante testEstudiante = estudianteList.get(estudianteList.size() - 1);
         assertThat(testEstudiante.getMatricula()).isEqualTo(DEFAULT_MATRICULA);
         assertThat(testEstudiante.getTipo()).isEqualTo(DEFAULT_TIPO);
+        assertThat(testEstudiante.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
     }
 
     @Test
@@ -146,7 +151,8 @@ public class EstudianteResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(estudiante.getId().intValue())))
             .andExpect(jsonPath("$.[*].matricula").value(hasItem(DEFAULT_MATRICULA.toString())))
-            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())));
+            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
+            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA.intValue())));
     }
 
     @Test
@@ -161,7 +167,8 @@ public class EstudianteResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(estudiante.getId().intValue()))
             .andExpect(jsonPath("$.matricula").value(DEFAULT_MATRICULA.toString()))
-            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()));
+            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
+            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA.intValue()));
     }
 
     @Test
@@ -186,7 +193,8 @@ public class EstudianteResourceIntTest {
         em.detach(updatedEstudiante);
         updatedEstudiante
             .matricula(UPDATED_MATRICULA)
-            .tipo(UPDATED_TIPO);
+            .tipo(UPDATED_TIPO)
+            .idPersona(UPDATED_ID_PERSONA);
 
         restEstudianteMockMvc.perform(put("/api/estudiantes")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -199,6 +207,7 @@ public class EstudianteResourceIntTest {
         Estudiante testEstudiante = estudianteList.get(estudianteList.size() - 1);
         assertThat(testEstudiante.getMatricula()).isEqualTo(UPDATED_MATRICULA);
         assertThat(testEstudiante.getTipo()).isEqualTo(UPDATED_TIPO);
+        assertThat(testEstudiante.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
     }
 
     @Test

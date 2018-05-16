@@ -32,25 +32,9 @@ public class Materia implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @OneToMany(mappedBy = "materia")
-    @JsonIgnore
-    private Set<Horario> horarios = new HashSet<>();
-
-    @OneToMany(mappedBy = "materia")
-    @JsonIgnore
-    private Set<Nota> notas = new HashSet<>();
-
     @ManyToMany(mappedBy = "materias")
     @JsonIgnore
     private Set<Aula> aulas = new HashSet<>();
-
-    @OneToMany(mappedBy = "materia")
-    @JsonIgnore
-    private Set<Tema> temas = new HashSet<>();
-
-    @ManyToMany(mappedBy = "materias")
-    @JsonIgnore
-    private Set<Estudiante> estudiantes = new HashSet<>();
 
     @ManyToMany(mappedBy = "materias")
     @JsonIgnore
@@ -104,56 +88,6 @@ public class Materia implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Set<Horario> getHorarios() {
-        return horarios;
-    }
-
-    public Materia horarios(Set<Horario> horarios) {
-        this.horarios = horarios;
-        return this;
-    }
-
-    public Materia addHorario(Horario horario) {
-        this.horarios.add(horario);
-        horario.setMateria(this);
-        return this;
-    }
-
-    public Materia removeHorario(Horario horario) {
-        this.horarios.remove(horario);
-        horario.setMateria(null);
-        return this;
-    }
-
-    public void setHorarios(Set<Horario> horarios) {
-        this.horarios = horarios;
-    }
-
-    public Set<Nota> getNotas() {
-        return notas;
-    }
-
-    public Materia notas(Set<Nota> notas) {
-        this.notas = notas;
-        return this;
-    }
-
-    public Materia addNota(Nota nota) {
-        this.notas.add(nota);
-        nota.setMateria(this);
-        return this;
-    }
-
-    public Materia removeNota(Nota nota) {
-        this.notas.remove(nota);
-        nota.setMateria(null);
-        return this;
-    }
-
-    public void setNotas(Set<Nota> notas) {
-        this.notas = notas;
-    }
-
     public Set<Aula> getAulas() {
         return aulas;
     }
@@ -177,56 +111,6 @@ public class Materia implements Serializable {
 
     public void setAulas(Set<Aula> aulas) {
         this.aulas = aulas;
-    }
-
-    public Set<Tema> getTemas() {
-        return temas;
-    }
-
-    public Materia temas(Set<Tema> temas) {
-        this.temas = temas;
-        return this;
-    }
-
-    public Materia addTema(Tema tema) {
-        this.temas.add(tema);
-        tema.setMateria(this);
-        return this;
-    }
-
-    public Materia removeTema(Tema tema) {
-        this.temas.remove(tema);
-        tema.setMateria(null);
-        return this;
-    }
-
-    public void setTemas(Set<Tema> temas) {
-        this.temas = temas;
-    }
-
-    public Set<Estudiante> getEstudiantes() {
-        return estudiantes;
-    }
-
-    public Materia estudiantes(Set<Estudiante> estudiantes) {
-        this.estudiantes = estudiantes;
-        return this;
-    }
-
-    public Materia addEstudiante(Estudiante estudiante) {
-        this.estudiantes.add(estudiante);
-        estudiante.getMaterias().add(this);
-        return this;
-    }
-
-    public Materia removeEstudiante(Estudiante estudiante) {
-        this.estudiantes.remove(estudiante);
-        estudiante.getMaterias().remove(this);
-        return this;
-    }
-
-    public void setEstudiantes(Set<Estudiante> estudiantes) {
-        this.estudiantes = estudiantes;
     }
 
     public Set<Docente> getDocentes() {
