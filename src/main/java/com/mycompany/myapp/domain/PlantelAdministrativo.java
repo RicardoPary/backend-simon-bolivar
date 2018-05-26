@@ -1,12 +1,9 @@
 package com.mycompany.myapp.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -29,9 +26,8 @@ public class PlantelAdministrativo implements Serializable {
     @Column(name = "id_persona")
     private Long idPersona;
 
-    @ManyToMany(mappedBy = "plantelAdministrativos")
-    @JsonIgnore
-    private Set<ActividadCivica> actividadCivicas = new HashSet<>();
+    @Column(name = "id_trabajador")
+    private Long idTrabajador;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -68,29 +64,17 @@ public class PlantelAdministrativo implements Serializable {
         this.idPersona = idPersona;
     }
 
-    public Set<ActividadCivica> getActividadCivicas() {
-        return actividadCivicas;
+    public Long getIdTrabajador() {
+        return idTrabajador;
     }
 
-    public PlantelAdministrativo actividadCivicas(Set<ActividadCivica> actividadCivicas) {
-        this.actividadCivicas = actividadCivicas;
+    public PlantelAdministrativo idTrabajador(Long idTrabajador) {
+        this.idTrabajador = idTrabajador;
         return this;
     }
 
-    public PlantelAdministrativo addActividadCivica(ActividadCivica actividadCivica) {
-        this.actividadCivicas.add(actividadCivica);
-        actividadCivica.getPlantelAdministrativos().add(this);
-        return this;
-    }
-
-    public PlantelAdministrativo removeActividadCivica(ActividadCivica actividadCivica) {
-        this.actividadCivicas.remove(actividadCivica);
-        actividadCivica.getPlantelAdministrativos().remove(this);
-        return this;
-    }
-
-    public void setActividadCivicas(Set<ActividadCivica> actividadCivicas) {
-        this.actividadCivicas = actividadCivicas;
+    public void setIdTrabajador(Long idTrabajador) {
+        this.idTrabajador = idTrabajador;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -120,6 +104,7 @@ public class PlantelAdministrativo implements Serializable {
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
             ", idPersona=" + getIdPersona() +
+            ", idTrabajador=" + getIdTrabajador() +
             "}";
     }
 }

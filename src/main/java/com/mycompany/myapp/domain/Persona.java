@@ -1,12 +1,9 @@
 package com.mycompany.myapp.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -49,10 +46,6 @@ public class Persona implements Serializable {
 
     @Column(name = "telefono")
     private Long telefono;
-
-    @ManyToMany(mappedBy = "personas")
-    @JsonIgnore
-    private Set<Reunion> reunions = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -178,31 +171,6 @@ public class Persona implements Serializable {
 
     public void setTelefono(Long telefono) {
         this.telefono = telefono;
-    }
-
-    public Set<Reunion> getReunions() {
-        return reunions;
-    }
-
-    public Persona reunions(Set<Reunion> reunions) {
-        this.reunions = reunions;
-        return this;
-    }
-
-    public Persona addReunion(Reunion reunion) {
-        this.reunions.add(reunion);
-        reunion.getPersonas().add(this);
-        return this;
-    }
-
-    public Persona removeReunion(Reunion reunion) {
-        this.reunions.remove(reunion);
-        reunion.getPersonas().remove(this);
-        return this;
-    }
-
-    public void setReunions(Set<Reunion> reunions) {
-        this.reunions = reunions;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

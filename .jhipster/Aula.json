@@ -1,15 +1,6 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "materia",
-            "otherEntityName": "materia",
-            "relationshipType": "many-to-many",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "aula"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "nombre",

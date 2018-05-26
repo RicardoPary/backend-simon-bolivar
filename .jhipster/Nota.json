@@ -27,7 +27,7 @@
             "fieldType": "Long"
         }
     ],
-    "changelogDate": "00000000004000",
+    "changelogDate": "00000000006000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "nota",

@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "idEstudiante",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "idMateria",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "nota",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "idLibreta",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "00000000000800",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "estudiante_materia",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pager"
+}

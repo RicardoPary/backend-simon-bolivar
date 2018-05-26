@@ -38,8 +38,8 @@ public class Contrato implements Serializable {
     @Column(name = "jornada_diaria")
     private String jornadaDiaria;
 
-    @ManyToOne
-    private Docente docente;
+    @Column(name = "id_docente")
+    private Long idDocente;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -128,17 +128,17 @@ public class Contrato implements Serializable {
         this.jornadaDiaria = jornadaDiaria;
     }
 
-    public Docente getDocente() {
-        return docente;
+    public Long getIdDocente() {
+        return idDocente;
     }
 
-    public Contrato docente(Docente docente) {
-        this.docente = docente;
+    public Contrato idDocente(Long idDocente) {
+        this.idDocente = idDocente;
         return this;
     }
 
-    public void setDocente(Docente docente) {
-        this.docente = docente;
+    public void setIdDocente(Long idDocente) {
+        this.idDocente = idDocente;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -172,6 +172,7 @@ public class Contrato implements Serializable {
             ", sueldo=" + getSueldo() +
             ", vacaciones='" + getVacaciones() + "'" +
             ", jornadaDiaria='" + getJornadaDiaria() + "'" +
+            ", idDocente=" + getIdDocente() +
             "}";
     }
 }

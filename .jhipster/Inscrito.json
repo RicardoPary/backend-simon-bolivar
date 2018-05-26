@@ -13,9 +13,13 @@
         {
             "fieldName": "nota",
             "fieldType": "Double"
+        },
+        {
+            "fieldName": "idLibreta",
+            "fieldType": "Long"
         }
     ],
-    "changelogDate": "00000000000900",
+    "changelogDate": "00000000002000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "inscrito",

@@ -1,12 +1,9 @@
 package com.mycompany.myapp.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -29,19 +26,8 @@ public class Docente implements Serializable {
     @Column(name = "id_persona")
     private Long idPersona;
 
-    @ManyToMany
-    @JoinTable(name = "docente_materia",
-               joinColumns = @JoinColumn(name="docentes_id", referencedColumnName="id"),
-               inverseJoinColumns = @JoinColumn(name="materias_id", referencedColumnName="id"))
-    private Set<Materia> materias = new HashSet<>();
-
-    @ManyToMany(mappedBy = "docentes")
-    @JsonIgnore
-    private Set<ActividadCivica> actividadCivicas = new HashSet<>();
-
-    @OneToMany(mappedBy = "docente")
-    @JsonIgnore
-    private Set<Contrato> contratoes = new HashSet<>();
+    @Column(name = "id_trabajador")
+    private Long idTrabajador;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -78,79 +64,17 @@ public class Docente implements Serializable {
         this.idPersona = idPersona;
     }
 
-    public Set<Materia> getMaterias() {
-        return materias;
+    public Long getIdTrabajador() {
+        return idTrabajador;
     }
 
-    public Docente materias(Set<Materia> materias) {
-        this.materias = materias;
+    public Docente idTrabajador(Long idTrabajador) {
+        this.idTrabajador = idTrabajador;
         return this;
     }
 
-    public Docente addMateria(Materia materia) {
-        this.materias.add(materia);
-        materia.getDocentes().add(this);
-        return this;
-    }
-
-    public Docente removeMateria(Materia materia) {
-        this.materias.remove(materia);
-        materia.getDocentes().remove(this);
-        return this;
-    }
-
-    public void setMaterias(Set<Materia> materias) {
-        this.materias = materias;
-    }
-
-    public Set<ActividadCivica> getActividadCivicas() {
-        return actividadCivicas;
-    }
-
-    public Docente actividadCivicas(Set<ActividadCivica> actividadCivicas) {
-        this.actividadCivicas = actividadCivicas;
-        return this;
-    }
-
-    public Docente addActividadCivica(ActividadCivica actividadCivica) {
-        this.actividadCivicas.add(actividadCivica);
-        actividadCivica.getDocentes().add(this);
-        return this;
-    }
-
-    public Docente removeActividadCivica(ActividadCivica actividadCivica) {
-        this.actividadCivicas.remove(actividadCivica);
-        actividadCivica.getDocentes().remove(this);
-        return this;
-    }
-
-    public void setActividadCivicas(Set<ActividadCivica> actividadCivicas) {
-        this.actividadCivicas = actividadCivicas;
-    }
-
-    public Set<Contrato> getContratoes() {
-        return contratoes;
-    }
-
-    public Docente contratoes(Set<Contrato> contratoes) {
-        this.contratoes = contratoes;
-        return this;
-    }
-
-    public Docente addContrato(Contrato contrato) {
-        this.contratoes.add(contrato);
-        contrato.setDocente(this);
-        return this;
-    }
-
-    public Docente removeContrato(Contrato contrato) {
-        this.contratoes.remove(contrato);
-        contrato.setDocente(null);
-        return this;
-    }
-
-    public void setContratoes(Set<Contrato> contratoes) {
-        this.contratoes = contratoes;
+    public void setIdTrabajador(Long idTrabajador) {
+        this.idTrabajador = idTrabajador;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -180,6 +104,7 @@ public class Docente implements Serializable {
             "id=" + getId() +
             ", tipo='" + getTipo() + "'" +
             ", idPersona=" + getIdPersona() +
+            ", idTrabajador=" + getIdTrabajador() +
             "}";
     }
 }

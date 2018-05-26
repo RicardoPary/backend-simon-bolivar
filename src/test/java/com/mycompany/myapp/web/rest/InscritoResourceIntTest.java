@@ -48,6 +48,9 @@ public class InscritoResourceIntTest {
     private static final Double DEFAULT_NOTA = 1D;
     private static final Double UPDATED_NOTA = 2D;
 
+    private static final Long DEFAULT_ID_LIBRETA = 1L;
+    private static final Long UPDATED_ID_LIBRETA = 2L;
+
     @Autowired
     private InscritoRepository inscritoRepository;
 
@@ -91,7 +94,8 @@ public class InscritoResourceIntTest {
         Inscrito inscrito = new Inscrito()
             .idEstudiante(DEFAULT_ID_ESTUDIANTE)
             .idMateria(DEFAULT_ID_MATERIA)
-            .nota(DEFAULT_NOTA);
+            .nota(DEFAULT_NOTA)
+            .idLibreta(DEFAULT_ID_LIBRETA);
         return inscrito;
     }
 
@@ -118,6 +122,7 @@ public class InscritoResourceIntTest {
         assertThat(testInscrito.getIdEstudiante()).isEqualTo(DEFAULT_ID_ESTUDIANTE);
         assertThat(testInscrito.getIdMateria()).isEqualTo(DEFAULT_ID_MATERIA);
         assertThat(testInscrito.getNota()).isEqualTo(DEFAULT_NOTA);
+        assertThat(testInscrito.getIdLibreta()).isEqualTo(DEFAULT_ID_LIBRETA);
     }
 
     @Test
@@ -152,7 +157,8 @@ public class InscritoResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(inscrito.getId().intValue())))
             .andExpect(jsonPath("$.[*].idEstudiante").value(hasItem(DEFAULT_ID_ESTUDIANTE.intValue())))
             .andExpect(jsonPath("$.[*].idMateria").value(hasItem(DEFAULT_ID_MATERIA.intValue())))
-            .andExpect(jsonPath("$.[*].nota").value(hasItem(DEFAULT_NOTA.doubleValue())));
+            .andExpect(jsonPath("$.[*].nota").value(hasItem(DEFAULT_NOTA.doubleValue())))
+            .andExpect(jsonPath("$.[*].idLibreta").value(hasItem(DEFAULT_ID_LIBRETA.intValue())));
     }
 
     @Test
@@ -168,7 +174,8 @@ public class InscritoResourceIntTest {
             .andExpect(jsonPath("$.id").value(inscrito.getId().intValue()))
             .andExpect(jsonPath("$.idEstudiante").value(DEFAULT_ID_ESTUDIANTE.intValue()))
             .andExpect(jsonPath("$.idMateria").value(DEFAULT_ID_MATERIA.intValue()))
-            .andExpect(jsonPath("$.nota").value(DEFAULT_NOTA.doubleValue()));
+            .andExpect(jsonPath("$.nota").value(DEFAULT_NOTA.doubleValue()))
+            .andExpect(jsonPath("$.idLibreta").value(DEFAULT_ID_LIBRETA.intValue()));
     }
 
     @Test
@@ -194,7 +201,8 @@ public class InscritoResourceIntTest {
         updatedInscrito
             .idEstudiante(UPDATED_ID_ESTUDIANTE)
             .idMateria(UPDATED_ID_MATERIA)
-            .nota(UPDATED_NOTA);
+            .nota(UPDATED_NOTA)
+            .idLibreta(UPDATED_ID_LIBRETA);
 
         restInscritoMockMvc.perform(put("/api/inscritos")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -208,6 +216,7 @@ public class InscritoResourceIntTest {
         assertThat(testInscrito.getIdEstudiante()).isEqualTo(UPDATED_ID_ESTUDIANTE);
         assertThat(testInscrito.getIdMateria()).isEqualTo(UPDATED_ID_MATERIA);
         assertThat(testInscrito.getNota()).isEqualTo(UPDATED_NOTA);
+        assertThat(testInscrito.getIdLibreta()).isEqualTo(UPDATED_ID_LIBRETA);
     }
 
     @Test

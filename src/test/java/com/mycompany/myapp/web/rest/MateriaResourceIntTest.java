@@ -48,6 +48,9 @@ public class MateriaResourceIntTest {
     private static final String DEFAULT_DESCRIPCION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPCION = "BBBBBBBBBB";
 
+    private static final Long DEFAULT_ID_CURSO = 1L;
+    private static final Long UPDATED_ID_CURSO = 2L;
+
     @Autowired
     private MateriaRepository materiaRepository;
 
@@ -91,7 +94,8 @@ public class MateriaResourceIntTest {
         Materia materia = new Materia()
             .nombre(DEFAULT_NOMBRE)
             .sigla(DEFAULT_SIGLA)
-            .descripcion(DEFAULT_DESCRIPCION);
+            .descripcion(DEFAULT_DESCRIPCION)
+            .idCurso(DEFAULT_ID_CURSO);
         return materia;
     }
 
@@ -118,6 +122,7 @@ public class MateriaResourceIntTest {
         assertThat(testMateria.getNombre()).isEqualTo(DEFAULT_NOMBRE);
         assertThat(testMateria.getSigla()).isEqualTo(DEFAULT_SIGLA);
         assertThat(testMateria.getDescripcion()).isEqualTo(DEFAULT_DESCRIPCION);
+        assertThat(testMateria.getIdCurso()).isEqualTo(DEFAULT_ID_CURSO);
     }
 
     @Test
@@ -152,7 +157,8 @@ public class MateriaResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(materia.getId().intValue())))
             .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
             .andExpect(jsonPath("$.[*].sigla").value(hasItem(DEFAULT_SIGLA.toString())))
-            .andExpect(jsonPath("$.[*].descripcion").value(hasItem(DEFAULT_DESCRIPCION.toString())));
+            .andExpect(jsonPath("$.[*].descripcion").value(hasItem(DEFAULT_DESCRIPCION.toString())))
+            .andExpect(jsonPath("$.[*].idCurso").value(hasItem(DEFAULT_ID_CURSO.intValue())));
     }
 
     @Test
@@ -168,7 +174,8 @@ public class MateriaResourceIntTest {
             .andExpect(jsonPath("$.id").value(materia.getId().intValue()))
             .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
             .andExpect(jsonPath("$.sigla").value(DEFAULT_SIGLA.toString()))
-            .andExpect(jsonPath("$.descripcion").value(DEFAULT_DESCRIPCION.toString()));
+            .andExpect(jsonPath("$.descripcion").value(DEFAULT_DESCRIPCION.toString()))
+            .andExpect(jsonPath("$.idCurso").value(DEFAULT_ID_CURSO.intValue()));
     }
 
     @Test
@@ -194,7 +201,8 @@ public class MateriaResourceIntTest {
         updatedMateria
             .nombre(UPDATED_NOMBRE)
             .sigla(UPDATED_SIGLA)
-            .descripcion(UPDATED_DESCRIPCION);
+            .descripcion(UPDATED_DESCRIPCION)
+            .idCurso(UPDATED_ID_CURSO);
 
         restMateriaMockMvc.perform(put("/api/materias")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -208,6 +216,7 @@ public class MateriaResourceIntTest {
         assertThat(testMateria.getNombre()).isEqualTo(UPDATED_NOMBRE);
         assertThat(testMateria.getSigla()).isEqualTo(UPDATED_SIGLA);
         assertThat(testMateria.getDescripcion()).isEqualTo(UPDATED_DESCRIPCION);
+        assertThat(testMateria.getIdCurso()).isEqualTo(UPDATED_ID_CURSO);
     }
 
     @Test

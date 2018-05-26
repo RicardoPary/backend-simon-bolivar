@@ -29,6 +29,9 @@ public class Inscrito implements Serializable {
     @Column(name = "nota")
     private Double nota;
 
+    @Column(name = "id_libreta")
+    private Long idLibreta;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -76,6 +79,19 @@ public class Inscrito implements Serializable {
     public void setNota(Double nota) {
         this.nota = nota;
     }
+
+    public Long getIdLibreta() {
+        return idLibreta;
+    }
+
+    public Inscrito idLibreta(Long idLibreta) {
+        this.idLibreta = idLibreta;
+        return this;
+    }
+
+    public void setIdLibreta(Long idLibreta) {
+        this.idLibreta = idLibreta;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -105,6 +121,7 @@ public class Inscrito implements Serializable {
             ", idEstudiante=" + getIdEstudiante() +
             ", idMateria=" + getIdMateria() +
             ", nota=" + getNota() +
+            ", idLibreta=" + getIdLibreta() +
             "}";
     }
 }

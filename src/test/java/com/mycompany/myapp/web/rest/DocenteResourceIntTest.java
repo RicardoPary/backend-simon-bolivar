@@ -45,6 +45,9 @@ public class DocenteResourceIntTest {
     private static final Long DEFAULT_ID_PERSONA = 1L;
     private static final Long UPDATED_ID_PERSONA = 2L;
 
+    private static final Long DEFAULT_ID_TRABAJADOR = 1L;
+    private static final Long UPDATED_ID_TRABAJADOR = 2L;
+
     @Autowired
     private DocenteRepository docenteRepository;
 
@@ -87,7 +90,8 @@ public class DocenteResourceIntTest {
     public static Docente createEntity(EntityManager em) {
         Docente docente = new Docente()
             .tipo(DEFAULT_TIPO)
-            .idPersona(DEFAULT_ID_PERSONA);
+            .idPersona(DEFAULT_ID_PERSONA)
+            .idTrabajador(DEFAULT_ID_TRABAJADOR);
         return docente;
     }
 
@@ -113,6 +117,7 @@ public class DocenteResourceIntTest {
         Docente testDocente = docenteList.get(docenteList.size() - 1);
         assertThat(testDocente.getTipo()).isEqualTo(DEFAULT_TIPO);
         assertThat(testDocente.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
+        assertThat(testDocente.getIdTrabajador()).isEqualTo(DEFAULT_ID_TRABAJADOR);
     }
 
     @Test
@@ -146,7 +151,8 @@ public class DocenteResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(docente.getId().intValue())))
             .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA.intValue())));
+            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA.intValue())))
+            .andExpect(jsonPath("$.[*].idTrabajador").value(hasItem(DEFAULT_ID_TRABAJADOR.intValue())));
     }
 
     @Test
@@ -161,7 +167,8 @@ public class DocenteResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(docente.getId().intValue()))
             .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
-            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA.intValue()));
+            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA.intValue()))
+            .andExpect(jsonPath("$.idTrabajador").value(DEFAULT_ID_TRABAJADOR.intValue()));
     }
 
     @Test
@@ -186,7 +193,8 @@ public class DocenteResourceIntTest {
         em.detach(updatedDocente);
         updatedDocente
             .tipo(UPDATED_TIPO)
-            .idPersona(UPDATED_ID_PERSONA);
+            .idPersona(UPDATED_ID_PERSONA)
+            .idTrabajador(UPDATED_ID_TRABAJADOR);
 
         restDocenteMockMvc.perform(put("/api/docentes")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -199,6 +207,7 @@ public class DocenteResourceIntTest {
         Docente testDocente = docenteList.get(docenteList.size() - 1);
         assertThat(testDocente.getTipo()).isEqualTo(UPDATED_TIPO);
         assertThat(testDocente.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
+        assertThat(testDocente.getIdTrabajador()).isEqualTo(UPDATED_ID_TRABAJADOR);
     }
 
     @Test

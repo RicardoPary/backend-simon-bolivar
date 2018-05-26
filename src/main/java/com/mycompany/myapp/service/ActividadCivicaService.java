@@ -57,7 +57,7 @@ public class ActividadCivicaService {
     @Transactional(readOnly = true)
     public ActividadCivica findOne(Long id) {
         log.debug("Request to get ActividadCivica : {}", id);
-        return actividadCivicaRepository.findOneWithEagerRelationships(id);
+        return actividadCivicaRepository.findOne(id);
     }
 
     /**

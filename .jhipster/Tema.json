@@ -15,7 +15,7 @@
             "fieldType": "Long"
         }
     ],
-    "changelogDate": "00000000008000",
+    "changelogDate": "00000000020000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "tema",

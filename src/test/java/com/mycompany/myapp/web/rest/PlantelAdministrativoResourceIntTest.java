@@ -45,6 +45,9 @@ public class PlantelAdministrativoResourceIntTest {
     private static final Long DEFAULT_ID_PERSONA = 1L;
     private static final Long UPDATED_ID_PERSONA = 2L;
 
+    private static final Long DEFAULT_ID_TRABAJADOR = 1L;
+    private static final Long UPDATED_ID_TRABAJADOR = 2L;
+
     @Autowired
     private PlantelAdministrativoRepository plantelAdministrativoRepository;
 
@@ -87,7 +90,8 @@ public class PlantelAdministrativoResourceIntTest {
     public static PlantelAdministrativo createEntity(EntityManager em) {
         PlantelAdministrativo plantelAdministrativo = new PlantelAdministrativo()
             .nombre(DEFAULT_NOMBRE)
-            .idPersona(DEFAULT_ID_PERSONA);
+            .idPersona(DEFAULT_ID_PERSONA)
+            .idTrabajador(DEFAULT_ID_TRABAJADOR);
         return plantelAdministrativo;
     }
 
@@ -113,6 +117,7 @@ public class PlantelAdministrativoResourceIntTest {
         PlantelAdministrativo testPlantelAdministrativo = plantelAdministrativoList.get(plantelAdministrativoList.size() - 1);
         assertThat(testPlantelAdministrativo.getNombre()).isEqualTo(DEFAULT_NOMBRE);
         assertThat(testPlantelAdministrativo.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
+        assertThat(testPlantelAdministrativo.getIdTrabajador()).isEqualTo(DEFAULT_ID_TRABAJADOR);
     }
 
     @Test
@@ -146,7 +151,8 @@ public class PlantelAdministrativoResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(plantelAdministrativo.getId().intValue())))
             .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA.intValue())));
+            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA.intValue())))
+            .andExpect(jsonPath("$.[*].idTrabajador").value(hasItem(DEFAULT_ID_TRABAJADOR.intValue())));
     }
 
     @Test
@@ -161,7 +167,8 @@ public class PlantelAdministrativoResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(plantelAdministrativo.getId().intValue()))
             .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
-            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA.intValue()));
+            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA.intValue()))
+            .andExpect(jsonPath("$.idTrabajador").value(DEFAULT_ID_TRABAJADOR.intValue()));
     }
 
     @Test
@@ -186,7 +193,8 @@ public class PlantelAdministrativoResourceIntTest {
         em.detach(updatedPlantelAdministrativo);
         updatedPlantelAdministrativo
             .nombre(UPDATED_NOMBRE)
-            .idPersona(UPDATED_ID_PERSONA);
+            .idPersona(UPDATED_ID_PERSONA)
+            .idTrabajador(UPDATED_ID_TRABAJADOR);
 
         restPlantelAdministrativoMockMvc.perform(put("/api/plantel-administrativos")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -199,6 +207,7 @@ public class PlantelAdministrativoResourceIntTest {
         PlantelAdministrativo testPlantelAdministrativo = plantelAdministrativoList.get(plantelAdministrativoList.size() - 1);
         assertThat(testPlantelAdministrativo.getNombre()).isEqualTo(UPDATED_NOMBRE);
         assertThat(testPlantelAdministrativo.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
+        assertThat(testPlantelAdministrativo.getIdTrabajador()).isEqualTo(UPDATED_ID_TRABAJADOR);
     }
 
     @Test

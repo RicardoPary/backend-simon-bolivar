@@ -4,8 +4,6 @@ package com.mycompany.myapp.domain;
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -33,12 +31,6 @@ public class Aula implements Serializable {
 
     @Column(name = "descripcion")
     private String descripcion;
-
-    @ManyToMany
-    @JoinTable(name = "aula_materia",
-               joinColumns = @JoinColumn(name="aulas_id", referencedColumnName="id"),
-               inverseJoinColumns = @JoinColumn(name="materias_id", referencedColumnName="id"))
-    private Set<Materia> materias = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -99,31 +91,6 @@ public class Aula implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public Set<Materia> getMaterias() {
-        return materias;
-    }
-
-    public Aula materias(Set<Materia> materias) {
-        this.materias = materias;
-        return this;
-    }
-
-    public Aula addMateria(Materia materia) {
-        this.materias.add(materia);
-        materia.getAulas().add(this);
-        return this;
-    }
-
-    public Aula removeMateria(Materia materia) {
-        this.materias.remove(materia);
-        materia.getAulas().remove(this);
-        return this;
-    }
-
-    public void setMaterias(Set<Materia> materias) {
-        this.materias = materias;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

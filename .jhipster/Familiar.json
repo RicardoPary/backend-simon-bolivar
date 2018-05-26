@@ -11,7 +11,7 @@
             "fieldType": "Long"
         }
     ],
-    "changelogDate": "00000000000700",
+    "changelogDate": "00000000000900",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "familiar",

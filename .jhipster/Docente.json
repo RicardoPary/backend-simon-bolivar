@@ -1,29 +1,6 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "materia",
-            "otherEntityName": "materia",
-            "relationshipType": "many-to-many",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "docente"
-        },
-        {
-            "relationshipName": "actividadCivica",
-            "otherEntityName": "actividadCivica",
-            "relationshipType": "many-to-many",
-            "otherEntityField": "id",
-            "ownerSide": false,
-            "otherEntityRelationshipName": "docente"
-        },
-        {
-            "relationshipName": "contrato",
-            "otherEntityName": "contrato",
-            "relationshipType": "one-to-many",
-            "otherEntityRelationshipName": "docente"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "tipo",
@@ -32,9 +9,13 @@
         {
             "fieldName": "idPersona",
             "fieldType": "Long"
+        },
+        {
+            "fieldName": "idTrabajador",
+            "fieldType": "Long"
         }
     ],
-    "changelogDate": "00000000000500",
+    "changelogDate": "00000000000600",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "docente",

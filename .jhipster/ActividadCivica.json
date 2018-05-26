@@ -1,23 +1,6 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "docente",
-            "otherEntityName": "docente",
-            "relationshipType": "many-to-many",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "actividadCivica"
-        },
-        {
-            "relationshipName": "plantelAdministrativo",
-            "otherEntityName": "plantelAdministrativo",
-            "relationshipType": "many-to-many",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "actividadCivica"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "nombre",

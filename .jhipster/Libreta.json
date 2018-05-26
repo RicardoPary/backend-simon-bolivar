@@ -19,7 +19,7 @@
             "fieldType": "Long"
         }
     ],
-    "changelogDate": "00000000001000",
+    "changelogDate": "00000000003000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "libreta",

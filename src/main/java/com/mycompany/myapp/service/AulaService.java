@@ -57,7 +57,7 @@ public class AulaService {
     @Transactional(readOnly = true)
     public Aula findOne(Long id) {
         log.debug("Request to get Aula : {}", id);
-        return aulaRepository.findOneWithEagerRelationships(id);
+        return aulaRepository.findOne(id);
     }
 
     /**

@@ -6,33 +6,30 @@
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
 
-
     <include file="config/liquibase/changelog/00000000000100_added_entity_ActividadCivica.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/00000000000200_added_entity_Aula.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000000300_added_entity_Contrato.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000000400_added_entity_Curso.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000000500_added_entity_Docente.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000000600_added_entity_Estudiante.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000000700_added_entity_Familiar.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000000800_added_entity_Horario.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000000900_added_entity_Inscrito.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000001000_added_entity_Libreta.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000002000_added_entity_Materia.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000003000_added_entity_Nivel.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000004000_added_entity_Nota.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000005000_added_entity_Persona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000006000_added_entity_PlantelAdministrativo.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000007000_added_entity_Reunion.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000008000_added_entity_Tema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000000300_added_entity_AulaMateria.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000000400_added_entity_Contrato.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000000500_added_entity_Curso.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000000600_added_entity_Docente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000000700_added_entity_Estudiante.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000000800_added_entity_EstudianteMateria.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000000900_added_entity_Familiar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000001000_added_entity_Horario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000002000_added_entity_Inscrito.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000003000_added_entity_Libreta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000004000_added_entity_Materia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000005000_added_entity_Nivel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000006000_added_entity_Nota.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000007000_added_entity_Persona.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000008000_added_entity_PersonaReunion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000009000_added_entity_PlantelAdministrativo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000010000_added_entity_Reunion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000020000_added_entity_Tema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000030000_added_entity_Trabajador.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000040000_added_entity_TrabajadorActividadCivica.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 
-
-
-
-    <include file="config/liquibase/changelog/00000000000100_added_entity_constraints_ActividadCivica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000000200_added_entity_constraints_Aula.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000000300_added_entity_constraints_Contrato.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000000500_added_entity_constraints_Docente.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000007000_added_entity_constraints_Reunion.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+
 </databaseChangeLog>

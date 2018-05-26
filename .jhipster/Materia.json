@@ -1,23 +1,6 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "aula",
-            "otherEntityName": "aula",
-            "relationshipType": "many-to-many",
-            "otherEntityField": "id",
-            "ownerSide": false,
-            "otherEntityRelationshipName": "materia"
-        },
-        {
-            "relationshipName": "docente",
-            "otherEntityName": "docente",
-            "relationshipType": "many-to-many",
-            "otherEntityField": "id",
-            "ownerSide": false,
-            "otherEntityRelationshipName": "materia"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "nombre",
@@ -30,9 +13,13 @@
         {
             "fieldName": "descripcion",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "idCurso",
+            "fieldType": "Long"
         }
     ],
-    "changelogDate": "00000000002000",
+    "changelogDate": "00000000004000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "materia",

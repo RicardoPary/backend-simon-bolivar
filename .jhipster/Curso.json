@@ -19,7 +19,7 @@
             "fieldType": "Long"
         }
     ],
-    "changelogDate": "00000000000400",
+    "changelogDate": "00000000000500",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "curso",

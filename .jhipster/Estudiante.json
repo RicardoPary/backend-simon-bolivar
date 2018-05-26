@@ -16,7 +16,7 @@
         }
 
     ],
-    "changelogDate": "00000000000600",
+    "changelogDate": "00000000000700",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "estudiante",

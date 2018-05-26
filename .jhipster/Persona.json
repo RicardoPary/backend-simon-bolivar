@@ -1,15 +1,6 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "reunion",
-            "otherEntityName": "reunion",
-            "relationshipType": "many-to-many",
-            "otherEntityField": "id",
-            "ownerSide": false,
-            "otherEntityRelationshipName": "persona"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "ci",
@@ -48,7 +39,7 @@
             "fieldType": "Long"
         }
     ],
-    "changelogDate": "00000000005000",
+    "changelogDate": "00000000007000",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "persona",

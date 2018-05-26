@@ -1,13 +1,6 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "docente",
-            "otherEntityName": "docente",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "fechaInicio",
@@ -32,9 +25,13 @@
         {
             "fieldName": "jornadaDiaria",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "idDocente",
+            "fieldType": "Long"
         }
     ],
-    "changelogDate": "00000000000300",
+    "changelogDate": "00000000000400",
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "contrato",

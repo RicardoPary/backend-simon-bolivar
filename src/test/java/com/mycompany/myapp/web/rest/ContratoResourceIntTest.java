@@ -57,6 +57,9 @@ public class ContratoResourceIntTest {
     private static final String DEFAULT_JORNADA_DIARIA = "AAAAAAAAAA";
     private static final String UPDATED_JORNADA_DIARIA = "BBBBBBBBBB";
 
+    private static final Long DEFAULT_ID_DOCENTE = 1L;
+    private static final Long UPDATED_ID_DOCENTE = 2L;
+
     @Autowired
     private ContratoRepository contratoRepository;
 
@@ -103,7 +106,8 @@ public class ContratoResourceIntTest {
             .tipo(DEFAULT_TIPO)
             .sueldo(DEFAULT_SUELDO)
             .vacaciones(DEFAULT_VACACIONES)
-            .jornadaDiaria(DEFAULT_JORNADA_DIARIA);
+            .jornadaDiaria(DEFAULT_JORNADA_DIARIA)
+            .idDocente(DEFAULT_ID_DOCENTE);
         return contrato;
     }
 
@@ -133,6 +137,7 @@ public class ContratoResourceIntTest {
         assertThat(testContrato.getSueldo()).isEqualTo(DEFAULT_SUELDO);
         assertThat(testContrato.getVacaciones()).isEqualTo(DEFAULT_VACACIONES);
         assertThat(testContrato.getJornadaDiaria()).isEqualTo(DEFAULT_JORNADA_DIARIA);
+        assertThat(testContrato.getIdDocente()).isEqualTo(DEFAULT_ID_DOCENTE);
     }
 
     @Test
@@ -170,7 +175,8 @@ public class ContratoResourceIntTest {
             .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
             .andExpect(jsonPath("$.[*].sueldo").value(hasItem(DEFAULT_SUELDO.doubleValue())))
             .andExpect(jsonPath("$.[*].vacaciones").value(hasItem(DEFAULT_VACACIONES.toString())))
-            .andExpect(jsonPath("$.[*].jornadaDiaria").value(hasItem(DEFAULT_JORNADA_DIARIA.toString())));
+            .andExpect(jsonPath("$.[*].jornadaDiaria").value(hasItem(DEFAULT_JORNADA_DIARIA.toString())))
+            .andExpect(jsonPath("$.[*].idDocente").value(hasItem(DEFAULT_ID_DOCENTE.intValue())));
     }
 
     @Test
@@ -189,7 +195,8 @@ public class ContratoResourceIntTest {
             .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
             .andExpect(jsonPath("$.sueldo").value(DEFAULT_SUELDO.doubleValue()))
             .andExpect(jsonPath("$.vacaciones").value(DEFAULT_VACACIONES.toString()))
-            .andExpect(jsonPath("$.jornadaDiaria").value(DEFAULT_JORNADA_DIARIA.toString()));
+            .andExpect(jsonPath("$.jornadaDiaria").value(DEFAULT_JORNADA_DIARIA.toString()))
+            .andExpect(jsonPath("$.idDocente").value(DEFAULT_ID_DOCENTE.intValue()));
     }
 
     @Test
@@ -218,7 +225,8 @@ public class ContratoResourceIntTest {
             .tipo(UPDATED_TIPO)
             .sueldo(UPDATED_SUELDO)
             .vacaciones(UPDATED_VACACIONES)
-            .jornadaDiaria(UPDATED_JORNADA_DIARIA);
+            .jornadaDiaria(UPDATED_JORNADA_DIARIA)
+            .idDocente(UPDATED_ID_DOCENTE);
 
         restContratoMockMvc.perform(put("/api/contratoes")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -235,6 +243,7 @@ public class ContratoResourceIntTest {
         assertThat(testContrato.getSueldo()).isEqualTo(UPDATED_SUELDO);
         assertThat(testContrato.getVacaciones()).isEqualTo(UPDATED_VACACIONES);
         assertThat(testContrato.getJornadaDiaria()).isEqualTo(UPDATED_JORNADA_DIARIA);
+        assertThat(testContrato.getIdDocente()).isEqualTo(UPDATED_ID_DOCENTE);
     }
 
     @Test

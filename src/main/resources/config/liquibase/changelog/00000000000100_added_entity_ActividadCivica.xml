@@ -44,28 +44,6 @@
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         
-        <createTable tableName="actividad_civica_docente">
-            <column name="docentes_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actividad_civicas_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="actividad_civicas_id, docentes_id" tableName="actividad_civica_docente"/>
-        
-        <createTable tableName="actividad_civica_plantel_administrativo">
-            <column name="plantel_administrativos_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="actividad_civicas_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="actividad_civicas_id, plantel_administrativos_id" tableName="actividad_civica_plantel_administrativo"/>
-        
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>
