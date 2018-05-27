@@ -45,11 +45,8 @@ public class EstudianteMateriaResourceIntTest {
     private static final Long DEFAULT_ID_MATERIA = 1L;
     private static final Long UPDATED_ID_MATERIA = 2L;
 
-    private static final Double DEFAULT_NOTA = 1D;
-    private static final Double UPDATED_NOTA = 2D;
-
-    private static final Long DEFAULT_ID_LIBRETA = 1L;
-    private static final Long UPDATED_ID_LIBRETA = 2L;
+    private static final Integer DEFAULT_GESTION = 1;
+    private static final Integer UPDATED_GESTION = 2;
 
     @Autowired
     private EstudianteMateriaRepository estudianteMateriaRepository;
@@ -94,8 +91,7 @@ public class EstudianteMateriaResourceIntTest {
         EstudianteMateria estudianteMateria = new EstudianteMateria()
             .idEstudiante(DEFAULT_ID_ESTUDIANTE)
             .idMateria(DEFAULT_ID_MATERIA)
-            .nota(DEFAULT_NOTA)
-            .idLibreta(DEFAULT_ID_LIBRETA);
+            .gestion(DEFAULT_GESTION);
         return estudianteMateria;
     }
 
@@ -121,8 +117,7 @@ public class EstudianteMateriaResourceIntTest {
         EstudianteMateria testEstudianteMateria = estudianteMateriaList.get(estudianteMateriaList.size() - 1);
         assertThat(testEstudianteMateria.getIdEstudiante()).isEqualTo(DEFAULT_ID_ESTUDIANTE);
         assertThat(testEstudianteMateria.getIdMateria()).isEqualTo(DEFAULT_ID_MATERIA);
-        assertThat(testEstudianteMateria.getNota()).isEqualTo(DEFAULT_NOTA);
-        assertThat(testEstudianteMateria.getIdLibreta()).isEqualTo(DEFAULT_ID_LIBRETA);
+        assertThat(testEstudianteMateria.getGestion()).isEqualTo(DEFAULT_GESTION);
     }
 
     @Test
@@ -157,8 +152,7 @@ public class EstudianteMateriaResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(estudianteMateria.getId().intValue())))
             .andExpect(jsonPath("$.[*].idEstudiante").value(hasItem(DEFAULT_ID_ESTUDIANTE.intValue())))
             .andExpect(jsonPath("$.[*].idMateria").value(hasItem(DEFAULT_ID_MATERIA.intValue())))
-            .andExpect(jsonPath("$.[*].nota").value(hasItem(DEFAULT_NOTA.doubleValue())))
-            .andExpect(jsonPath("$.[*].idLibreta").value(hasItem(DEFAULT_ID_LIBRETA.intValue())));
+            .andExpect(jsonPath("$.[*].gestion").value(hasItem(DEFAULT_GESTION)));
     }
 
     @Test
@@ -174,8 +168,7 @@ public class EstudianteMateriaResourceIntTest {
             .andExpect(jsonPath("$.id").value(estudianteMateria.getId().intValue()))
             .andExpect(jsonPath("$.idEstudiante").value(DEFAULT_ID_ESTUDIANTE.intValue()))
             .andExpect(jsonPath("$.idMateria").value(DEFAULT_ID_MATERIA.intValue()))
-            .andExpect(jsonPath("$.nota").value(DEFAULT_NOTA.doubleValue()))
-            .andExpect(jsonPath("$.idLibreta").value(DEFAULT_ID_LIBRETA.intValue()));
+            .andExpect(jsonPath("$.gestion").value(DEFAULT_GESTION));
     }
 
     @Test
@@ -201,8 +194,7 @@ public class EstudianteMateriaResourceIntTest {
         updatedEstudianteMateria
             .idEstudiante(UPDATED_ID_ESTUDIANTE)
             .idMateria(UPDATED_ID_MATERIA)
-            .nota(UPDATED_NOTA)
-            .idLibreta(UPDATED_ID_LIBRETA);
+            .gestion(UPDATED_GESTION);
 
         restEstudianteMateriaMockMvc.perform(put("/api/estudiante-materias")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -215,8 +207,7 @@ public class EstudianteMateriaResourceIntTest {
         EstudianteMateria testEstudianteMateria = estudianteMateriaList.get(estudianteMateriaList.size() - 1);
         assertThat(testEstudianteMateria.getIdEstudiante()).isEqualTo(UPDATED_ID_ESTUDIANTE);
         assertThat(testEstudianteMateria.getIdMateria()).isEqualTo(UPDATED_ID_MATERIA);
-        assertThat(testEstudianteMateria.getNota()).isEqualTo(UPDATED_NOTA);
-        assertThat(testEstudianteMateria.getIdLibreta()).isEqualTo(UPDATED_ID_LIBRETA);
+        assertThat(testEstudianteMateria.getGestion()).isEqualTo(UPDATED_GESTION);
     }
 
     @Test

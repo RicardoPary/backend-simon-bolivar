@@ -3,7 +3,7 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "nombre",
+            "fieldName": "cargo",
             "fieldType": "String"
         },
         {

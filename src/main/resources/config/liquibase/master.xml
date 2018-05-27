@@ -6,9 +6,11 @@
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
 
+
     <include file="config/liquibase/changelog/00000000000100_added_entity_ActividadCivica.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/00000000000200_added_entity_Aula.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/00000000000300_added_entity_AulaMateria.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000050000_added_entity_Bimestre.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/00000000000400_added_entity_Contrato.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/00000000000500_added_entity_Curso.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/00000000000600_added_entity_Docente.xml" relativeToChangelogFile="false"/>
@@ -28,7 +30,6 @@
     <include file="config/liquibase/changelog/00000000020000_added_entity_Tema.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/00000000030000_added_entity_Trabajador.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/00000000040000_added_entity_TrabajadorActividadCivica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/00000000050000_added_entity_Bimestre.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->

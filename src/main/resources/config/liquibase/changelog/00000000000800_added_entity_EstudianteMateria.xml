@@ -29,11 +29,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="nota" type="double">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="id_libreta" type="bigint">
+            <column name="gestion" type="integer">
                 <constraints nullable="true" />
             </column>
 

@@ -25,19 +25,15 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="tipo" type="varchar(255)">
+            <column name="descripcion" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cronograma" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
             <column name="fecha" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="hora" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="lugar" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 

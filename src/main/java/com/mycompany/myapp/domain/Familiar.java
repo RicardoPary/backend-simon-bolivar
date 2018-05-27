@@ -26,6 +26,9 @@ public class Familiar implements Serializable {
     @Column(name = "id_persona")
     private Long idPersona;
 
+    @Column(name = "id_estudiante")
+    private Long idEstudiante;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -60,6 +63,19 @@ public class Familiar implements Serializable {
     public void setIdPersona(Long idPersona) {
         this.idPersona = idPersona;
     }
+
+    public Long getIdEstudiante() {
+        return idEstudiante;
+    }
+
+    public Familiar idEstudiante(Long idEstudiante) {
+        this.idEstudiante = idEstudiante;
+        return this;
+    }
+
+    public void setIdEstudiante(Long idEstudiante) {
+        this.idEstudiante = idEstudiante;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -88,6 +104,7 @@ public class Familiar implements Serializable {
             "id=" + getId() +
             ", parentesco='" + getParentesco() + "'" +
             ", idPersona=" + getIdPersona() +
+            ", idEstudiante=" + getIdEstudiante() +
             "}";
     }
 }

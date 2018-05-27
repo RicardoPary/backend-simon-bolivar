@@ -26,11 +26,8 @@ public class EstudianteMateria implements Serializable {
     @Column(name = "id_materia")
     private Long idMateria;
 
-    @Column(name = "nota")
-    private Double nota;
-
-    @Column(name = "id_libreta")
-    private Long idLibreta;
+    @Column(name = "gestion")
+    private Integer gestion;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -67,30 +64,17 @@ public class EstudianteMateria implements Serializable {
         this.idMateria = idMateria;
     }
 
-    public Double getNota() {
-        return nota;
+    public Integer getGestion() {
+        return gestion;
     }
 
-    public EstudianteMateria nota(Double nota) {
-        this.nota = nota;
+    public EstudianteMateria gestion(Integer gestion) {
+        this.gestion = gestion;
         return this;
     }
 
-    public void setNota(Double nota) {
-        this.nota = nota;
-    }
-
-    public Long getIdLibreta() {
-        return idLibreta;
-    }
-
-    public EstudianteMateria idLibreta(Long idLibreta) {
-        this.idLibreta = idLibreta;
-        return this;
-    }
-
-    public void setIdLibreta(Long idLibreta) {
-        this.idLibreta = idLibreta;
+    public void setGestion(Integer gestion) {
+        this.gestion = gestion;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -120,8 +104,7 @@ public class EstudianteMateria implements Serializable {
             "id=" + getId() +
             ", idEstudiante=" + getIdEstudiante() +
             ", idMateria=" + getIdMateria() +
-            ", nota=" + getNota() +
-            ", idLibreta=" + getIdLibreta() +
+            ", gestion=" + getGestion() +
             "}";
     }
 }

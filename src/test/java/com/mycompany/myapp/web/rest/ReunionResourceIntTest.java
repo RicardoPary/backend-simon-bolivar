@@ -39,14 +39,26 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SimonBolivarApp.class)
 public class ReunionResourceIntTest {
 
+    private static final String DEFAULT_DESCRIPCION = "AAAAAAAAAA";
+    private static final String UPDATED_DESCRIPCION = "BBBBBBBBBB";
+
     private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
     private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
 
     private static final String DEFAULT_FECHA = "AAAAAAAAAA";
     private static final String UPDATED_FECHA = "BBBBBBBBBB";
 
+    private static final String DEFAULT_HORA = "AAAAAAAAAA";
+    private static final String UPDATED_HORA = "BBBBBBBBBB";
+
     private static final String DEFAULT_LUGAR = "AAAAAAAAAA";
     private static final String UPDATED_LUGAR = "BBBBBBBBBB";
+
+    private static final String DEFAULT_ORDEN_DIA = "AAAAAAAAAA";
+    private static final String UPDATED_ORDEN_DIA = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DETALLE = "AAAAAAAAAA";
+    private static final String UPDATED_DETALLE = "BBBBBBBBBB";
 
     @Autowired
     private ReunionRepository reunionRepository;
@@ -89,9 +101,13 @@ public class ReunionResourceIntTest {
      */
     public static Reunion createEntity(EntityManager em) {
         Reunion reunion = new Reunion()
+            .descripcion(DEFAULT_DESCRIPCION)
             .nombre(DEFAULT_NOMBRE)
             .fecha(DEFAULT_FECHA)
-            .lugar(DEFAULT_LUGAR);
+            .hora(DEFAULT_HORA)
+            .lugar(DEFAULT_LUGAR)
+            .ordenDia(DEFAULT_ORDEN_DIA)
+            .detalle(DEFAULT_DETALLE);
         return reunion;
     }
 
@@ -115,9 +131,13 @@ public class ReunionResourceIntTest {
         List<Reunion> reunionList = reunionRepository.findAll();
         assertThat(reunionList).hasSize(databaseSizeBeforeCreate + 1);
         Reunion testReunion = reunionList.get(reunionList.size() - 1);
+        assertThat(testReunion.getDescripcion()).isEqualTo(DEFAULT_DESCRIPCION);
         assertThat(testReunion.getNombre()).isEqualTo(DEFAULT_NOMBRE);
         assertThat(testReunion.getFecha()).isEqualTo(DEFAULT_FECHA);
+        assertThat(testReunion.getHora()).isEqualTo(DEFAULT_HORA);
         assertThat(testReunion.getLugar()).isEqualTo(DEFAULT_LUGAR);
+        assertThat(testReunion.getOrdenDia()).isEqualTo(DEFAULT_ORDEN_DIA);
+        assertThat(testReunion.getDetalle()).isEqualTo(DEFAULT_DETALLE);
     }
 
     @Test
@@ -150,9 +170,13 @@ public class ReunionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(reunion.getId().intValue())))
+            .andExpect(jsonPath("$.[*].descripcion").value(hasItem(DEFAULT_DESCRIPCION.toString())))
             .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
             .andExpect(jsonPath("$.[*].fecha").value(hasItem(DEFAULT_FECHA.toString())))
-            .andExpect(jsonPath("$.[*].lugar").value(hasItem(DEFAULT_LUGAR.toString())));
+            .andExpect(jsonPath("$.[*].hora").value(hasItem(DEFAULT_HORA.toString())))
+            .andExpect(jsonPath("$.[*].lugar").value(hasItem(DEFAULT_LUGAR.toString())))
+            .andExpect(jsonPath("$.[*].ordenDia").value(hasItem(DEFAULT_ORDEN_DIA.toString())))
+            .andExpect(jsonPath("$.[*].detalle").value(hasItem(DEFAULT_DETALLE.toString())));
     }
 
     @Test
@@ -166,9 +190,13 @@ public class ReunionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(reunion.getId().intValue()))
+            .andExpect(jsonPath("$.descripcion").value(DEFAULT_DESCRIPCION.toString()))
             .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
             .andExpect(jsonPath("$.fecha").value(DEFAULT_FECHA.toString()))
-            .andExpect(jsonPath("$.lugar").value(DEFAULT_LUGAR.toString()));
+            .andExpect(jsonPath("$.hora").value(DEFAULT_HORA.toString()))
+            .andExpect(jsonPath("$.lugar").value(DEFAULT_LUGAR.toString()))
+            .andExpect(jsonPath("$.ordenDia").value(DEFAULT_ORDEN_DIA.toString()))
+            .andExpect(jsonPath("$.detalle").value(DEFAULT_DETALLE.toString()));
     }
 
     @Test
@@ -192,9 +220,13 @@ public class ReunionResourceIntTest {
         // Disconnect from session so that the updates on updatedReunion are not directly saved in db
         em.detach(updatedReunion);
         updatedReunion
+            .descripcion(UPDATED_DESCRIPCION)
             .nombre(UPDATED_NOMBRE)
             .fecha(UPDATED_FECHA)
-            .lugar(UPDATED_LUGAR);
+            .hora(UPDATED_HORA)
+            .lugar(UPDATED_LUGAR)
+            .ordenDia(UPDATED_ORDEN_DIA)
+            .detalle(UPDATED_DETALLE);
 
         restReunionMockMvc.perform(put("/api/reunions")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -205,9 +237,13 @@ public class ReunionResourceIntTest {
         List<Reunion> reunionList = reunionRepository.findAll();
         assertThat(reunionList).hasSize(databaseSizeBeforeUpdate);
         Reunion testReunion = reunionList.get(reunionList.size() - 1);
+        assertThat(testReunion.getDescripcion()).isEqualTo(UPDATED_DESCRIPCION);
         assertThat(testReunion.getNombre()).isEqualTo(UPDATED_NOMBRE);
         assertThat(testReunion.getFecha()).isEqualTo(UPDATED_FECHA);
+        assertThat(testReunion.getHora()).isEqualTo(UPDATED_HORA);
         assertThat(testReunion.getLugar()).isEqualTo(UPDATED_LUGAR);
+        assertThat(testReunion.getOrdenDia()).isEqualTo(UPDATED_ORDEN_DIA);
+        assertThat(testReunion.getDetalle()).isEqualTo(UPDATED_DETALLE);
     }
 
     @Test

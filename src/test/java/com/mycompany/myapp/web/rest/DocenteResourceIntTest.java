@@ -39,8 +39,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SimonBolivarApp.class)
 public class DocenteResourceIntTest {
 
-    private static final String DEFAULT_TIPO = "AAAAAAAAAA";
-    private static final String UPDATED_TIPO = "BBBBBBBBBB";
+    private static final String DEFAULT_GRADO = "AAAAAAAAAA";
+    private static final String UPDATED_GRADO = "BBBBBBBBBB";
 
     private static final Long DEFAULT_ID_PERSONA = 1L;
     private static final Long UPDATED_ID_PERSONA = 2L;
@@ -89,7 +89,7 @@ public class DocenteResourceIntTest {
      */
     public static Docente createEntity(EntityManager em) {
         Docente docente = new Docente()
-            .tipo(DEFAULT_TIPO)
+            .grado(DEFAULT_GRADO)
             .idPersona(DEFAULT_ID_PERSONA)
             .idTrabajador(DEFAULT_ID_TRABAJADOR);
         return docente;
@@ -115,7 +115,7 @@ public class DocenteResourceIntTest {
         List<Docente> docenteList = docenteRepository.findAll();
         assertThat(docenteList).hasSize(databaseSizeBeforeCreate + 1);
         Docente testDocente = docenteList.get(docenteList.size() - 1);
-        assertThat(testDocente.getTipo()).isEqualTo(DEFAULT_TIPO);
+        assertThat(testDocente.getGrado()).isEqualTo(DEFAULT_GRADO);
         assertThat(testDocente.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
         assertThat(testDocente.getIdTrabajador()).isEqualTo(DEFAULT_ID_TRABAJADOR);
     }
@@ -150,7 +150,7 @@ public class DocenteResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(docente.getId().intValue())))
-            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
+            .andExpect(jsonPath("$.[*].grado").value(hasItem(DEFAULT_GRADO.toString())))
             .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA.intValue())))
             .andExpect(jsonPath("$.[*].idTrabajador").value(hasItem(DEFAULT_ID_TRABAJADOR.intValue())));
     }
@@ -166,7 +166,7 @@ public class DocenteResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(docente.getId().intValue()))
-            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
+            .andExpect(jsonPath("$.grado").value(DEFAULT_GRADO.toString()))
             .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA.intValue()))
             .andExpect(jsonPath("$.idTrabajador").value(DEFAULT_ID_TRABAJADOR.intValue()));
     }
@@ -192,7 +192,7 @@ public class DocenteResourceIntTest {
         // Disconnect from session so that the updates on updatedDocente are not directly saved in db
         em.detach(updatedDocente);
         updatedDocente
-            .tipo(UPDATED_TIPO)
+            .grado(UPDATED_GRADO)
             .idPersona(UPDATED_ID_PERSONA)
             .idTrabajador(UPDATED_ID_TRABAJADOR);
 
@@ -205,7 +205,7 @@ public class DocenteResourceIntTest {
         List<Docente> docenteList = docenteRepository.findAll();
         assertThat(docenteList).hasSize(databaseSizeBeforeUpdate);
         Docente testDocente = docenteList.get(docenteList.size() - 1);
-        assertThat(testDocente.getTipo()).isEqualTo(UPDATED_TIPO);
+        assertThat(testDocente.getGrado()).isEqualTo(UPDATED_GRADO);
         assertThat(testDocente.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
         assertThat(testDocente.getIdTrabajador()).isEqualTo(UPDATED_ID_TRABAJADOR);
     }

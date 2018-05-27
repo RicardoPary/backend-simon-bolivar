@@ -7,19 +7,15 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "tipo",
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cronograma",
             "fieldType": "String"
         },
         {
             "fieldName": "fecha",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "hora",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "lugar",
             "fieldType": "String"
         }
     ],

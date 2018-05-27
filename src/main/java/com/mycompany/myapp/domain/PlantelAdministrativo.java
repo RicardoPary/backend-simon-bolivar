@@ -20,8 +20,8 @@ public class PlantelAdministrativo implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "nombre")
-    private String nombre;
+    @Column(name = "cargo")
+    private String cargo;
 
     @Column(name = "id_persona")
     private Long idPersona;
@@ -38,17 +38,17 @@ public class PlantelAdministrativo implements Serializable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getCargo() {
+        return cargo;
     }
 
-    public PlantelAdministrativo nombre(String nombre) {
-        this.nombre = nombre;
+    public PlantelAdministrativo cargo(String cargo) {
+        this.cargo = cargo;
         return this;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
     public Long getIdPersona() {
@@ -102,7 +102,7 @@ public class PlantelAdministrativo implements Serializable {
     public String toString() {
         return "PlantelAdministrativo{" +
             "id=" + getId() +
-            ", nombre='" + getNombre() + "'" +
+            ", cargo='" + getCargo() + "'" +
             ", idPersona=" + getIdPersona() +
             ", idTrabajador=" + getIdTrabajador() +
             "}";

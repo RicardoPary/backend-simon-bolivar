@@ -39,8 +39,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SimonBolivarApp.class)
 public class PlantelAdministrativoResourceIntTest {
 
-    private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
-    private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
+    private static final String DEFAULT_CARGO = "AAAAAAAAAA";
+    private static final String UPDATED_CARGO = "BBBBBBBBBB";
 
     private static final Long DEFAULT_ID_PERSONA = 1L;
     private static final Long UPDATED_ID_PERSONA = 2L;
@@ -89,7 +89,7 @@ public class PlantelAdministrativoResourceIntTest {
      */
     public static PlantelAdministrativo createEntity(EntityManager em) {
         PlantelAdministrativo plantelAdministrativo = new PlantelAdministrativo()
-            .nombre(DEFAULT_NOMBRE)
+            .cargo(DEFAULT_CARGO)
             .idPersona(DEFAULT_ID_PERSONA)
             .idTrabajador(DEFAULT_ID_TRABAJADOR);
         return plantelAdministrativo;
@@ -115,7 +115,7 @@ public class PlantelAdministrativoResourceIntTest {
         List<PlantelAdministrativo> plantelAdministrativoList = plantelAdministrativoRepository.findAll();
         assertThat(plantelAdministrativoList).hasSize(databaseSizeBeforeCreate + 1);
         PlantelAdministrativo testPlantelAdministrativo = plantelAdministrativoList.get(plantelAdministrativoList.size() - 1);
-        assertThat(testPlantelAdministrativo.getNombre()).isEqualTo(DEFAULT_NOMBRE);
+        assertThat(testPlantelAdministrativo.getCargo()).isEqualTo(DEFAULT_CARGO);
         assertThat(testPlantelAdministrativo.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
         assertThat(testPlantelAdministrativo.getIdTrabajador()).isEqualTo(DEFAULT_ID_TRABAJADOR);
     }
@@ -150,7 +150,7 @@ public class PlantelAdministrativoResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(plantelAdministrativo.getId().intValue())))
-            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
+            .andExpect(jsonPath("$.[*].cargo").value(hasItem(DEFAULT_CARGO.toString())))
             .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA.intValue())))
             .andExpect(jsonPath("$.[*].idTrabajador").value(hasItem(DEFAULT_ID_TRABAJADOR.intValue())));
     }
@@ -166,7 +166,7 @@ public class PlantelAdministrativoResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(plantelAdministrativo.getId().intValue()))
-            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
+            .andExpect(jsonPath("$.cargo").value(DEFAULT_CARGO.toString()))
             .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA.intValue()))
             .andExpect(jsonPath("$.idTrabajador").value(DEFAULT_ID_TRABAJADOR.intValue()));
     }
@@ -192,7 +192,7 @@ public class PlantelAdministrativoResourceIntTest {
         // Disconnect from session so that the updates on updatedPlantelAdministrativo are not directly saved in db
         em.detach(updatedPlantelAdministrativo);
         updatedPlantelAdministrativo
-            .nombre(UPDATED_NOMBRE)
+            .cargo(UPDATED_CARGO)
             .idPersona(UPDATED_ID_PERSONA)
             .idTrabajador(UPDATED_ID_TRABAJADOR);
 
@@ -205,7 +205,7 @@ public class PlantelAdministrativoResourceIntTest {
         List<PlantelAdministrativo> plantelAdministrativoList = plantelAdministrativoRepository.findAll();
         assertThat(plantelAdministrativoList).hasSize(databaseSizeBeforeUpdate);
         PlantelAdministrativo testPlantelAdministrativo = plantelAdministrativoList.get(plantelAdministrativoList.size() - 1);
-        assertThat(testPlantelAdministrativo.getNombre()).isEqualTo(UPDATED_NOMBRE);
+        assertThat(testPlantelAdministrativo.getCargo()).isEqualTo(UPDATED_CARGO);
         assertThat(testPlantelAdministrativo.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
         assertThat(testPlantelAdministrativo.getIdTrabajador()).isEqualTo(UPDATED_ID_TRABAJADOR);
     }

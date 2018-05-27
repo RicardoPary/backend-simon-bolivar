@@ -20,8 +20,8 @@ public class Docente implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "tipo")
-    private String tipo;
+    @Column(name = "grado")
+    private String grado;
 
     @Column(name = "id_persona")
     private Long idPersona;
@@ -38,17 +38,17 @@ public class Docente implements Serializable {
         this.id = id;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getGrado() {
+        return grado;
     }
 
-    public Docente tipo(String tipo) {
-        this.tipo = tipo;
+    public Docente grado(String grado) {
+        this.grado = grado;
         return this;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setGrado(String grado) {
+        this.grado = grado;
     }
 
     public Long getIdPersona() {
@@ -102,7 +102,7 @@ public class Docente implements Serializable {
     public String toString() {
         return "Docente{" +
             "id=" + getId() +
-            ", tipo='" + getTipo() + "'" +
+            ", grado='" + getGrado() + "'" +
             ", idPersona=" + getIdPersona() +
             ", idTrabajador=" + getIdTrabajador() +
             "}";

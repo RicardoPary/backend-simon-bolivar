@@ -3,7 +3,7 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "tipo",
+            "fieldName": "grado",
             "fieldType": "String"
         },
         {

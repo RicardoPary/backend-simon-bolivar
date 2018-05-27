@@ -9,6 +9,10 @@
         {
             "fieldName": "idPersona",
             "fieldType": "Long"
+        },
+        {
+            "fieldName": "idEstudiante",
+            "fieldType": "Long"
         }
     ],
     "changelogDate": "00000000000900",

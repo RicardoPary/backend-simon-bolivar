@@ -23,17 +23,14 @@ public class ActividadCivica implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "tipo")
-    private String tipo;
+    @Column(name = "descripcion")
+    private String descripcion;
+
+    @Column(name = "cronograma")
+    private String cronograma;
 
     @Column(name = "fecha")
     private String fecha;
-
-    @Column(name = "hora")
-    private String hora;
-
-    @Column(name = "lugar")
-    private String lugar;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -57,17 +54,30 @@ public class ActividadCivica implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public ActividadCivica tipo(String tipo) {
-        this.tipo = tipo;
+    public ActividadCivica descripcion(String descripcion) {
+        this.descripcion = descripcion;
         return this;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getCronograma() {
+        return cronograma;
+    }
+
+    public ActividadCivica cronograma(String cronograma) {
+        this.cronograma = cronograma;
+        return this;
+    }
+
+    public void setCronograma(String cronograma) {
+        this.cronograma = cronograma;
     }
 
     public String getFecha() {
@@ -81,32 +91,6 @@ public class ActividadCivica implements Serializable {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public ActividadCivica hora(String hora) {
-        this.hora = hora;
-        return this;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    public String getLugar() {
-        return lugar;
-    }
-
-    public ActividadCivica lugar(String lugar) {
-        this.lugar = lugar;
-        return this;
-    }
-
-    public void setLugar(String lugar) {
-        this.lugar = lugar;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -135,10 +119,9 @@ public class ActividadCivica implements Serializable {
         return "ActividadCivica{" +
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
-            ", tipo='" + getTipo() + "'" +
+            ", descripcion='" + getDescripcion() + "'" +
+            ", cronograma='" + getCronograma() + "'" +
             ", fecha='" + getFecha() + "'" +
-            ", hora='" + getHora() + "'" +
-            ", lugar='" + getLugar() + "'" +
             "}";
     }
 }

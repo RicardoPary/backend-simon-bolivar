@@ -3,6 +3,10 @@
     "relationships": [],
     "fields": [
         {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "nombre",
             "fieldType": "String"
         },
@@ -11,7 +15,19 @@
             "fieldType": "String"
         },
         {
+            "fieldName": "hora",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "lugar",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ordenDia",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "detalle",
             "fieldType": "String"
         }
     ],
