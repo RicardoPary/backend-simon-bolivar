@@ -11,12 +11,8 @@
             "fieldType": "Long"
         },
         {
-            "fieldName": "nota",
-            "fieldType": "Double"
-        },
-        {
-            "fieldName": "idLibreta",
-            "fieldType": "Long"
+            "fieldName": "gestion",
+            "fieldType": "Integer"
         }
     ],
     "changelogDate": "00000000000800",

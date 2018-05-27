@@ -1,0 +1,84 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "idEstudiante",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "idDocente",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "bimestre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idMateria",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "observacion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "indicadorCualitativo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "notaBimestralFinal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "promedioAutoevaluacion",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "autoevaluacionDecir",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "autoevaluacionSer",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "decirPromedio",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hacerPromedio",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "saberPromedio",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "serPromedio",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "notasSer",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "notasSaber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "notasHacer",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "notasDecir",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "00000000050000",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "bimestre",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pager"
+}
