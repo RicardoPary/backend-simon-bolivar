@@ -2,6 +2,7 @@ package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Estudiante;
+import com.mycompany.myapp.domain.extras.EstudianteDTO;
 import com.mycompany.myapp.repository.EstudianteRepository;
 import com.mycompany.myapp.service.EstudianteService;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
@@ -144,9 +145,9 @@ public class EstudianteResource {
      */
     @GetMapping("/estudiantes/all")
     @Timed
-    public ResponseEntity<List<Object>> getAllEstudiantesPersonas(Pageable pageable) {
+    public ResponseEntity<List<EstudianteDTO>> getAllEstudiantesPersonas(Pageable pageable) {
         log.debug("REST request to get a page of Estudiantes");
-        Page<Object> page = estudianteRepository.findAllStudents(pageable);
+        Page<EstudianteDTO> page = estudianteRepository.findAllStudents(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/estudiantes/all");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
