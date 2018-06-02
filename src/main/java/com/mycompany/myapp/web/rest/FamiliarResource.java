@@ -2,6 +2,8 @@ package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Familiar;
+import com.mycompany.myapp.domain.extras.FamiliarDTO;
+import com.mycompany.myapp.repository.FamiliarRepository;
 import com.mycompany.myapp.service.FamiliarService;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
@@ -35,8 +37,11 @@ public class FamiliarResource {
 
     private final FamiliarService familiarService;
 
-    public FamiliarResource(FamiliarService familiarService) {
+    private final FamiliarRepository familiarRepository;
+
+    public FamiliarResource(FamiliarService familiarService, FamiliarRepository familiarRepository) {
         this.familiarService = familiarService;
+        this.familiarRepository = familiarRepository;
     }
 
     /**
@@ -123,4 +128,24 @@ public class FamiliarResource {
         familiarService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+
+
+
+
+    /**
+     * GET  /familiars : get all the familiars.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of familiars in body
+     */
+    @GetMapping("/familiars/all")
+    @Timed
+    public ResponseEntity<List<FamiliarDTO>> getAllFamiliarsDTO(Pageable pageable) {
+        log.debug("REST request to get a page of Familiars");
+        Page<FamiliarDTO> page = familiarRepository.findAllStudents(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/familiars");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+
+    }
+
 }

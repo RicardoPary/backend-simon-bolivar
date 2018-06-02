@@ -2,6 +2,8 @@ package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.PlantelAdministrativo;
+import com.mycompany.myapp.domain.extras.PlantelAdministrativoDTO;
+import com.mycompany.myapp.repository.PlantelAdministrativoRepository;
 import com.mycompany.myapp.service.PlantelAdministrativoService;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
@@ -35,8 +37,13 @@ public class PlantelAdministrativoResource {
 
     private final PlantelAdministrativoService plantelAdministrativoService;
 
-    public PlantelAdministrativoResource(PlantelAdministrativoService plantelAdministrativoService) {
+    private final PlantelAdministrativoRepository plantelAdministrativoRepository;
+
+
+
+    public PlantelAdministrativoResource(PlantelAdministrativoService plantelAdministrativoService, PlantelAdministrativoRepository plantelAdministrativoRepository) {
         this.plantelAdministrativoService = plantelAdministrativoService;
+        this.plantelAdministrativoRepository = plantelAdministrativoRepository;
     }
 
     /**
@@ -122,5 +129,23 @@ public class PlantelAdministrativoResource {
         log.debug("REST request to delete PlantelAdministrativo : {}", id);
         plantelAdministrativoService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
+
+
+
+    /**
+     * GET  /plantel-administrativos : get all the plantelAdministrativos.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of plantelAdministrativos in body
+     */
+    @GetMapping("/plantel-administrativos/all")
+    @Timed
+    public ResponseEntity<List<PlantelAdministrativoDTO>> getAllPlantelAdministrativosDTO(Pageable pageable) {
+        log.debug("REST request to get a page of PlantelAdministrativos");
+        Page<PlantelAdministrativoDTO> page = plantelAdministrativoRepository.findAllStudents(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/plantel-administrativos");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 }

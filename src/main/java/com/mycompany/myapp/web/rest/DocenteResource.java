@@ -2,6 +2,8 @@ package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Docente;
+import com.mycompany.myapp.domain.extras.DocenteDTO;
+import com.mycompany.myapp.repository.DocenteRepository;
 import com.mycompany.myapp.service.DocenteService;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
@@ -35,8 +37,12 @@ public class DocenteResource {
 
     private final DocenteService docenteService;
 
-    public DocenteResource(DocenteService docenteService) {
+    private final DocenteRepository docenteRepository;
+
+    public DocenteResource(DocenteService docenteService, DocenteRepository docenteRepository) {
+
         this.docenteService = docenteService;
+        this.docenteRepository = docenteRepository;
     }
 
     /**
@@ -122,5 +128,23 @@ public class DocenteResource {
         log.debug("REST request to delete Docente : {}", id);
         docenteService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
+
+
+
+    /**
+     * GET  /docentes : get all the docentes.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of docentes in body
+     */
+    @GetMapping("/docentes/all")
+    @Timed
+    public ResponseEntity<List<DocenteDTO>> getAllDocentesDTO(Pageable pageable) {
+        log.debug("REST request to get a page of Docentes");
+        Page<DocenteDTO> page = docenteRepository.findAllStudents(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/docentes");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 }
