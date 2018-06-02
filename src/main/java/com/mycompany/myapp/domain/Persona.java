@@ -36,7 +36,7 @@ public class Persona implements Serializable {
     private String genero;
 
     @Column(name = "fecha_nacimiento")
-    private String fecha_nacimiento;
+    private String fechaNacimiento;
 
     @Column(name = "nacionalidad")
     private String nacionalidad;
@@ -121,17 +121,17 @@ public class Persona implements Serializable {
         this.genero = genero;
     }
 
-    public String getFecha_nacimiento() {
-        return fecha_nacimiento;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public Persona fecha_nacimiento(String fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public Persona fechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
         return this;
     }
 
-    public void setFecha_nacimiento(String fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getNacionalidad() {
@@ -203,7 +203,7 @@ public class Persona implements Serializable {
             ", paterno='" + getPaterno() + "'" +
             ", materno='" + getMaterno() + "'" +
             ", genero='" + getGenero() + "'" +
-            ", fecha_nacimiento='" + getFecha_nacimiento() + "'" +
+            ", fechaNacimiento='" + getFechaNacimiento() + "'" +
             ", nacionalidad='" + getNacionalidad() + "'" +
             ", direccion='" + getDireccion() + "'" +
             ", telefono=" + getTelefono() +

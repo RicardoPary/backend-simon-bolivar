@@ -23,7 +23,7 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "fecha_nacimiento",
+            "fieldName": "fechaNacimiento",
             "fieldType": "String"
         },
         {

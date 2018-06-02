@@ -35,7 +35,7 @@ public class SimonBolivarApp {
     }
 
     /**
-     * Initializes SimonBolivar.
+     * Initializes SimonBolivar.e
      * <p>
      * Spring profiles can be configured with a program arguments --spring.profiles.active=your-active-profile
      * <p>

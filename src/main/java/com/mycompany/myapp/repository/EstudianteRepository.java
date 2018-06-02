@@ -1,9 +1,13 @@
 package com.mycompany.myapp.repository;
 
 import com.mycompany.myapp.domain.Estudiante;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.data.jpa.repository.*;
+
+import java.util.List;
 
 
 /**
@@ -12,5 +16,10 @@ import org.springframework.data.jpa.repository.*;
 @SuppressWarnings("unused")
 @Repository
 public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
+
+
+    @Query("select p.id, p.ci, p.nombre, p.paterno, p.materno, p.genero, p.fechaNacimiento, p.nacionalidad, p.direccion, p.telefono, e.matricula, e.tipo from Estudiante e, Persona p where e.idPersona = p.id")
+    Page<Object> findAllStudents(Pageable pageable);
+
 
 }

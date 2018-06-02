@@ -2,6 +2,7 @@ package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Estudiante;
+import com.mycompany.myapp.repository.EstudianteRepository;
 import com.mycompany.myapp.service.EstudianteService;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
@@ -35,8 +36,12 @@ public class EstudianteResource {
 
     private final EstudianteService estudianteService;
 
-    public EstudianteResource(EstudianteService estudianteService) {
+    private final EstudianteRepository estudianteRepository;
+
+    public EstudianteResource(EstudianteService estudianteService, EstudianteRepository estudianteRepository) {
+
         this.estudianteService = estudianteService;
+        this.estudianteRepository = estudianteRepository;
     }
 
     /**
@@ -122,5 +127,27 @@ public class EstudianteResource {
         log.debug("REST request to delete Estudiante : {}", id);
         estudianteService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
+
+
+
+
+
+
+
+    /**
+     * GET  /estudiantes : get all the estudiantes.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of estudiantes in body
+     */
+    @GetMapping("/estudiantes/all")
+    @Timed
+    public ResponseEntity<List<Object>> getAllEstudiantesPersonas(Pageable pageable) {
+        log.debug("REST request to get a page of Estudiantes");
+        Page<Object> page = estudianteRepository.findAllStudents(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/estudiantes/all");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 }

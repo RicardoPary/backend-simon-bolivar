@@ -112,7 +112,7 @@ public class PersonaResourceIntTest {
             .paterno(DEFAULT_PATERNO)
             .materno(DEFAULT_MATERNO)
             .genero(DEFAULT_GENERO)
-            .fecha_nacimiento(DEFAULT_FECHA_NACIMIENTO)
+            .fechaNacimiento(DEFAULT_FECHA_NACIMIENTO)
             .nacionalidad(DEFAULT_NACIONALIDAD)
             .direccion(DEFAULT_DIRECCION)
             .telefono(DEFAULT_TELEFONO);
@@ -144,7 +144,7 @@ public class PersonaResourceIntTest {
         assertThat(testPersona.getPaterno()).isEqualTo(DEFAULT_PATERNO);
         assertThat(testPersona.getMaterno()).isEqualTo(DEFAULT_MATERNO);
         assertThat(testPersona.getGenero()).isEqualTo(DEFAULT_GENERO);
-        assertThat(testPersona.getFecha_nacimiento()).isEqualTo(DEFAULT_FECHA_NACIMIENTO);
+        assertThat(testPersona.getFechaNacimiento()).isEqualTo(DEFAULT_FECHA_NACIMIENTO);
         assertThat(testPersona.getNacionalidad()).isEqualTo(DEFAULT_NACIONALIDAD);
         assertThat(testPersona.getDireccion()).isEqualTo(DEFAULT_DIRECCION);
         assertThat(testPersona.getTelefono()).isEqualTo(DEFAULT_TELEFONO);
@@ -185,7 +185,7 @@ public class PersonaResourceIntTest {
             .andExpect(jsonPath("$.[*].paterno").value(hasItem(DEFAULT_PATERNO.toString())))
             .andExpect(jsonPath("$.[*].materno").value(hasItem(DEFAULT_MATERNO.toString())))
             .andExpect(jsonPath("$.[*].genero").value(hasItem(DEFAULT_GENERO.toString())))
-            .andExpect(jsonPath("$.[*].fecha_nacimiento").value(hasItem(DEFAULT_FECHA_NACIMIENTO.toString())))
+            .andExpect(jsonPath("$.[*].fechaNacimiento").value(hasItem(DEFAULT_FECHA_NACIMIENTO.toString())))
             .andExpect(jsonPath("$.[*].nacionalidad").value(hasItem(DEFAULT_NACIONALIDAD.toString())))
             .andExpect(jsonPath("$.[*].direccion").value(hasItem(DEFAULT_DIRECCION.toString())))
             .andExpect(jsonPath("$.[*].telefono").value(hasItem(DEFAULT_TELEFONO.intValue())));
@@ -207,7 +207,7 @@ public class PersonaResourceIntTest {
             .andExpect(jsonPath("$.paterno").value(DEFAULT_PATERNO.toString()))
             .andExpect(jsonPath("$.materno").value(DEFAULT_MATERNO.toString()))
             .andExpect(jsonPath("$.genero").value(DEFAULT_GENERO.toString()))
-            .andExpect(jsonPath("$.fecha_nacimiento").value(DEFAULT_FECHA_NACIMIENTO.toString()))
+            .andExpect(jsonPath("$.fechaNacimiento").value(DEFAULT_FECHA_NACIMIENTO.toString()))
             .andExpect(jsonPath("$.nacionalidad").value(DEFAULT_NACIONALIDAD.toString()))
             .andExpect(jsonPath("$.direccion").value(DEFAULT_DIRECCION.toString()))
             .andExpect(jsonPath("$.telefono").value(DEFAULT_TELEFONO.intValue()));
@@ -239,7 +239,7 @@ public class PersonaResourceIntTest {
             .paterno(UPDATED_PATERNO)
             .materno(UPDATED_MATERNO)
             .genero(UPDATED_GENERO)
-            .fecha_nacimiento(UPDATED_FECHA_NACIMIENTO)
+            .fechaNacimiento(UPDATED_FECHA_NACIMIENTO)
             .nacionalidad(UPDATED_NACIONALIDAD)
             .direccion(UPDATED_DIRECCION)
             .telefono(UPDATED_TELEFONO);
@@ -258,7 +258,7 @@ public class PersonaResourceIntTest {
         assertThat(testPersona.getPaterno()).isEqualTo(UPDATED_PATERNO);
         assertThat(testPersona.getMaterno()).isEqualTo(UPDATED_MATERNO);
         assertThat(testPersona.getGenero()).isEqualTo(UPDATED_GENERO);
-        assertThat(testPersona.getFecha_nacimiento()).isEqualTo(UPDATED_FECHA_NACIMIENTO);
+        assertThat(testPersona.getFechaNacimiento()).isEqualTo(UPDATED_FECHA_NACIMIENTO);
         assertThat(testPersona.getNacionalidad()).isEqualTo(UPDATED_NACIONALIDAD);
         assertThat(testPersona.getDireccion()).isEqualTo(UPDATED_DIRECCION);
         assertThat(testPersona.getTelefono()).isEqualTo(UPDATED_TELEFONO);
