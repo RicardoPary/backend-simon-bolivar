@@ -48,6 +48,9 @@ public class BimestreResourceIntTest {
     private static final String DEFAULT_BIMESTRE = "AAAAAAAAAA";
     private static final String UPDATED_BIMESTRE = "BBBBBBBBBB";
 
+    private static final Integer DEFAULT_GESTION = 1;
+    private static final Integer UPDATED_GESTION = 2;
+
     private static final Long DEFAULT_ID_MATERIA = 1L;
     private static final Long UPDATED_ID_MATERIA = 2L;
 
@@ -81,17 +84,77 @@ public class BimestreResourceIntTest {
     private static final Double DEFAULT_SER_PROMEDIO = 1D;
     private static final Double UPDATED_SER_PROMEDIO = 2D;
 
-    private static final String DEFAULT_NOTAS_SER = "AAAAAAAAAA";
-    private static final String UPDATED_NOTAS_SER = "BBBBBBBBBB";
+    private static final Integer DEFAULT_NOTA_SER_1 = 1;
+    private static final Integer UPDATED_NOTA_SER_1 = 2;
 
-    private static final String DEFAULT_NOTAS_SABER = "AAAAAAAAAA";
-    private static final String UPDATED_NOTAS_SABER = "BBBBBBBBBB";
+    private static final Integer DEFAULT_NOTA_SER_2 = 1;
+    private static final Integer UPDATED_NOTA_SER_2 = 2;
 
-    private static final String DEFAULT_NOTAS_HACER = "AAAAAAAAAA";
-    private static final String UPDATED_NOTAS_HACER = "BBBBBBBBBB";
+    private static final Integer DEFAULT_NOTA_SER_3 = 1;
+    private static final Integer UPDATED_NOTA_SER_3 = 2;
 
-    private static final String DEFAULT_NOTAS_DECIR = "AAAAAAAAAA";
-    private static final String UPDATED_NOTAS_DECIR = "BBBBBBBBBB";
+    private static final Integer DEFAULT_NOTA_SER_4 = 1;
+    private static final Integer UPDATED_NOTA_SER_4 = 2;
+
+    private static final Integer DEFAULT_NOTA_SER_5 = 1;
+    private static final Integer UPDATED_NOTA_SER_5 = 2;
+
+    private static final Integer DEFAULT_NOTA_SER_6 = 1;
+    private static final Integer UPDATED_NOTA_SER_6 = 2;
+
+    private static final Integer DEFAULT_NOTA_SABER_1 = 1;
+    private static final Integer UPDATED_NOTA_SABER_1 = 2;
+
+    private static final Integer DEFAULT_NOTA_SABER_2 = 1;
+    private static final Integer UPDATED_NOTA_SABER_2 = 2;
+
+    private static final Integer DEFAULT_NOTA_SABER_3 = 1;
+    private static final Integer UPDATED_NOTA_SABER_3 = 2;
+
+    private static final Integer DEFAULT_NOTA_SABER_4 = 1;
+    private static final Integer UPDATED_NOTA_SABER_4 = 2;
+
+    private static final Integer DEFAULT_NOTA_SABER_5 = 1;
+    private static final Integer UPDATED_NOTA_SABER_5 = 2;
+
+    private static final Integer DEFAULT_NOTA_SABER_6 = 1;
+    private static final Integer UPDATED_NOTA_SABER_6 = 2;
+
+    private static final Integer DEFAULT_NOTA_HACER_1 = 1;
+    private static final Integer UPDATED_NOTA_HACER_1 = 2;
+
+    private static final Integer DEFAULT_NOTA_HACER_2 = 1;
+    private static final Integer UPDATED_NOTA_HACER_2 = 2;
+
+    private static final Integer DEFAULT_NOTA_HACER_3 = 1;
+    private static final Integer UPDATED_NOTA_HACER_3 = 2;
+
+    private static final Integer DEFAULT_NOTA_HACER_4 = 1;
+    private static final Integer UPDATED_NOTA_HACER_4 = 2;
+
+    private static final Integer DEFAULT_NOTA_HACER_5 = 1;
+    private static final Integer UPDATED_NOTA_HACER_5 = 2;
+
+    private static final Integer DEFAULT_NOTA_HACER_6 = 1;
+    private static final Integer UPDATED_NOTA_HACER_6 = 2;
+
+    private static final Integer DEFAULT_NOTA_DECIR_1 = 1;
+    private static final Integer UPDATED_NOTA_DECIR_1 = 2;
+
+    private static final Integer DEFAULT_NOTA_DECIR_2 = 1;
+    private static final Integer UPDATED_NOTA_DECIR_2 = 2;
+
+    private static final Integer DEFAULT_NOTA_DECIR_3 = 1;
+    private static final Integer UPDATED_NOTA_DECIR_3 = 2;
+
+    private static final Integer DEFAULT_NOTA_DECIR_4 = 1;
+    private static final Integer UPDATED_NOTA_DECIR_4 = 2;
+
+    private static final Integer DEFAULT_NOTA_DECIR_5 = 1;
+    private static final Integer UPDATED_NOTA_DECIR_5 = 2;
+
+    private static final Integer DEFAULT_NOTA_DECIR_6 = 1;
+    private static final Integer UPDATED_NOTA_DECIR_6 = 2;
 
     @Autowired
     private BimestreRepository bimestreRepository;
@@ -137,6 +200,7 @@ public class BimestreResourceIntTest {
             .idEstudiante(DEFAULT_ID_ESTUDIANTE)
             .idDocente(DEFAULT_ID_DOCENTE)
             .bimestre(DEFAULT_BIMESTRE)
+            .gestion(DEFAULT_GESTION)
             .idMateria(DEFAULT_ID_MATERIA)
             .observacion(DEFAULT_OBSERVACION)
             .indicadorCualitativo(DEFAULT_INDICADOR_CUALITATIVO)
@@ -148,10 +212,30 @@ public class BimestreResourceIntTest {
             .hacerPromedio(DEFAULT_HACER_PROMEDIO)
             .saberPromedio(DEFAULT_SABER_PROMEDIO)
             .serPromedio(DEFAULT_SER_PROMEDIO)
-            .notasSer(DEFAULT_NOTAS_SER)
-            .notasSaber(DEFAULT_NOTAS_SABER)
-            .notasHacer(DEFAULT_NOTAS_HACER)
-            .notasDecir(DEFAULT_NOTAS_DECIR);
+            .notaSer1(DEFAULT_NOTA_SER_1)
+            .notaSer2(DEFAULT_NOTA_SER_2)
+            .notaSer3(DEFAULT_NOTA_SER_3)
+            .notaSer4(DEFAULT_NOTA_SER_4)
+            .notaSer5(DEFAULT_NOTA_SER_5)
+            .notaSer6(DEFAULT_NOTA_SER_6)
+            .notaSaber1(DEFAULT_NOTA_SABER_1)
+            .notaSaber2(DEFAULT_NOTA_SABER_2)
+            .notaSaber3(DEFAULT_NOTA_SABER_3)
+            .notaSaber4(DEFAULT_NOTA_SABER_4)
+            .notaSaber5(DEFAULT_NOTA_SABER_5)
+            .notaSaber6(DEFAULT_NOTA_SABER_6)
+            .notaHacer1(DEFAULT_NOTA_HACER_1)
+            .notaHacer2(DEFAULT_NOTA_HACER_2)
+            .notaHacer3(DEFAULT_NOTA_HACER_3)
+            .notaHacer4(DEFAULT_NOTA_HACER_4)
+            .notaHacer5(DEFAULT_NOTA_HACER_5)
+            .notaHacer6(DEFAULT_NOTA_HACER_6)
+            .notaDecir1(DEFAULT_NOTA_DECIR_1)
+            .notaDecir2(DEFAULT_NOTA_DECIR_2)
+            .notaDecir3(DEFAULT_NOTA_DECIR_3)
+            .notaDecir4(DEFAULT_NOTA_DECIR_4)
+            .notaDecir5(DEFAULT_NOTA_DECIR_5)
+            .notaDecir6(DEFAULT_NOTA_DECIR_6);
         return bimestre;
     }
 
@@ -178,6 +262,7 @@ public class BimestreResourceIntTest {
         assertThat(testBimestre.getIdEstudiante()).isEqualTo(DEFAULT_ID_ESTUDIANTE);
         assertThat(testBimestre.getIdDocente()).isEqualTo(DEFAULT_ID_DOCENTE);
         assertThat(testBimestre.getBimestre()).isEqualTo(DEFAULT_BIMESTRE);
+        assertThat(testBimestre.getGestion()).isEqualTo(DEFAULT_GESTION);
         assertThat(testBimestre.getIdMateria()).isEqualTo(DEFAULT_ID_MATERIA);
         assertThat(testBimestre.getObservacion()).isEqualTo(DEFAULT_OBSERVACION);
         assertThat(testBimestre.getIndicadorCualitativo()).isEqualTo(DEFAULT_INDICADOR_CUALITATIVO);
@@ -189,10 +274,30 @@ public class BimestreResourceIntTest {
         assertThat(testBimestre.getHacerPromedio()).isEqualTo(DEFAULT_HACER_PROMEDIO);
         assertThat(testBimestre.getSaberPromedio()).isEqualTo(DEFAULT_SABER_PROMEDIO);
         assertThat(testBimestre.getSerPromedio()).isEqualTo(DEFAULT_SER_PROMEDIO);
-        assertThat(testBimestre.getNotasSer()).isEqualTo(DEFAULT_NOTAS_SER);
-        assertThat(testBimestre.getNotasSaber()).isEqualTo(DEFAULT_NOTAS_SABER);
-        assertThat(testBimestre.getNotasHacer()).isEqualTo(DEFAULT_NOTAS_HACER);
-        assertThat(testBimestre.getNotasDecir()).isEqualTo(DEFAULT_NOTAS_DECIR);
+        assertThat(testBimestre.getNotaSer1()).isEqualTo(DEFAULT_NOTA_SER_1);
+        assertThat(testBimestre.getNotaSer2()).isEqualTo(DEFAULT_NOTA_SER_2);
+        assertThat(testBimestre.getNotaSer3()).isEqualTo(DEFAULT_NOTA_SER_3);
+        assertThat(testBimestre.getNotaSer4()).isEqualTo(DEFAULT_NOTA_SER_4);
+        assertThat(testBimestre.getNotaSer5()).isEqualTo(DEFAULT_NOTA_SER_5);
+        assertThat(testBimestre.getNotaSer6()).isEqualTo(DEFAULT_NOTA_SER_6);
+        assertThat(testBimestre.getNotaSaber1()).isEqualTo(DEFAULT_NOTA_SABER_1);
+        assertThat(testBimestre.getNotaSaber2()).isEqualTo(DEFAULT_NOTA_SABER_2);
+        assertThat(testBimestre.getNotaSaber3()).isEqualTo(DEFAULT_NOTA_SABER_3);
+        assertThat(testBimestre.getNotaSaber4()).isEqualTo(DEFAULT_NOTA_SABER_4);
+        assertThat(testBimestre.getNotaSaber5()).isEqualTo(DEFAULT_NOTA_SABER_5);
+        assertThat(testBimestre.getNotaSaber6()).isEqualTo(DEFAULT_NOTA_SABER_6);
+        assertThat(testBimestre.getNotaHacer1()).isEqualTo(DEFAULT_NOTA_HACER_1);
+        assertThat(testBimestre.getNotaHacer2()).isEqualTo(DEFAULT_NOTA_HACER_2);
+        assertThat(testBimestre.getNotaHacer3()).isEqualTo(DEFAULT_NOTA_HACER_3);
+        assertThat(testBimestre.getNotaHacer4()).isEqualTo(DEFAULT_NOTA_HACER_4);
+        assertThat(testBimestre.getNotaHacer5()).isEqualTo(DEFAULT_NOTA_HACER_5);
+        assertThat(testBimestre.getNotaHacer6()).isEqualTo(DEFAULT_NOTA_HACER_6);
+        assertThat(testBimestre.getNotaDecir1()).isEqualTo(DEFAULT_NOTA_DECIR_1);
+        assertThat(testBimestre.getNotaDecir2()).isEqualTo(DEFAULT_NOTA_DECIR_2);
+        assertThat(testBimestre.getNotaDecir3()).isEqualTo(DEFAULT_NOTA_DECIR_3);
+        assertThat(testBimestre.getNotaDecir4()).isEqualTo(DEFAULT_NOTA_DECIR_4);
+        assertThat(testBimestre.getNotaDecir5()).isEqualTo(DEFAULT_NOTA_DECIR_5);
+        assertThat(testBimestre.getNotaDecir6()).isEqualTo(DEFAULT_NOTA_DECIR_6);
     }
 
     @Test
@@ -228,6 +333,7 @@ public class BimestreResourceIntTest {
             .andExpect(jsonPath("$.[*].idEstudiante").value(hasItem(DEFAULT_ID_ESTUDIANTE.intValue())))
             .andExpect(jsonPath("$.[*].idDocente").value(hasItem(DEFAULT_ID_DOCENTE.intValue())))
             .andExpect(jsonPath("$.[*].bimestre").value(hasItem(DEFAULT_BIMESTRE.toString())))
+            .andExpect(jsonPath("$.[*].gestion").value(hasItem(DEFAULT_GESTION)))
             .andExpect(jsonPath("$.[*].idMateria").value(hasItem(DEFAULT_ID_MATERIA.intValue())))
             .andExpect(jsonPath("$.[*].observacion").value(hasItem(DEFAULT_OBSERVACION.toString())))
             .andExpect(jsonPath("$.[*].indicadorCualitativo").value(hasItem(DEFAULT_INDICADOR_CUALITATIVO.toString())))
@@ -239,10 +345,30 @@ public class BimestreResourceIntTest {
             .andExpect(jsonPath("$.[*].hacerPromedio").value(hasItem(DEFAULT_HACER_PROMEDIO.doubleValue())))
             .andExpect(jsonPath("$.[*].saberPromedio").value(hasItem(DEFAULT_SABER_PROMEDIO.doubleValue())))
             .andExpect(jsonPath("$.[*].serPromedio").value(hasItem(DEFAULT_SER_PROMEDIO.doubleValue())))
-            .andExpect(jsonPath("$.[*].notasSer").value(hasItem(DEFAULT_NOTAS_SER.toString())))
-            .andExpect(jsonPath("$.[*].notasSaber").value(hasItem(DEFAULT_NOTAS_SABER.toString())))
-            .andExpect(jsonPath("$.[*].notasHacer").value(hasItem(DEFAULT_NOTAS_HACER.toString())))
-            .andExpect(jsonPath("$.[*].notasDecir").value(hasItem(DEFAULT_NOTAS_DECIR.toString())));
+            .andExpect(jsonPath("$.[*].notaSer1").value(hasItem(DEFAULT_NOTA_SER_1)))
+            .andExpect(jsonPath("$.[*].notaSer2").value(hasItem(DEFAULT_NOTA_SER_2)))
+            .andExpect(jsonPath("$.[*].notaSer3").value(hasItem(DEFAULT_NOTA_SER_3)))
+            .andExpect(jsonPath("$.[*].notaSer4").value(hasItem(DEFAULT_NOTA_SER_4)))
+            .andExpect(jsonPath("$.[*].notaSer5").value(hasItem(DEFAULT_NOTA_SER_5)))
+            .andExpect(jsonPath("$.[*].notaSer6").value(hasItem(DEFAULT_NOTA_SER_6)))
+            .andExpect(jsonPath("$.[*].notaSaber1").value(hasItem(DEFAULT_NOTA_SABER_1)))
+            .andExpect(jsonPath("$.[*].notaSaber2").value(hasItem(DEFAULT_NOTA_SABER_2)))
+            .andExpect(jsonPath("$.[*].notaSaber3").value(hasItem(DEFAULT_NOTA_SABER_3)))
+            .andExpect(jsonPath("$.[*].notaSaber4").value(hasItem(DEFAULT_NOTA_SABER_4)))
+            .andExpect(jsonPath("$.[*].notaSaber5").value(hasItem(DEFAULT_NOTA_SABER_5)))
+            .andExpect(jsonPath("$.[*].notaSaber6").value(hasItem(DEFAULT_NOTA_SABER_6)))
+            .andExpect(jsonPath("$.[*].notaHacer1").value(hasItem(DEFAULT_NOTA_HACER_1)))
+            .andExpect(jsonPath("$.[*].notaHacer2").value(hasItem(DEFAULT_NOTA_HACER_2)))
+            .andExpect(jsonPath("$.[*].notaHacer3").value(hasItem(DEFAULT_NOTA_HACER_3)))
+            .andExpect(jsonPath("$.[*].notaHacer4").value(hasItem(DEFAULT_NOTA_HACER_4)))
+            .andExpect(jsonPath("$.[*].notaHacer5").value(hasItem(DEFAULT_NOTA_HACER_5)))
+            .andExpect(jsonPath("$.[*].notaHacer6").value(hasItem(DEFAULT_NOTA_HACER_6)))
+            .andExpect(jsonPath("$.[*].notaDecir1").value(hasItem(DEFAULT_NOTA_DECIR_1)))
+            .andExpect(jsonPath("$.[*].notaDecir2").value(hasItem(DEFAULT_NOTA_DECIR_2)))
+            .andExpect(jsonPath("$.[*].notaDecir3").value(hasItem(DEFAULT_NOTA_DECIR_3)))
+            .andExpect(jsonPath("$.[*].notaDecir4").value(hasItem(DEFAULT_NOTA_DECIR_4)))
+            .andExpect(jsonPath("$.[*].notaDecir5").value(hasItem(DEFAULT_NOTA_DECIR_5)))
+            .andExpect(jsonPath("$.[*].notaDecir6").value(hasItem(DEFAULT_NOTA_DECIR_6)));
     }
 
     @Test
@@ -259,6 +385,7 @@ public class BimestreResourceIntTest {
             .andExpect(jsonPath("$.idEstudiante").value(DEFAULT_ID_ESTUDIANTE.intValue()))
             .andExpect(jsonPath("$.idDocente").value(DEFAULT_ID_DOCENTE.intValue()))
             .andExpect(jsonPath("$.bimestre").value(DEFAULT_BIMESTRE.toString()))
+            .andExpect(jsonPath("$.gestion").value(DEFAULT_GESTION))
             .andExpect(jsonPath("$.idMateria").value(DEFAULT_ID_MATERIA.intValue()))
             .andExpect(jsonPath("$.observacion").value(DEFAULT_OBSERVACION.toString()))
             .andExpect(jsonPath("$.indicadorCualitativo").value(DEFAULT_INDICADOR_CUALITATIVO.toString()))
@@ -270,10 +397,30 @@ public class BimestreResourceIntTest {
             .andExpect(jsonPath("$.hacerPromedio").value(DEFAULT_HACER_PROMEDIO.doubleValue()))
             .andExpect(jsonPath("$.saberPromedio").value(DEFAULT_SABER_PROMEDIO.doubleValue()))
             .andExpect(jsonPath("$.serPromedio").value(DEFAULT_SER_PROMEDIO.doubleValue()))
-            .andExpect(jsonPath("$.notasSer").value(DEFAULT_NOTAS_SER.toString()))
-            .andExpect(jsonPath("$.notasSaber").value(DEFAULT_NOTAS_SABER.toString()))
-            .andExpect(jsonPath("$.notasHacer").value(DEFAULT_NOTAS_HACER.toString()))
-            .andExpect(jsonPath("$.notasDecir").value(DEFAULT_NOTAS_DECIR.toString()));
+            .andExpect(jsonPath("$.notaSer1").value(DEFAULT_NOTA_SER_1))
+            .andExpect(jsonPath("$.notaSer2").value(DEFAULT_NOTA_SER_2))
+            .andExpect(jsonPath("$.notaSer3").value(DEFAULT_NOTA_SER_3))
+            .andExpect(jsonPath("$.notaSer4").value(DEFAULT_NOTA_SER_4))
+            .andExpect(jsonPath("$.notaSer5").value(DEFAULT_NOTA_SER_5))
+            .andExpect(jsonPath("$.notaSer6").value(DEFAULT_NOTA_SER_6))
+            .andExpect(jsonPath("$.notaSaber1").value(DEFAULT_NOTA_SABER_1))
+            .andExpect(jsonPath("$.notaSaber2").value(DEFAULT_NOTA_SABER_2))
+            .andExpect(jsonPath("$.notaSaber3").value(DEFAULT_NOTA_SABER_3))
+            .andExpect(jsonPath("$.notaSaber4").value(DEFAULT_NOTA_SABER_4))
+            .andExpect(jsonPath("$.notaSaber5").value(DEFAULT_NOTA_SABER_5))
+            .andExpect(jsonPath("$.notaSaber6").value(DEFAULT_NOTA_SABER_6))
+            .andExpect(jsonPath("$.notaHacer1").value(DEFAULT_NOTA_HACER_1))
+            .andExpect(jsonPath("$.notaHacer2").value(DEFAULT_NOTA_HACER_2))
+            .andExpect(jsonPath("$.notaHacer3").value(DEFAULT_NOTA_HACER_3))
+            .andExpect(jsonPath("$.notaHacer4").value(DEFAULT_NOTA_HACER_4))
+            .andExpect(jsonPath("$.notaHacer5").value(DEFAULT_NOTA_HACER_5))
+            .andExpect(jsonPath("$.notaHacer6").value(DEFAULT_NOTA_HACER_6))
+            .andExpect(jsonPath("$.notaDecir1").value(DEFAULT_NOTA_DECIR_1))
+            .andExpect(jsonPath("$.notaDecir2").value(DEFAULT_NOTA_DECIR_2))
+            .andExpect(jsonPath("$.notaDecir3").value(DEFAULT_NOTA_DECIR_3))
+            .andExpect(jsonPath("$.notaDecir4").value(DEFAULT_NOTA_DECIR_4))
+            .andExpect(jsonPath("$.notaDecir5").value(DEFAULT_NOTA_DECIR_5))
+            .andExpect(jsonPath("$.notaDecir6").value(DEFAULT_NOTA_DECIR_6));
     }
 
     @Test
@@ -300,6 +447,7 @@ public class BimestreResourceIntTest {
             .idEstudiante(UPDATED_ID_ESTUDIANTE)
             .idDocente(UPDATED_ID_DOCENTE)
             .bimestre(UPDATED_BIMESTRE)
+            .gestion(UPDATED_GESTION)
             .idMateria(UPDATED_ID_MATERIA)
             .observacion(UPDATED_OBSERVACION)
             .indicadorCualitativo(UPDATED_INDICADOR_CUALITATIVO)
@@ -311,10 +459,30 @@ public class BimestreResourceIntTest {
             .hacerPromedio(UPDATED_HACER_PROMEDIO)
             .saberPromedio(UPDATED_SABER_PROMEDIO)
             .serPromedio(UPDATED_SER_PROMEDIO)
-            .notasSer(UPDATED_NOTAS_SER)
-            .notasSaber(UPDATED_NOTAS_SABER)
-            .notasHacer(UPDATED_NOTAS_HACER)
-            .notasDecir(UPDATED_NOTAS_DECIR);
+            .notaSer1(UPDATED_NOTA_SER_1)
+            .notaSer2(UPDATED_NOTA_SER_2)
+            .notaSer3(UPDATED_NOTA_SER_3)
+            .notaSer4(UPDATED_NOTA_SER_4)
+            .notaSer5(UPDATED_NOTA_SER_5)
+            .notaSer6(UPDATED_NOTA_SER_6)
+            .notaSaber1(UPDATED_NOTA_SABER_1)
+            .notaSaber2(UPDATED_NOTA_SABER_2)
+            .notaSaber3(UPDATED_NOTA_SABER_3)
+            .notaSaber4(UPDATED_NOTA_SABER_4)
+            .notaSaber5(UPDATED_NOTA_SABER_5)
+            .notaSaber6(UPDATED_NOTA_SABER_6)
+            .notaHacer1(UPDATED_NOTA_HACER_1)
+            .notaHacer2(UPDATED_NOTA_HACER_2)
+            .notaHacer3(UPDATED_NOTA_HACER_3)
+            .notaHacer4(UPDATED_NOTA_HACER_4)
+            .notaHacer5(UPDATED_NOTA_HACER_5)
+            .notaHacer6(UPDATED_NOTA_HACER_6)
+            .notaDecir1(UPDATED_NOTA_DECIR_1)
+            .notaDecir2(UPDATED_NOTA_DECIR_2)
+            .notaDecir3(UPDATED_NOTA_DECIR_3)
+            .notaDecir4(UPDATED_NOTA_DECIR_4)
+            .notaDecir5(UPDATED_NOTA_DECIR_5)
+            .notaDecir6(UPDATED_NOTA_DECIR_6);
 
         restBimestreMockMvc.perform(put("/api/bimestres")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -328,6 +496,7 @@ public class BimestreResourceIntTest {
         assertThat(testBimestre.getIdEstudiante()).isEqualTo(UPDATED_ID_ESTUDIANTE);
         assertThat(testBimestre.getIdDocente()).isEqualTo(UPDATED_ID_DOCENTE);
         assertThat(testBimestre.getBimestre()).isEqualTo(UPDATED_BIMESTRE);
+        assertThat(testBimestre.getGestion()).isEqualTo(UPDATED_GESTION);
         assertThat(testBimestre.getIdMateria()).isEqualTo(UPDATED_ID_MATERIA);
         assertThat(testBimestre.getObservacion()).isEqualTo(UPDATED_OBSERVACION);
         assertThat(testBimestre.getIndicadorCualitativo()).isEqualTo(UPDATED_INDICADOR_CUALITATIVO);
@@ -339,10 +508,30 @@ public class BimestreResourceIntTest {
         assertThat(testBimestre.getHacerPromedio()).isEqualTo(UPDATED_HACER_PROMEDIO);
         assertThat(testBimestre.getSaberPromedio()).isEqualTo(UPDATED_SABER_PROMEDIO);
         assertThat(testBimestre.getSerPromedio()).isEqualTo(UPDATED_SER_PROMEDIO);
-        assertThat(testBimestre.getNotasSer()).isEqualTo(UPDATED_NOTAS_SER);
-        assertThat(testBimestre.getNotasSaber()).isEqualTo(UPDATED_NOTAS_SABER);
-        assertThat(testBimestre.getNotasHacer()).isEqualTo(UPDATED_NOTAS_HACER);
-        assertThat(testBimestre.getNotasDecir()).isEqualTo(UPDATED_NOTAS_DECIR);
+        assertThat(testBimestre.getNotaSer1()).isEqualTo(UPDATED_NOTA_SER_1);
+        assertThat(testBimestre.getNotaSer2()).isEqualTo(UPDATED_NOTA_SER_2);
+        assertThat(testBimestre.getNotaSer3()).isEqualTo(UPDATED_NOTA_SER_3);
+        assertThat(testBimestre.getNotaSer4()).isEqualTo(UPDATED_NOTA_SER_4);
+        assertThat(testBimestre.getNotaSer5()).isEqualTo(UPDATED_NOTA_SER_5);
+        assertThat(testBimestre.getNotaSer6()).isEqualTo(UPDATED_NOTA_SER_6);
+        assertThat(testBimestre.getNotaSaber1()).isEqualTo(UPDATED_NOTA_SABER_1);
+        assertThat(testBimestre.getNotaSaber2()).isEqualTo(UPDATED_NOTA_SABER_2);
+        assertThat(testBimestre.getNotaSaber3()).isEqualTo(UPDATED_NOTA_SABER_3);
+        assertThat(testBimestre.getNotaSaber4()).isEqualTo(UPDATED_NOTA_SABER_4);
+        assertThat(testBimestre.getNotaSaber5()).isEqualTo(UPDATED_NOTA_SABER_5);
+        assertThat(testBimestre.getNotaSaber6()).isEqualTo(UPDATED_NOTA_SABER_6);
+        assertThat(testBimestre.getNotaHacer1()).isEqualTo(UPDATED_NOTA_HACER_1);
+        assertThat(testBimestre.getNotaHacer2()).isEqualTo(UPDATED_NOTA_HACER_2);
+        assertThat(testBimestre.getNotaHacer3()).isEqualTo(UPDATED_NOTA_HACER_3);
+        assertThat(testBimestre.getNotaHacer4()).isEqualTo(UPDATED_NOTA_HACER_4);
+        assertThat(testBimestre.getNotaHacer5()).isEqualTo(UPDATED_NOTA_HACER_5);
+        assertThat(testBimestre.getNotaHacer6()).isEqualTo(UPDATED_NOTA_HACER_6);
+        assertThat(testBimestre.getNotaDecir1()).isEqualTo(UPDATED_NOTA_DECIR_1);
+        assertThat(testBimestre.getNotaDecir2()).isEqualTo(UPDATED_NOTA_DECIR_2);
+        assertThat(testBimestre.getNotaDecir3()).isEqualTo(UPDATED_NOTA_DECIR_3);
+        assertThat(testBimestre.getNotaDecir4()).isEqualTo(UPDATED_NOTA_DECIR_4);
+        assertThat(testBimestre.getNotaDecir5()).isEqualTo(UPDATED_NOTA_DECIR_5);
+        assertThat(testBimestre.getNotaDecir6()).isEqualTo(UPDATED_NOTA_DECIR_6);
     }
 
     @Test

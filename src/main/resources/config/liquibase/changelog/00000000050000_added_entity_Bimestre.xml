@@ -33,6 +33,10 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="gestion" type="integer">
+                <constraints nullable="true" />
+            </column>
+
             <column name="id_materia" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -77,19 +81,99 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="notas_ser" type="varchar(255)">
+            <column name="nota_ser_1" type="integer">
                 <constraints nullable="true" />
             </column>
 
-            <column name="notas_saber" type="varchar(255)">
+            <column name="nota_ser_2" type="integer">
                 <constraints nullable="true" />
             </column>
 
-            <column name="notas_hacer" type="varchar(255)">
+            <column name="nota_ser_3" type="integer">
                 <constraints nullable="true" />
             </column>
 
-            <column name="notas_decir" type="varchar(255)">
+            <column name="nota_ser_4" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_ser_5" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_ser_6" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_saber_1" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_saber_2" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_saber_3" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_saber_4" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_saber_5" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_saber_6" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_hacer_1" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_hacer_2" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_hacer_3" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_hacer_4" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_hacer_5" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_hacer_6" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_decir_1" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_decir_2" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_decir_3" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_decir_4" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_decir_5" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nota_decir_6" type="integer">
                 <constraints nullable="true" />
             </column>
 

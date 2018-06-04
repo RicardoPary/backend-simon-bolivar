@@ -29,6 +29,9 @@ public class Bimestre implements Serializable {
     @Column(name = "bimestre")
     private String bimestre;
 
+    @Column(name = "gestion")
+    private Integer gestion;
+
     @Column(name = "id_materia")
     private Long idMateria;
 
@@ -62,17 +65,77 @@ public class Bimestre implements Serializable {
     @Column(name = "ser_promedio")
     private Double serPromedio;
 
-    @Column(name = "notas_ser")
-    private String notasSer;
+    @Column(name = "nota_ser_1")
+    private Integer notaSer1;
 
-    @Column(name = "notas_saber")
-    private String notasSaber;
+    @Column(name = "nota_ser_2")
+    private Integer notaSer2;
 
-    @Column(name = "notas_hacer")
-    private String notasHacer;
+    @Column(name = "nota_ser_3")
+    private Integer notaSer3;
 
-    @Column(name = "notas_decir")
-    private String notasDecir;
+    @Column(name = "nota_ser_4")
+    private Integer notaSer4;
+
+    @Column(name = "nota_ser_5")
+    private Integer notaSer5;
+
+    @Column(name = "nota_ser_6")
+    private Integer notaSer6;
+
+    @Column(name = "nota_saber_1")
+    private Integer notaSaber1;
+
+    @Column(name = "nota_saber_2")
+    private Integer notaSaber2;
+
+    @Column(name = "nota_saber_3")
+    private Integer notaSaber3;
+
+    @Column(name = "nota_saber_4")
+    private Integer notaSaber4;
+
+    @Column(name = "nota_saber_5")
+    private Integer notaSaber5;
+
+    @Column(name = "nota_saber_6")
+    private Integer notaSaber6;
+
+    @Column(name = "nota_hacer_1")
+    private Integer notaHacer1;
+
+    @Column(name = "nota_hacer_2")
+    private Integer notaHacer2;
+
+    @Column(name = "nota_hacer_3")
+    private Integer notaHacer3;
+
+    @Column(name = "nota_hacer_4")
+    private Integer notaHacer4;
+
+    @Column(name = "nota_hacer_5")
+    private Integer notaHacer5;
+
+    @Column(name = "nota_hacer_6")
+    private Integer notaHacer6;
+
+    @Column(name = "nota_decir_1")
+    private Integer notaDecir1;
+
+    @Column(name = "nota_decir_2")
+    private Integer notaDecir2;
+
+    @Column(name = "nota_decir_3")
+    private Integer notaDecir3;
+
+    @Column(name = "nota_decir_4")
+    private Integer notaDecir4;
+
+    @Column(name = "nota_decir_5")
+    private Integer notaDecir5;
+
+    @Column(name = "nota_decir_6")
+    private Integer notaDecir6;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -120,6 +183,19 @@ public class Bimestre implements Serializable {
 
     public void setBimestre(String bimestre) {
         this.bimestre = bimestre;
+    }
+
+    public Integer getGestion() {
+        return gestion;
+    }
+
+    public Bimestre gestion(Integer gestion) {
+        this.gestion = gestion;
+        return this;
+    }
+
+    public void setGestion(Integer gestion) {
+        this.gestion = gestion;
     }
 
     public Long getIdMateria() {
@@ -265,56 +341,316 @@ public class Bimestre implements Serializable {
         this.serPromedio = serPromedio;
     }
 
-    public String getNotasSer() {
-        return notasSer;
+    public Integer getNotaSer1() {
+        return notaSer1;
     }
 
-    public Bimestre notasSer(String notasSer) {
-        this.notasSer = notasSer;
+    public Bimestre notaSer1(Integer notaSer1) {
+        this.notaSer1 = notaSer1;
         return this;
     }
 
-    public void setNotasSer(String notasSer) {
-        this.notasSer = notasSer;
+    public void setNotaSer1(Integer notaSer1) {
+        this.notaSer1 = notaSer1;
     }
 
-    public String getNotasSaber() {
-        return notasSaber;
+    public Integer getNotaSer2() {
+        return notaSer2;
     }
 
-    public Bimestre notasSaber(String notasSaber) {
-        this.notasSaber = notasSaber;
+    public Bimestre notaSer2(Integer notaSer2) {
+        this.notaSer2 = notaSer2;
         return this;
     }
 
-    public void setNotasSaber(String notasSaber) {
-        this.notasSaber = notasSaber;
+    public void setNotaSer2(Integer notaSer2) {
+        this.notaSer2 = notaSer2;
     }
 
-    public String getNotasHacer() {
-        return notasHacer;
+    public Integer getNotaSer3() {
+        return notaSer3;
     }
 
-    public Bimestre notasHacer(String notasHacer) {
-        this.notasHacer = notasHacer;
+    public Bimestre notaSer3(Integer notaSer3) {
+        this.notaSer3 = notaSer3;
         return this;
     }
 
-    public void setNotasHacer(String notasHacer) {
-        this.notasHacer = notasHacer;
+    public void setNotaSer3(Integer notaSer3) {
+        this.notaSer3 = notaSer3;
     }
 
-    public String getNotasDecir() {
-        return notasDecir;
+    public Integer getNotaSer4() {
+        return notaSer4;
     }
 
-    public Bimestre notasDecir(String notasDecir) {
-        this.notasDecir = notasDecir;
+    public Bimestre notaSer4(Integer notaSer4) {
+        this.notaSer4 = notaSer4;
         return this;
     }
 
-    public void setNotasDecir(String notasDecir) {
-        this.notasDecir = notasDecir;
+    public void setNotaSer4(Integer notaSer4) {
+        this.notaSer4 = notaSer4;
+    }
+
+    public Integer getNotaSer5() {
+        return notaSer5;
+    }
+
+    public Bimestre notaSer5(Integer notaSer5) {
+        this.notaSer5 = notaSer5;
+        return this;
+    }
+
+    public void setNotaSer5(Integer notaSer5) {
+        this.notaSer5 = notaSer5;
+    }
+
+    public Integer getNotaSer6() {
+        return notaSer6;
+    }
+
+    public Bimestre notaSer6(Integer notaSer6) {
+        this.notaSer6 = notaSer6;
+        return this;
+    }
+
+    public void setNotaSer6(Integer notaSer6) {
+        this.notaSer6 = notaSer6;
+    }
+
+    public Integer getNotaSaber1() {
+        return notaSaber1;
+    }
+
+    public Bimestre notaSaber1(Integer notaSaber1) {
+        this.notaSaber1 = notaSaber1;
+        return this;
+    }
+
+    public void setNotaSaber1(Integer notaSaber1) {
+        this.notaSaber1 = notaSaber1;
+    }
+
+    public Integer getNotaSaber2() {
+        return notaSaber2;
+    }
+
+    public Bimestre notaSaber2(Integer notaSaber2) {
+        this.notaSaber2 = notaSaber2;
+        return this;
+    }
+
+    public void setNotaSaber2(Integer notaSaber2) {
+        this.notaSaber2 = notaSaber2;
+    }
+
+    public Integer getNotaSaber3() {
+        return notaSaber3;
+    }
+
+    public Bimestre notaSaber3(Integer notaSaber3) {
+        this.notaSaber3 = notaSaber3;
+        return this;
+    }
+
+    public void setNotaSaber3(Integer notaSaber3) {
+        this.notaSaber3 = notaSaber3;
+    }
+
+    public Integer getNotaSaber4() {
+        return notaSaber4;
+    }
+
+    public Bimestre notaSaber4(Integer notaSaber4) {
+        this.notaSaber4 = notaSaber4;
+        return this;
+    }
+
+    public void setNotaSaber4(Integer notaSaber4) {
+        this.notaSaber4 = notaSaber4;
+    }
+
+    public Integer getNotaSaber5() {
+        return notaSaber5;
+    }
+
+    public Bimestre notaSaber5(Integer notaSaber5) {
+        this.notaSaber5 = notaSaber5;
+        return this;
+    }
+
+    public void setNotaSaber5(Integer notaSaber5) {
+        this.notaSaber5 = notaSaber5;
+    }
+
+    public Integer getNotaSaber6() {
+        return notaSaber6;
+    }
+
+    public Bimestre notaSaber6(Integer notaSaber6) {
+        this.notaSaber6 = notaSaber6;
+        return this;
+    }
+
+    public void setNotaSaber6(Integer notaSaber6) {
+        this.notaSaber6 = notaSaber6;
+    }
+
+    public Integer getNotaHacer1() {
+        return notaHacer1;
+    }
+
+    public Bimestre notaHacer1(Integer notaHacer1) {
+        this.notaHacer1 = notaHacer1;
+        return this;
+    }
+
+    public void setNotaHacer1(Integer notaHacer1) {
+        this.notaHacer1 = notaHacer1;
+    }
+
+    public Integer getNotaHacer2() {
+        return notaHacer2;
+    }
+
+    public Bimestre notaHacer2(Integer notaHacer2) {
+        this.notaHacer2 = notaHacer2;
+        return this;
+    }
+
+    public void setNotaHacer2(Integer notaHacer2) {
+        this.notaHacer2 = notaHacer2;
+    }
+
+    public Integer getNotaHacer3() {
+        return notaHacer3;
+    }
+
+    public Bimestre notaHacer3(Integer notaHacer3) {
+        this.notaHacer3 = notaHacer3;
+        return this;
+    }
+
+    public void setNotaHacer3(Integer notaHacer3) {
+        this.notaHacer3 = notaHacer3;
+    }
+
+    public Integer getNotaHacer4() {
+        return notaHacer4;
+    }
+
+    public Bimestre notaHacer4(Integer notaHacer4) {
+        this.notaHacer4 = notaHacer4;
+        return this;
+    }
+
+    public void setNotaHacer4(Integer notaHacer4) {
+        this.notaHacer4 = notaHacer4;
+    }
+
+    public Integer getNotaHacer5() {
+        return notaHacer5;
+    }
+
+    public Bimestre notaHacer5(Integer notaHacer5) {
+        this.notaHacer5 = notaHacer5;
+        return this;
+    }
+
+    public void setNotaHacer5(Integer notaHacer5) {
+        this.notaHacer5 = notaHacer5;
+    }
+
+    public Integer getNotaHacer6() {
+        return notaHacer6;
+    }
+
+    public Bimestre notaHacer6(Integer notaHacer6) {
+        this.notaHacer6 = notaHacer6;
+        return this;
+    }
+
+    public void setNotaHacer6(Integer notaHacer6) {
+        this.notaHacer6 = notaHacer6;
+    }
+
+    public Integer getNotaDecir1() {
+        return notaDecir1;
+    }
+
+    public Bimestre notaDecir1(Integer notaDecir1) {
+        this.notaDecir1 = notaDecir1;
+        return this;
+    }
+
+    public void setNotaDecir1(Integer notaDecir1) {
+        this.notaDecir1 = notaDecir1;
+    }
+
+    public Integer getNotaDecir2() {
+        return notaDecir2;
+    }
+
+    public Bimestre notaDecir2(Integer notaDecir2) {
+        this.notaDecir2 = notaDecir2;
+        return this;
+    }
+
+    public void setNotaDecir2(Integer notaDecir2) {
+        this.notaDecir2 = notaDecir2;
+    }
+
+    public Integer getNotaDecir3() {
+        return notaDecir3;
+    }
+
+    public Bimestre notaDecir3(Integer notaDecir3) {
+        this.notaDecir3 = notaDecir3;
+        return this;
+    }
+
+    public void setNotaDecir3(Integer notaDecir3) {
+        this.notaDecir3 = notaDecir3;
+    }
+
+    public Integer getNotaDecir4() {
+        return notaDecir4;
+    }
+
+    public Bimestre notaDecir4(Integer notaDecir4) {
+        this.notaDecir4 = notaDecir4;
+        return this;
+    }
+
+    public void setNotaDecir4(Integer notaDecir4) {
+        this.notaDecir4 = notaDecir4;
+    }
+
+    public Integer getNotaDecir5() {
+        return notaDecir5;
+    }
+
+    public Bimestre notaDecir5(Integer notaDecir5) {
+        this.notaDecir5 = notaDecir5;
+        return this;
+    }
+
+    public void setNotaDecir5(Integer notaDecir5) {
+        this.notaDecir5 = notaDecir5;
+    }
+
+    public Integer getNotaDecir6() {
+        return notaDecir6;
+    }
+
+    public Bimestre notaDecir6(Integer notaDecir6) {
+        this.notaDecir6 = notaDecir6;
+        return this;
+    }
+
+    public void setNotaDecir6(Integer notaDecir6) {
+        this.notaDecir6 = notaDecir6;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -345,6 +681,7 @@ public class Bimestre implements Serializable {
             ", idEstudiante=" + getIdEstudiante() +
             ", idDocente=" + getIdDocente() +
             ", bimestre='" + getBimestre() + "'" +
+            ", gestion=" + getGestion() +
             ", idMateria=" + getIdMateria() +
             ", observacion='" + getObservacion() + "'" +
             ", indicadorCualitativo='" + getIndicadorCualitativo() + "'" +
@@ -356,10 +693,30 @@ public class Bimestre implements Serializable {
             ", hacerPromedio=" + getHacerPromedio() +
             ", saberPromedio=" + getSaberPromedio() +
             ", serPromedio=" + getSerPromedio() +
-            ", notasSer='" + getNotasSer() + "'" +
-            ", notasSaber='" + getNotasSaber() + "'" +
-            ", notasHacer='" + getNotasHacer() + "'" +
-            ", notasDecir='" + getNotasDecir() + "'" +
+            ", notaSer1=" + getNotaSer1() +
+            ", notaSer2=" + getNotaSer2() +
+            ", notaSer3=" + getNotaSer3() +
+            ", notaSer4=" + getNotaSer4() +
+            ", notaSer5=" + getNotaSer5() +
+            ", notaSer6=" + getNotaSer6() +
+            ", notaSaber1=" + getNotaSaber1() +
+            ", notaSaber2=" + getNotaSaber2() +
+            ", notaSaber3=" + getNotaSaber3() +
+            ", notaSaber4=" + getNotaSaber4() +
+            ", notaSaber5=" + getNotaSaber5() +
+            ", notaSaber6=" + getNotaSaber6() +
+            ", notaHacer1=" + getNotaHacer1() +
+            ", notaHacer2=" + getNotaHacer2() +
+            ", notaHacer3=" + getNotaHacer3() +
+            ", notaHacer4=" + getNotaHacer4() +
+            ", notaHacer5=" + getNotaHacer5() +
+            ", notaHacer6=" + getNotaHacer6() +
+            ", notaDecir1=" + getNotaDecir1() +
+            ", notaDecir2=" + getNotaDecir2() +
+            ", notaDecir3=" + getNotaDecir3() +
+            ", notaDecir4=" + getNotaDecir4() +
+            ", notaDecir5=" + getNotaDecir5() +
+            ", notaDecir6=" + getNotaDecir6() +
             "}";
     }
 }

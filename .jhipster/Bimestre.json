@@ -15,6 +15,10 @@
             "fieldType": "String"
         },
         {
+            "fieldName": "gestion",
+            "fieldType": "Integer"
+        },
+        {
             "fieldName": "idMateria",
             "fieldType": "Long"
         },
@@ -59,20 +63,100 @@
             "fieldType": "Double"
         },
         {
-            "fieldName": "notasSer",
-            "fieldType": "String"
+            "fieldName": "notaSer1",
+            "fieldType": "Integer"
         },
         {
-            "fieldName": "notasSaber",
-            "fieldType": "String"
+            "fieldName": "notaSer2",
+            "fieldType": "Integer"
         },
         {
-            "fieldName": "notasHacer",
-            "fieldType": "String"
+            "fieldName": "notaSer3",
+            "fieldType": "Integer"
         },
         {
-            "fieldName": "notasDecir",
-            "fieldType": "String"
+            "fieldName": "notaSer4",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaSer5",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaSer6",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaSaber1",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaSaber2",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaSaber3",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaSaber4",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaSaber5",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaSaber6",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaHacer1",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaHacer2",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaHacer3",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaHacer4",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaHacer5",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaHacer6",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaDecir1",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaDecir2",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaDecir3",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaDecir4",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaDecir5",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notaDecir6",
+            "fieldType": "Integer"
         }
     ],
     "changelogDate": "00000000050000",
