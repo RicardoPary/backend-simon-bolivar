@@ -42,6 +42,9 @@ public class TrabajadorResourceIntTest {
     private static final Long DEFAULT_NIT = 1L;
     private static final Long UPDATED_NIT = 2L;
 
+    private static final Long DEFAULT_ID_PERSONA = 1L;
+    private static final Long UPDATED_ID_PERSONA = 2L;
+
     @Autowired
     private TrabajadorRepository trabajadorRepository;
 
@@ -83,7 +86,8 @@ public class TrabajadorResourceIntTest {
      */
     public static Trabajador createEntity(EntityManager em) {
         Trabajador trabajador = new Trabajador()
-            .nit(DEFAULT_NIT);
+            .nit(DEFAULT_NIT)
+            .idPersona(DEFAULT_ID_PERSONA);
         return trabajador;
     }
 
@@ -108,6 +112,7 @@ public class TrabajadorResourceIntTest {
         assertThat(trabajadorList).hasSize(databaseSizeBeforeCreate + 1);
         Trabajador testTrabajador = trabajadorList.get(trabajadorList.size() - 1);
         assertThat(testTrabajador.getNit()).isEqualTo(DEFAULT_NIT);
+        assertThat(testTrabajador.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
     }
 
     @Test
@@ -140,7 +145,8 @@ public class TrabajadorResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(trabajador.getId().intValue())))
-            .andExpect(jsonPath("$.[*].nit").value(hasItem(DEFAULT_NIT.intValue())));
+            .andExpect(jsonPath("$.[*].nit").value(hasItem(DEFAULT_NIT.intValue())))
+            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA.intValue())));
     }
 
     @Test
@@ -154,7 +160,8 @@ public class TrabajadorResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(trabajador.getId().intValue()))
-            .andExpect(jsonPath("$.nit").value(DEFAULT_NIT.intValue()));
+            .andExpect(jsonPath("$.nit").value(DEFAULT_NIT.intValue()))
+            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA.intValue()));
     }
 
     @Test
@@ -178,7 +185,8 @@ public class TrabajadorResourceIntTest {
         // Disconnect from session so that the updates on updatedTrabajador are not directly saved in db
         em.detach(updatedTrabajador);
         updatedTrabajador
-            .nit(UPDATED_NIT);
+            .nit(UPDATED_NIT)
+            .idPersona(UPDATED_ID_PERSONA);
 
         restTrabajadorMockMvc.perform(put("/api/trabajadors")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -190,6 +198,7 @@ public class TrabajadorResourceIntTest {
         assertThat(trabajadorList).hasSize(databaseSizeBeforeUpdate);
         Trabajador testTrabajador = trabajadorList.get(trabajadorList.size() - 1);
         assertThat(testTrabajador.getNit()).isEqualTo(UPDATED_NIT);
+        assertThat(testTrabajador.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
     }
 
     @Test

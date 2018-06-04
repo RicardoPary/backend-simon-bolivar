@@ -25,9 +25,20 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="id_persona" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-        
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/trabajadores.csv"
+                  separator=";"
+                  tableName="trabajador">
+        </loadData>
+
+
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>

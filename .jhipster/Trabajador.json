@@ -5,6 +5,10 @@
         {
             "fieldName": "nit",
             "fieldType": "Long"
+        },
+        {
+            "fieldName": "idPersona",
+            "fieldType": "Long"
         }
     ],
     "changelogDate": "00000000030000",
