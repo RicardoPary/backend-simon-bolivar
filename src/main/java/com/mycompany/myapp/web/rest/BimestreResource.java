@@ -2,11 +2,12 @@ package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Bimestre;
-import com.mycompany.myapp.repository.BimestreRepository;
 import com.mycompany.myapp.service.BimestreService;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
+import com.mycompany.myapp.service.dto.BimestreCriteria;
+import com.mycompany.myapp.service.BimestreQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,12 +37,11 @@ public class BimestreResource {
 
     private final BimestreService bimestreService;
 
-    private final BimestreRepository bimestreRepository;
+    private final BimestreQueryService bimestreQueryService;
 
-    public BimestreResource(BimestreService bimestreService, BimestreRepository bimestreRepository) {
-
+    public BimestreResource(BimestreService bimestreService, BimestreQueryService bimestreQueryService) {
         this.bimestreService = bimestreService;
-        this.bimestreRepository = bimestreRepository;
+        this.bimestreQueryService = bimestreQueryService;
     }
 
     /**
@@ -90,13 +90,14 @@ public class BimestreResource {
      * GET  /bimestres : get all the bimestres.
      *
      * @param pageable the pagination information
+     * @param criteria the criterias which the requested entities should match
      * @return the ResponseEntity with status 200 (OK) and the list of bimestres in body
      */
     @GetMapping("/bimestres")
     @Timed
-    public ResponseEntity<List<Bimestre>> getAllBimestres(Pageable pageable) {
-        log.debug("REST request to get a page of Bimestres");
-        Page<Bimestre> page = bimestreService.findAll(pageable);
+    public ResponseEntity<List<Bimestre>> getAllBimestres(BimestreCriteria criteria, Pageable pageable) {
+        log.debug("REST request to get Bimestres by criteria: {}", criteria);
+        Page<Bimestre> page = bimestreQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/bimestres");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -127,20 +128,5 @@ public class BimestreResource {
         log.debug("REST request to delete Bimestre : {}", id);
         bimestreService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
-    }
-
-    /**
-     * GET  /bimestres : get all the bimestres.
-     *
-     * @param pageable the pagination information
-     * @return the ResponseEntity with status 200 (OK) and the list of bimestres in body
-     */
-    @GetMapping("/bimestres/materia/{idMateria}/docente/{idDocente}")
-    @Timed
-    public ResponseEntity<List<Bimestre>> findAllByIdMateriaAndIdDocente(Pageable pageable, @PathVariable Long idMateria, @PathVariable Long idDocente) {
-        log.debug("REST request to get a page of Bimestres");
-        Page<Bimestre> page = bimestreRepository.findAllByIdMateriaAndIdDocente(pageable, idMateria, idDocente);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/bimestres");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 }

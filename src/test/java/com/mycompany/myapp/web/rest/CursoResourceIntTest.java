@@ -45,8 +45,8 @@ public class CursoResourceIntTest {
     private static final String DEFAULT_TIPO = "AAAAAAAAAA";
     private static final String UPDATED_TIPO = "BBBBBBBBBB";
 
-    private static final String DEFAULT_LUGAR = "AAAAAAAAAA";
-    private static final String UPDATED_LUGAR = "BBBBBBBBBB";
+    private static final String DEFAULT_DESCRIPCION = "AAAAAAAAAA";
+    private static final String UPDATED_DESCRIPCION = "BBBBBBBBBB";
 
     private static final Long DEFAULT_ID_NIVEL = 1L;
     private static final Long UPDATED_ID_NIVEL = 2L;
@@ -94,7 +94,7 @@ public class CursoResourceIntTest {
         Curso curso = new Curso()
             .nombre(DEFAULT_NOMBRE)
             .tipo(DEFAULT_TIPO)
-            .lugar(DEFAULT_LUGAR)
+            .descripcion(DEFAULT_DESCRIPCION)
             .idNivel(DEFAULT_ID_NIVEL);
         return curso;
     }
@@ -121,7 +121,7 @@ public class CursoResourceIntTest {
         Curso testCurso = cursoList.get(cursoList.size() - 1);
         assertThat(testCurso.getNombre()).isEqualTo(DEFAULT_NOMBRE);
         assertThat(testCurso.getTipo()).isEqualTo(DEFAULT_TIPO);
-        assertThat(testCurso.getLugar()).isEqualTo(DEFAULT_LUGAR);
+        assertThat(testCurso.getDescripcion()).isEqualTo(DEFAULT_DESCRIPCION);
         assertThat(testCurso.getIdNivel()).isEqualTo(DEFAULT_ID_NIVEL);
     }
 
@@ -157,7 +157,7 @@ public class CursoResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(curso.getId().intValue())))
             .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
             .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
-            .andExpect(jsonPath("$.[*].lugar").value(hasItem(DEFAULT_LUGAR.toString())))
+            .andExpect(jsonPath("$.[*].descripcion").value(hasItem(DEFAULT_DESCRIPCION.toString())))
             .andExpect(jsonPath("$.[*].idNivel").value(hasItem(DEFAULT_ID_NIVEL.intValue())));
     }
 
@@ -174,7 +174,7 @@ public class CursoResourceIntTest {
             .andExpect(jsonPath("$.id").value(curso.getId().intValue()))
             .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
             .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
-            .andExpect(jsonPath("$.lugar").value(DEFAULT_LUGAR.toString()))
+            .andExpect(jsonPath("$.descripcion").value(DEFAULT_DESCRIPCION.toString()))
             .andExpect(jsonPath("$.idNivel").value(DEFAULT_ID_NIVEL.intValue()));
     }
 
@@ -201,7 +201,7 @@ public class CursoResourceIntTest {
         updatedCurso
             .nombre(UPDATED_NOMBRE)
             .tipo(UPDATED_TIPO)
-            .lugar(UPDATED_LUGAR)
+            .descripcion(UPDATED_DESCRIPCION)
             .idNivel(UPDATED_ID_NIVEL);
 
         restCursoMockMvc.perform(put("/api/cursos")
@@ -215,7 +215,7 @@ public class CursoResourceIntTest {
         Curso testCurso = cursoList.get(cursoList.size() - 1);
         assertThat(testCurso.getNombre()).isEqualTo(UPDATED_NOMBRE);
         assertThat(testCurso.getTipo()).isEqualTo(UPDATED_TIPO);
-        assertThat(testCurso.getLugar()).isEqualTo(UPDATED_LUGAR);
+        assertThat(testCurso.getDescripcion()).isEqualTo(UPDATED_DESCRIPCION);
         assertThat(testCurso.getIdNivel()).isEqualTo(UPDATED_ID_NIVEL);
     }
 

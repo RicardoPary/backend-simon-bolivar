@@ -7,8 +7,12 @@
             "fieldType": "Long"
         },
         {
-            "fieldName": "idMateria",
+            "fieldName": "idCurso",
             "fieldType": "Long"
+        },
+        {
+            "fieldName": "paralelo",
+            "fieldType": "String"
         },
         {
             "fieldName": "gestion",
@@ -18,7 +22,7 @@
     "changelogDate": "00000000000800",
     "dto": "no",
     "service": "serviceClass",
-    "entityTableName": "estudiante_materia",
+    "entityTableName": "estudiante_curso",
     "jpaMetamodelFiltering": false,
     "pagination": "pager"
 }

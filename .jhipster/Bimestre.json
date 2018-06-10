@@ -12,6 +12,10 @@
         },
         {
             "fieldName": "bimestre",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "paralelo",
             "fieldType": "String"
         },
         {
@@ -163,6 +167,6 @@
     "dto": "no",
     "service": "serviceClass",
     "entityTableName": "bimestre",
-    "jpaMetamodelFiltering": false,
+    "jpaMetamodelFiltering": true,
     "pagination": "pager"
 }

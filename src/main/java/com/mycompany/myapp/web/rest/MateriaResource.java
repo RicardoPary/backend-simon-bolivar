@@ -123,4 +123,37 @@ public class MateriaResource {
         materiaService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+
+
+    /**
+     * GET  /materias : get all the materias by idCurso.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of materias in body
+     */
+    @GetMapping("/materias/{id}/curso")
+    @Timed
+    public ResponseEntity<List<Materia>> findAllByIdCurso(Pageable pageable, @PathVariable Long id) {
+        log.debug("REST request to get a page of Materias");
+        Page<Materia> page = materiaService.findAllByIdCurso(pageable, id);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/materias");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+
+
+    /**
+     * GET  /materias : get all the materias by idCurso.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of materias in body
+     */
+    @GetMapping("/materias/{idCurso}/curso/{idDocente}/docente")
+    @Timed
+    public ResponseEntity<List<Materia>> findAllByIdCursoAndIdDocente(Pageable pageable, @PathVariable Long idCurso, @PathVariable Long idDocente) {
+        log.debug("REST request to get a page of Materias");
+        Page<Materia> page = materiaService.findAllByIdCursoAndIdDocente(pageable, idCurso, idDocente);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/materias");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
 }

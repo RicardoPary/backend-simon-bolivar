@@ -17,6 +17,10 @@
         {
             "fieldName": "idCurso",
             "fieldType": "Long"
+        },
+        {
+            "fieldName": "idDocente",
+            "fieldType": "Long"
         }
     ],
     "changelogDate": "00000000004000",

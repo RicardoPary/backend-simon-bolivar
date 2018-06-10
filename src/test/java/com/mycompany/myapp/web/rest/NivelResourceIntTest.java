@@ -42,6 +42,12 @@ public class NivelResourceIntTest {
     private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
     private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_TIPO = "AAAAAAAAAA";
+    private static final String UPDATED_TIPO = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DESCRIPCION = "AAAAAAAAAA";
+    private static final String UPDATED_DESCRIPCION = "BBBBBBBBBB";
+
     @Autowired
     private NivelRepository nivelRepository;
 
@@ -83,7 +89,9 @@ public class NivelResourceIntTest {
      */
     public static Nivel createEntity(EntityManager em) {
         Nivel nivel = new Nivel()
-            .nombre(DEFAULT_NOMBRE);
+            .nombre(DEFAULT_NOMBRE)
+            .tipo(DEFAULT_TIPO)
+            .descripcion(DEFAULT_DESCRIPCION);
         return nivel;
     }
 
@@ -108,6 +116,8 @@ public class NivelResourceIntTest {
         assertThat(nivelList).hasSize(databaseSizeBeforeCreate + 1);
         Nivel testNivel = nivelList.get(nivelList.size() - 1);
         assertThat(testNivel.getNombre()).isEqualTo(DEFAULT_NOMBRE);
+        assertThat(testNivel.getTipo()).isEqualTo(DEFAULT_TIPO);
+        assertThat(testNivel.getDescripcion()).isEqualTo(DEFAULT_DESCRIPCION);
     }
 
     @Test
@@ -140,7 +150,9 @@ public class NivelResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(nivel.getId().intValue())))
-            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())));
+            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
+            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
+            .andExpect(jsonPath("$.[*].descripcion").value(hasItem(DEFAULT_DESCRIPCION.toString())));
     }
 
     @Test
@@ -154,7 +166,9 @@ public class NivelResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(nivel.getId().intValue()))
-            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()));
+            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
+            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
+            .andExpect(jsonPath("$.descripcion").value(DEFAULT_DESCRIPCION.toString()));
     }
 
     @Test
@@ -178,7 +192,9 @@ public class NivelResourceIntTest {
         // Disconnect from session so that the updates on updatedNivel are not directly saved in db
         em.detach(updatedNivel);
         updatedNivel
-            .nombre(UPDATED_NOMBRE);
+            .nombre(UPDATED_NOMBRE)
+            .tipo(UPDATED_TIPO)
+            .descripcion(UPDATED_DESCRIPCION);
 
         restNivelMockMvc.perform(put("/api/nivels")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -190,6 +206,8 @@ public class NivelResourceIntTest {
         assertThat(nivelList).hasSize(databaseSizeBeforeUpdate);
         Nivel testNivel = nivelList.get(nivelList.size() - 1);
         assertThat(testNivel.getNombre()).isEqualTo(UPDATED_NOMBRE);
+        assertThat(testNivel.getTipo()).isEqualTo(UPDATED_TIPO);
+        assertThat(testNivel.getDescripcion()).isEqualTo(UPDATED_DESCRIPCION);
     }
 
     @Test

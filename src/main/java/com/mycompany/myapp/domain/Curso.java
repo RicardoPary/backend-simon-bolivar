@@ -26,8 +26,8 @@ public class Curso implements Serializable {
     @Column(name = "tipo")
     private String tipo;
 
-    @Column(name = "lugar")
-    private String lugar;
+    @Column(name = "descripcion")
+    private String descripcion;
 
     @Column(name = "id_nivel")
     private Long idNivel;
@@ -67,17 +67,17 @@ public class Curso implements Serializable {
         this.tipo = tipo;
     }
 
-    public String getLugar() {
-        return lugar;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public Curso lugar(String lugar) {
-        this.lugar = lugar;
+    public Curso descripcion(String descripcion) {
+        this.descripcion = descripcion;
         return this;
     }
 
-    public void setLugar(String lugar) {
-        this.lugar = lugar;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Long getIdNivel() {
@@ -120,7 +120,7 @@ public class Curso implements Serializable {
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
             ", tipo='" + getTipo() + "'" +
-            ", lugar='" + getLugar() + "'" +
+            ", descripcion='" + getDescripcion() + "'" +
             ", idNivel=" + getIdNivel() +
             "}";
     }

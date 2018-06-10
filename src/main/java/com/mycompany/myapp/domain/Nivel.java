@@ -23,6 +23,12 @@ public class Nivel implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
+    @Column(name = "tipo")
+    private String tipo;
+
+    @Column(name = "descripcion")
+    private String descripcion;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -43,6 +49,32 @@ public class Nivel implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public Nivel tipo(String tipo) {
+        this.tipo = tipo;
+        return this;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public Nivel descripcion(String descripcion) {
+        this.descripcion = descripcion;
+        return this;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -71,6 +103,8 @@ public class Nivel implements Serializable {
         return "Nivel{" +
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
+            ", tipo='" + getTipo() + "'" +
+            ", descripcion='" + getDescripcion() + "'" +
             "}";
     }
 }

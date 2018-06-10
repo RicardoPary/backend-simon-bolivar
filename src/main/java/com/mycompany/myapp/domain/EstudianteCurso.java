@@ -7,11 +7,11 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A EstudianteMateria.
+ * A EstudianteCurso.
  */
 @Entity
-@Table(name = "estudiante_materia")
-public class EstudianteMateria implements Serializable {
+@Table(name = "estudiante_curso")
+public class EstudianteCurso implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -23,8 +23,11 @@ public class EstudianteMateria implements Serializable {
     @Column(name = "id_estudiante")
     private Long idEstudiante;
 
-    @Column(name = "id_materia")
-    private Long idMateria;
+    @Column(name = "id_curso")
+    private Long idCurso;
+
+    @Column(name = "paralelo")
+    private String paralelo;
 
     @Column(name = "gestion")
     private Integer gestion;
@@ -42,7 +45,7 @@ public class EstudianteMateria implements Serializable {
         return idEstudiante;
     }
 
-    public EstudianteMateria idEstudiante(Long idEstudiante) {
+    public EstudianteCurso idEstudiante(Long idEstudiante) {
         this.idEstudiante = idEstudiante;
         return this;
     }
@@ -51,24 +54,37 @@ public class EstudianteMateria implements Serializable {
         this.idEstudiante = idEstudiante;
     }
 
-    public Long getIdMateria() {
-        return idMateria;
+    public Long getIdCurso() {
+        return idCurso;
     }
 
-    public EstudianteMateria idMateria(Long idMateria) {
-        this.idMateria = idMateria;
+    public EstudianteCurso idCurso(Long idCurso) {
+        this.idCurso = idCurso;
         return this;
     }
 
-    public void setIdMateria(Long idMateria) {
-        this.idMateria = idMateria;
+    public void setIdCurso(Long idCurso) {
+        this.idCurso = idCurso;
+    }
+
+    public String getParalelo() {
+        return paralelo;
+    }
+
+    public EstudianteCurso paralelo(String paralelo) {
+        this.paralelo = paralelo;
+        return this;
+    }
+
+    public void setParalelo(String paralelo) {
+        this.paralelo = paralelo;
     }
 
     public Integer getGestion() {
         return gestion;
     }
 
-    public EstudianteMateria gestion(Integer gestion) {
+    public EstudianteCurso gestion(Integer gestion) {
         this.gestion = gestion;
         return this;
     }
@@ -86,11 +102,11 @@ public class EstudianteMateria implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        EstudianteMateria estudianteMateria = (EstudianteMateria) o;
-        if (estudianteMateria.getId() == null || getId() == null) {
+        EstudianteCurso estudianteCurso = (EstudianteCurso) o;
+        if (estudianteCurso.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(getId(), estudianteMateria.getId());
+        return Objects.equals(getId(), estudianteCurso.getId());
     }
 
     @Override
@@ -100,10 +116,11 @@ public class EstudianteMateria implements Serializable {
 
     @Override
     public String toString() {
-        return "EstudianteMateria{" +
+        return "EstudianteCurso{" +
             "id=" + getId() +
             ", idEstudiante=" + getIdEstudiante() +
-            ", idMateria=" + getIdMateria() +
+            ", idCurso=" + getIdCurso() +
+            ", paralelo='" + getParalelo() + "'" +
             ", gestion=" + getGestion() +
             "}";
     }

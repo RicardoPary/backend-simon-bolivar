@@ -27,7 +27,10 @@ public class Bimestre implements Serializable {
     private Long idDocente;
 
     @Column(name = "bimestre")
-    private String bimestre;
+    private Integer bimestre;
+
+    @Column(name = "paralelo")
+    private String paralelo;
 
     @Column(name = "gestion")
     private Integer gestion;
@@ -172,17 +175,30 @@ public class Bimestre implements Serializable {
         this.idDocente = idDocente;
     }
 
-    public String getBimestre() {
+    public Integer getBimestre() {
         return bimestre;
     }
 
-    public Bimestre bimestre(String bimestre) {
+    public Bimestre bimestre(Integer bimestre) {
         this.bimestre = bimestre;
         return this;
     }
 
-    public void setBimestre(String bimestre) {
+    public void setBimestre(Integer bimestre) {
         this.bimestre = bimestre;
+    }
+
+    public String getParalelo() {
+        return paralelo;
+    }
+
+    public Bimestre paralelo(String paralelo) {
+        this.paralelo = paralelo;
+        return this;
+    }
+
+    public void setParalelo(String paralelo) {
+        this.paralelo = paralelo;
     }
 
     public Integer getGestion() {
@@ -680,7 +696,8 @@ public class Bimestre implements Serializable {
             "id=" + getId() +
             ", idEstudiante=" + getIdEstudiante() +
             ", idDocente=" + getIdDocente() +
-            ", bimestre='" + getBimestre() + "'" +
+            ", bimestre=" + getBimestre() +
+            ", paralelo='" + getParalelo() + "'" +
             ", gestion=" + getGestion() +
             ", idMateria=" + getIdMateria() +
             ", observacion='" + getObservacion() + "'" +

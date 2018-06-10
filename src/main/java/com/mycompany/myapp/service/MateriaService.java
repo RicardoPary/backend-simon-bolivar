@@ -69,4 +69,32 @@ public class MateriaService {
         log.debug("Request to delete Materia : {}", id);
         materiaRepository.delete(id);
     }
+
+
+
+
+
+    /**
+     * Get all the materias by idCurso.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public Page<Materia> findAllByIdCurso(Pageable pageable, Long id) {
+        log.debug("Request to get all Materias");
+        return materiaRepository.findAllByIdCurso(pageable, id);
+    }
+
+    /**
+     * Get all the materias by idCurso.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public Page<Materia> findAllByIdCursoAndIdDocente(Pageable pageable, Long idCurso, Long idDocente) {
+        log.debug("Request to get all Materias");
+        return materiaRepository.findAllByIdCursoAndIdDocente(pageable, idCurso, idDocente);
+    }
 }

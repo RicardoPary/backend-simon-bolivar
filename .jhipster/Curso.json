@@ -11,7 +11,7 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "lugar",
+            "fieldName": "descripcion",
             "fieldType": "String"
         },
         {

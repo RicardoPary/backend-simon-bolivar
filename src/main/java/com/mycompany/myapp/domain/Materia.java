@@ -32,6 +32,9 @@ public class Materia implements Serializable {
     @Column(name = "id_curso")
     private Long idCurso;
 
+    @Column(name = "id_docente")
+    private Long idDocente;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -92,6 +95,19 @@ public class Materia implements Serializable {
     public void setIdCurso(Long idCurso) {
         this.idCurso = idCurso;
     }
+
+    public Long getIdDocente() {
+        return idDocente;
+    }
+
+    public Materia idDocente(Long idDocente) {
+        this.idDocente = idDocente;
+        return this;
+    }
+
+    public void setIdDocente(Long idDocente) {
+        this.idDocente = idDocente;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -122,6 +138,7 @@ public class Materia implements Serializable {
             ", sigla='" + getSigla() + "'" +
             ", descripcion='" + getDescripcion() + "'" +
             ", idCurso=" + getIdCurso() +
+            ", idDocente=" + getIdDocente() +
             "}";
     }
 }
