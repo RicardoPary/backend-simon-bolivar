@@ -69,6 +69,7 @@ public class BimestreQueryService extends QueryService<Bimestre> {
     private Specifications<Bimestre> createSpecification(BimestreCriteria criteria) {
         Specifications<Bimestre> specification = Specifications.where(null);
         if (criteria != null) {
+
             if (criteria.getIdEstudiante() != null) {
                 specification = specification.and(buildRangeSpecification(criteria.getIdEstudiante(), Bimestre_.idEstudiante));
             }
@@ -87,6 +88,7 @@ public class BimestreQueryService extends QueryService<Bimestre> {
             if (criteria.getIdMateria() != null) {
                 specification = specification.and(buildRangeSpecification(criteria.getIdMateria(), Bimestre_.idMateria));
             }
+
         }
         return specification;
     }

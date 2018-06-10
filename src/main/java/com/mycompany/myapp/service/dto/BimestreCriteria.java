@@ -1,7 +1,6 @@
 package com.mycompany.myapp.service.dto;
 
 import java.io.Serializable;
-
 import io.github.jhipster.service.filter.BooleanFilter;
 import io.github.jhipster.service.filter.DoubleFilter;
 import io.github.jhipster.service.filter.Filter;
@@ -9,6 +8,11 @@ import io.github.jhipster.service.filter.FloatFilter;
 import io.github.jhipster.service.filter.IntegerFilter;
 import io.github.jhipster.service.filter.LongFilter;
 import io.github.jhipster.service.filter.StringFilter;
+
+
+
+
+
 
 /**
  * Criteria class for the Bimestre entity. This class is used in BimestreResource to
@@ -32,6 +36,8 @@ public class BimestreCriteria implements Serializable {
     private IntegerFilter gestion;
 
     private LongFilter idMateria;
+
+
 
     public BimestreCriteria() {
     }

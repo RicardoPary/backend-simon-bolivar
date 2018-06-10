@@ -138,6 +138,7 @@ repositories {
 }
 
 dependencies {
+    provided group: 'org.hibernate', name: 'hibernate-jpamodelgen', version: '5.3.1.Final'
     compile "io.github.jhipster:jhipster"
     compile "io.dropwizard.metrics:metrics-core"
     compile "io.dropwizard.metrics:metrics-json"

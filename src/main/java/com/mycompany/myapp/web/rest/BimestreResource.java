@@ -44,6 +44,7 @@ public class BimestreResource {
         this.bimestreQueryService = bimestreQueryService;
     }
 
+
     /**
      * POST  /bimestres : Create a new bimestre.
      *
@@ -128,5 +129,22 @@ public class BimestreResource {
         log.debug("REST request to delete Bimestre : {}", id);
         bimestreService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
+
+
+    /**
+     * GET  /products/all : get all the products.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of products in body
+     */
+    @GetMapping("/products/all")
+    @Timed
+    public ResponseEntity<List<Bimestre>> getAllBimestresByFilter(BimestreCriteria criteria, Pageable pageable) {
+        log.debug("REST request to get a page of Products");
+        Page<Bimestre> page = bimestreQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/products/all");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 }
