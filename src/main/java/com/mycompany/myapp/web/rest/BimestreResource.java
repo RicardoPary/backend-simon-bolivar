@@ -91,14 +91,14 @@ public class BimestreResource {
      * GET  /bimestres : get all the bimestres.
      *
      * @param pageable the pagination information
-     * @param criteria the criterias which the requested entities should match
+     * @param  the criterias which the requested entities should match
      * @return the ResponseEntity with status 200 (OK) and the list of bimestres in body
      */
     @GetMapping("/bimestres")
     @Timed
-    public ResponseEntity<List<Bimestre>> getAllBimestres(BimestreCriteria criteria, Pageable pageable) {
-        log.debug("REST request to get Bimestres by criteria: {}", criteria);
-        Page<Bimestre> page = bimestreQueryService.findByCriteria(criteria, pageable);
+    public ResponseEntity<List<Bimestre>> getAllBimestres(Pageable pageable) {
+        log.debug("REST request to get Bimestres by criteria: {}");
+        Page<Bimestre> page = bimestreService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/bimestres");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -139,7 +139,7 @@ public class BimestreResource {
      * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of products in body
      */
-    @GetMapping("/products/all")
+    @GetMapping("/bimestres/all")
     @Timed
     public ResponseEntity<List<Bimestre>> getAllBimestresByFilter(BimestreCriteria criteria, Pageable pageable) {
         log.debug("REST request to get a page of Products");
