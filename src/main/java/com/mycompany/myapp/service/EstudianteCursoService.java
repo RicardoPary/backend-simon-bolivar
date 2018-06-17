@@ -1,6 +1,7 @@
 package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.domain.EstudianteCurso;
+import com.mycompany.myapp.domain.extras.InscripcionDTO;
 import com.mycompany.myapp.repository.EstudianteCursoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -68,5 +69,12 @@ public class EstudianteCursoService {
     public void delete(Long id) {
         log.debug("Request to delete EstudianteCurso : {}", id);
         estudianteCursoRepository.delete(id);
+    }
+
+
+
+    @Transactional(readOnly = true)
+    public Page<InscripcionDTO> getAllInscripciones(Pageable pageable) {
+        return estudianteCursoRepository.findAll(pageable).map(InscripcionDTO::new);
     }
 }

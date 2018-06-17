@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "estudiante_curso")
-public class EstudianteCurso implements Serializable {
+public class EstudianteCurso extends AbstractAuditingEntity implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -25,12 +25,6 @@ public class EstudianteCurso implements Serializable {
 
     @Column(name = "id_curso")
     private Long idCurso;
-
-    @Column(name = "paralelo")
-    private String paralelo;
-
-    @Column(name = "gestion")
-    private Integer gestion;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -66,32 +60,6 @@ public class EstudianteCurso implements Serializable {
     public void setIdCurso(Long idCurso) {
         this.idCurso = idCurso;
     }
-
-    public String getParalelo() {
-        return paralelo;
-    }
-
-    public EstudianteCurso paralelo(String paralelo) {
-        this.paralelo = paralelo;
-        return this;
-    }
-
-    public void setParalelo(String paralelo) {
-        this.paralelo = paralelo;
-    }
-
-    public Integer getGestion() {
-        return gestion;
-    }
-
-    public EstudianteCurso gestion(Integer gestion) {
-        this.gestion = gestion;
-        return this;
-    }
-
-    public void setGestion(Integer gestion) {
-        this.gestion = gestion;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -120,8 +88,6 @@ public class EstudianteCurso implements Serializable {
             "id=" + getId() +
             ", idEstudiante=" + getIdEstudiante() +
             ", idCurso=" + getIdCurso() +
-            ", paralelo='" + getParalelo() + "'" +
-            ", gestion=" + getGestion() +
             "}";
     }
 }

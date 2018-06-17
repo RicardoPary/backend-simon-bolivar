@@ -9,14 +9,6 @@
         {
             "fieldName": "idCurso",
             "fieldType": "Long"
-        },
-        {
-            "fieldName": "paralelo",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "gestion",
-            "fieldType": "Integer"
         }
     ],
     "changelogDate": "00000000000800",

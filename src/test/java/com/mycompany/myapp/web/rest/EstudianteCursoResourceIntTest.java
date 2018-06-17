@@ -45,12 +45,6 @@ public class EstudianteCursoResourceIntTest {
     private static final Long DEFAULT_ID_CURSO = 1L;
     private static final Long UPDATED_ID_CURSO = 2L;
 
-    private static final String DEFAULT_PARALELO = "AAAAAAAAAA";
-    private static final String UPDATED_PARALELO = "BBBBBBBBBB";
-
-    private static final Integer DEFAULT_GESTION = 1;
-    private static final Integer UPDATED_GESTION = 2;
-
     @Autowired
     private EstudianteCursoRepository estudianteCursoRepository;
 
@@ -93,9 +87,7 @@ public class EstudianteCursoResourceIntTest {
     public static EstudianteCurso createEntity(EntityManager em) {
         EstudianteCurso estudianteCurso = new EstudianteCurso()
             .idEstudiante(DEFAULT_ID_ESTUDIANTE)
-            .idCurso(DEFAULT_ID_CURSO)
-            .paralelo(DEFAULT_PARALELO)
-            .gestion(DEFAULT_GESTION);
+            .idCurso(DEFAULT_ID_CURSO);
         return estudianteCurso;
     }
 
@@ -121,8 +113,6 @@ public class EstudianteCursoResourceIntTest {
         EstudianteCurso testEstudianteCurso = estudianteCursoList.get(estudianteCursoList.size() - 1);
         assertThat(testEstudianteCurso.getIdEstudiante()).isEqualTo(DEFAULT_ID_ESTUDIANTE);
         assertThat(testEstudianteCurso.getIdCurso()).isEqualTo(DEFAULT_ID_CURSO);
-        assertThat(testEstudianteCurso.getParalelo()).isEqualTo(DEFAULT_PARALELO);
-        assertThat(testEstudianteCurso.getGestion()).isEqualTo(DEFAULT_GESTION);
     }
 
     @Test
@@ -156,9 +146,7 @@ public class EstudianteCursoResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(estudianteCurso.getId().intValue())))
             .andExpect(jsonPath("$.[*].idEstudiante").value(hasItem(DEFAULT_ID_ESTUDIANTE.intValue())))
-            .andExpect(jsonPath("$.[*].idCurso").value(hasItem(DEFAULT_ID_CURSO.intValue())))
-            .andExpect(jsonPath("$.[*].paralelo").value(hasItem(DEFAULT_PARALELO.toString())))
-            .andExpect(jsonPath("$.[*].gestion").value(hasItem(DEFAULT_GESTION)));
+            .andExpect(jsonPath("$.[*].idCurso").value(hasItem(DEFAULT_ID_CURSO.intValue())));
     }
 
     @Test
@@ -173,9 +161,7 @@ public class EstudianteCursoResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(estudianteCurso.getId().intValue()))
             .andExpect(jsonPath("$.idEstudiante").value(DEFAULT_ID_ESTUDIANTE.intValue()))
-            .andExpect(jsonPath("$.idCurso").value(DEFAULT_ID_CURSO.intValue()))
-            .andExpect(jsonPath("$.paralelo").value(DEFAULT_PARALELO.toString()))
-            .andExpect(jsonPath("$.gestion").value(DEFAULT_GESTION));
+            .andExpect(jsonPath("$.idCurso").value(DEFAULT_ID_CURSO.intValue()));
     }
 
     @Test
@@ -200,9 +186,7 @@ public class EstudianteCursoResourceIntTest {
         em.detach(updatedEstudianteCurso);
         updatedEstudianteCurso
             .idEstudiante(UPDATED_ID_ESTUDIANTE)
-            .idCurso(UPDATED_ID_CURSO)
-            .paralelo(UPDATED_PARALELO)
-            .gestion(UPDATED_GESTION);
+            .idCurso(UPDATED_ID_CURSO);
 
         restEstudianteCursoMockMvc.perform(put("/api/estudiante-cursos")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -215,8 +199,6 @@ public class EstudianteCursoResourceIntTest {
         EstudianteCurso testEstudianteCurso = estudianteCursoList.get(estudianteCursoList.size() - 1);
         assertThat(testEstudianteCurso.getIdEstudiante()).isEqualTo(UPDATED_ID_ESTUDIANTE);
         assertThat(testEstudianteCurso.getIdCurso()).isEqualTo(UPDATED_ID_CURSO);
-        assertThat(testEstudianteCurso.getParalelo()).isEqualTo(UPDATED_PARALELO);
-        assertThat(testEstudianteCurso.getGestion()).isEqualTo(UPDATED_GESTION);
     }
 
     @Test

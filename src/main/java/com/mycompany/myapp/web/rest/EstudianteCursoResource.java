@@ -2,6 +2,7 @@ package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.EstudianteCurso;
+import com.mycompany.myapp.domain.extras.InscripcionDTO;
 import com.mycompany.myapp.service.EstudianteCursoService;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
@@ -123,4 +124,26 @@ public class EstudianteCursoResource {
         estudianteCursoService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+
+
+
+
+
+
+
+
+    /**
+     * GET  box current open of user login.
+     */
+    @GetMapping("/inscripciones")
+    @Timed
+    public ResponseEntity<List<InscripcionDTO>> getAllInscripciones(Pageable pageable) {
+        final Page<InscripcionDTO> page = estudianteCursoService.getAllInscripciones(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/inscripciones");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+
+
+
 }

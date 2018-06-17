@@ -29,22 +29,17 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="paralelo" type="varchar(255)">
-                <constraints nullable="true" />
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
             </column>
-
-            <column name="gestion" type="integer">
-                <constraints nullable="true" />
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
             </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-
-        <loadData encoding="UTF-8"
-                  file="config/liquibase/estudianteCursos.csv"
-                  separator=";"
-                  tableName="estudiante_curso">
-        </loadData>
 
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
