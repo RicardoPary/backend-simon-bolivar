@@ -3,6 +3,7 @@ package com.mycompany.myapp.web.rest;
 import com.mycompany.myapp.SimonBolivarApp;
 
 import com.mycompany.myapp.domain.Bimestre;
+import com.mycompany.myapp.domain.Estudiante;
 import com.mycompany.myapp.repository.BimestreRepository;
 import com.mycompany.myapp.service.BimestreService;
 import com.mycompany.myapp.web.rest.errors.ExceptionTranslator;
@@ -41,8 +42,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SimonBolivarApp.class)
 public class BimestreResourceIntTest {
 
-    private static final Long DEFAULT_ID_ESTUDIANTE = 1L;
-    private static final Long UPDATED_ID_ESTUDIANTE = 2L;
+    private static final Long DEFAULT_ID_CURSO = 1L;
+    private static final Long UPDATED_ID_CURSO = 2L;
 
     private static final Long DEFAULT_ID_DOCENTE = 1L;
     private static final Long UPDATED_ID_DOCENTE = 2L;
@@ -205,7 +206,7 @@ public class BimestreResourceIntTest {
      */
     public static Bimestre createEntity(EntityManager em) {
         Bimestre bimestre = new Bimestre()
-            .idEstudiante(DEFAULT_ID_ESTUDIANTE)
+            .idCurso(DEFAULT_ID_CURSO)
             .idDocente(DEFAULT_ID_DOCENTE)
             .bimestre(DEFAULT_BIMESTRE)
             .paralelo(DEFAULT_PARALELO)
@@ -268,7 +269,7 @@ public class BimestreResourceIntTest {
         List<Bimestre> bimestreList = bimestreRepository.findAll();
         assertThat(bimestreList).hasSize(databaseSizeBeforeCreate + 1);
         Bimestre testBimestre = bimestreList.get(bimestreList.size() - 1);
-        assertThat(testBimestre.getIdEstudiante()).isEqualTo(DEFAULT_ID_ESTUDIANTE);
+        assertThat(testBimestre.getIdCurso()).isEqualTo(DEFAULT_ID_CURSO);
         assertThat(testBimestre.getIdDocente()).isEqualTo(DEFAULT_ID_DOCENTE);
         assertThat(testBimestre.getBimestre()).isEqualTo(DEFAULT_BIMESTRE);
         assertThat(testBimestre.getParalelo()).isEqualTo(DEFAULT_PARALELO);
@@ -340,7 +341,7 @@ public class BimestreResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(bimestre.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idEstudiante").value(hasItem(DEFAULT_ID_ESTUDIANTE.intValue())))
+            .andExpect(jsonPath("$.[*].idCurso").value(hasItem(DEFAULT_ID_CURSO.intValue())))
             .andExpect(jsonPath("$.[*].idDocente").value(hasItem(DEFAULT_ID_DOCENTE.intValue())))
             .andExpect(jsonPath("$.[*].bimestre").value(hasItem(DEFAULT_BIMESTRE)))
             .andExpect(jsonPath("$.[*].paralelo").value(hasItem(DEFAULT_PARALELO.toString())))
@@ -393,7 +394,7 @@ public class BimestreResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(bimestre.getId().intValue()))
-            .andExpect(jsonPath("$.idEstudiante").value(DEFAULT_ID_ESTUDIANTE.intValue()))
+            .andExpect(jsonPath("$.idCurso").value(DEFAULT_ID_CURSO.intValue()))
             .andExpect(jsonPath("$.idDocente").value(DEFAULT_ID_DOCENTE.intValue()))
             .andExpect(jsonPath("$.bimestre").value(DEFAULT_BIMESTRE))
             .andExpect(jsonPath("$.paralelo").value(DEFAULT_PARALELO.toString()))
@@ -437,67 +438,67 @@ public class BimestreResourceIntTest {
 
     @Test
     @Transactional
-    public void getAllBimestresByIdEstudianteIsEqualToSomething() throws Exception {
+    public void getAllBimestresByIdCursoIsEqualToSomething() throws Exception {
         // Initialize the database
         bimestreRepository.saveAndFlush(bimestre);
 
-        // Get all the bimestreList where idEstudiante equals to DEFAULT_ID_ESTUDIANTE
-        defaultBimestreShouldBeFound("idEstudiante.equals=" + DEFAULT_ID_ESTUDIANTE);
+        // Get all the bimestreList where idCurso equals to DEFAULT_ID_CURSO
+        defaultBimestreShouldBeFound("idCurso.equals=" + DEFAULT_ID_CURSO);
 
-        // Get all the bimestreList where idEstudiante equals to UPDATED_ID_ESTUDIANTE
-        defaultBimestreShouldNotBeFound("idEstudiante.equals=" + UPDATED_ID_ESTUDIANTE);
+        // Get all the bimestreList where idCurso equals to UPDATED_ID_CURSO
+        defaultBimestreShouldNotBeFound("idCurso.equals=" + UPDATED_ID_CURSO);
     }
 
     @Test
     @Transactional
-    public void getAllBimestresByIdEstudianteIsInShouldWork() throws Exception {
+    public void getAllBimestresByIdCursoIsInShouldWork() throws Exception {
         // Initialize the database
         bimestreRepository.saveAndFlush(bimestre);
 
-        // Get all the bimestreList where idEstudiante in DEFAULT_ID_ESTUDIANTE or UPDATED_ID_ESTUDIANTE
-        defaultBimestreShouldBeFound("idEstudiante.in=" + DEFAULT_ID_ESTUDIANTE + "," + UPDATED_ID_ESTUDIANTE);
+        // Get all the bimestreList where idCurso in DEFAULT_ID_CURSO or UPDATED_ID_CURSO
+        defaultBimestreShouldBeFound("idCurso.in=" + DEFAULT_ID_CURSO + "," + UPDATED_ID_CURSO);
 
-        // Get all the bimestreList where idEstudiante equals to UPDATED_ID_ESTUDIANTE
-        defaultBimestreShouldNotBeFound("idEstudiante.in=" + UPDATED_ID_ESTUDIANTE);
+        // Get all the bimestreList where idCurso equals to UPDATED_ID_CURSO
+        defaultBimestreShouldNotBeFound("idCurso.in=" + UPDATED_ID_CURSO);
     }
 
     @Test
     @Transactional
-    public void getAllBimestresByIdEstudianteIsNullOrNotNull() throws Exception {
+    public void getAllBimestresByIdCursoIsNullOrNotNull() throws Exception {
         // Initialize the database
         bimestreRepository.saveAndFlush(bimestre);
 
-        // Get all the bimestreList where idEstudiante is not null
-        defaultBimestreShouldBeFound("idEstudiante.specified=true");
+        // Get all the bimestreList where idCurso is not null
+        defaultBimestreShouldBeFound("idCurso.specified=true");
 
-        // Get all the bimestreList where idEstudiante is null
-        defaultBimestreShouldNotBeFound("idEstudiante.specified=false");
+        // Get all the bimestreList where idCurso is null
+        defaultBimestreShouldNotBeFound("idCurso.specified=false");
     }
 
     @Test
     @Transactional
-    public void getAllBimestresByIdEstudianteIsGreaterThanOrEqualToSomething() throws Exception {
+    public void getAllBimestresByIdCursoIsGreaterThanOrEqualToSomething() throws Exception {
         // Initialize the database
         bimestreRepository.saveAndFlush(bimestre);
 
-        // Get all the bimestreList where idEstudiante greater than or equals to DEFAULT_ID_ESTUDIANTE
-        defaultBimestreShouldBeFound("idEstudiante.greaterOrEqualThan=" + DEFAULT_ID_ESTUDIANTE);
+        // Get all the bimestreList where idCurso greater than or equals to DEFAULT_ID_CURSO
+        defaultBimestreShouldBeFound("idCurso.greaterOrEqualThan=" + DEFAULT_ID_CURSO);
 
-        // Get all the bimestreList where idEstudiante greater than or equals to UPDATED_ID_ESTUDIANTE
-        defaultBimestreShouldNotBeFound("idEstudiante.greaterOrEqualThan=" + UPDATED_ID_ESTUDIANTE);
+        // Get all the bimestreList where idCurso greater than or equals to UPDATED_ID_CURSO
+        defaultBimestreShouldNotBeFound("idCurso.greaterOrEqualThan=" + UPDATED_ID_CURSO);
     }
 
     @Test
     @Transactional
-    public void getAllBimestresByIdEstudianteIsLessThanSomething() throws Exception {
+    public void getAllBimestresByIdCursoIsLessThanSomething() throws Exception {
         // Initialize the database
         bimestreRepository.saveAndFlush(bimestre);
 
-        // Get all the bimestreList where idEstudiante less than or equals to DEFAULT_ID_ESTUDIANTE
-        defaultBimestreShouldNotBeFound("idEstudiante.lessThan=" + DEFAULT_ID_ESTUDIANTE);
+        // Get all the bimestreList where idCurso less than or equals to DEFAULT_ID_CURSO
+        defaultBimestreShouldNotBeFound("idCurso.lessThan=" + DEFAULT_ID_CURSO);
 
-        // Get all the bimestreList where idEstudiante less than or equals to UPDATED_ID_ESTUDIANTE
-        defaultBimestreShouldBeFound("idEstudiante.lessThan=" + UPDATED_ID_ESTUDIANTE);
+        // Get all the bimestreList where idCurso less than or equals to UPDATED_ID_CURSO
+        defaultBimestreShouldBeFound("idCurso.lessThan=" + UPDATED_ID_CURSO);
     }
 
 
@@ -2777,6 +2778,25 @@ public class BimestreResourceIntTest {
         defaultBimestreShouldBeFound("notaDecir6.lessThan=" + UPDATED_NOTA_DECIR_6);
     }
 
+
+    @Test
+    @Transactional
+    public void getAllBimestresByEstudianteIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Estudiante estudiante = EstudianteResourceIntTest.createEntity(em);
+        em.persist(estudiante);
+        em.flush();
+        bimestre.setEstudiante(estudiante);
+        bimestreRepository.saveAndFlush(bimestre);
+        Long estudianteId = estudiante.getId();
+
+        // Get all the bimestreList where estudiante equals to estudianteId
+        defaultBimestreShouldBeFound("estudianteId.equals=" + estudianteId);
+
+        // Get all the bimestreList where estudiante equals to estudianteId + 1
+        defaultBimestreShouldNotBeFound("estudianteId.equals=" + (estudianteId + 1));
+    }
+
     /**
      * Executes the search, and checks that the default entity is returned
      */
@@ -2785,7 +2805,7 @@ public class BimestreResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(bimestre.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idEstudiante").value(hasItem(DEFAULT_ID_ESTUDIANTE.intValue())))
+            .andExpect(jsonPath("$.[*].idCurso").value(hasItem(DEFAULT_ID_CURSO.intValue())))
             .andExpect(jsonPath("$.[*].idDocente").value(hasItem(DEFAULT_ID_DOCENTE.intValue())))
             .andExpect(jsonPath("$.[*].bimestre").value(hasItem(DEFAULT_BIMESTRE)))
             .andExpect(jsonPath("$.[*].paralelo").value(hasItem(DEFAULT_PARALELO.toString())))
@@ -2860,7 +2880,7 @@ public class BimestreResourceIntTest {
         // Disconnect from session so that the updates on updatedBimestre are not directly saved in db
         em.detach(updatedBimestre);
         updatedBimestre
-            .idEstudiante(UPDATED_ID_ESTUDIANTE)
+            .idCurso(UPDATED_ID_CURSO)
             .idDocente(UPDATED_ID_DOCENTE)
             .bimestre(UPDATED_BIMESTRE)
             .paralelo(UPDATED_PARALELO)
@@ -2910,7 +2930,7 @@ public class BimestreResourceIntTest {
         List<Bimestre> bimestreList = bimestreRepository.findAll();
         assertThat(bimestreList).hasSize(databaseSizeBeforeUpdate);
         Bimestre testBimestre = bimestreList.get(bimestreList.size() - 1);
-        assertThat(testBimestre.getIdEstudiante()).isEqualTo(UPDATED_ID_ESTUDIANTE);
+        assertThat(testBimestre.getIdCurso()).isEqualTo(UPDATED_ID_CURSO);
         assertThat(testBimestre.getIdDocente()).isEqualTo(UPDATED_ID_DOCENTE);
         assertThat(testBimestre.getBimestre()).isEqualTo(UPDATED_BIMESTRE);
         assertThat(testBimestre.getParalelo()).isEqualTo(UPDATED_PARALELO);

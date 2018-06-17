@@ -1,9 +1,16 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "estudiante",
+            "otherEntityName": "estudiante",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
     "fields": [
         {
-            "fieldName": "idEstudiante",
+            "fieldName": "idCurso",
             "fieldType": "Long"
         },
         {

@@ -20,8 +20,8 @@ public class Bimestre implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "id_estudiante")
-    private Long idEstudiante;
+    @Column(name = "id_curso")
+    private Long idCurso;
 
     @Column(name = "id_docente")
     private Long idDocente;
@@ -140,6 +140,9 @@ public class Bimestre implements Serializable {
     @Column(name = "nota_decir_6")
     private Integer notaDecir6;
 
+    @ManyToOne
+    private Estudiante estudiante;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -149,17 +152,17 @@ public class Bimestre implements Serializable {
         this.id = id;
     }
 
-    public Long getIdEstudiante() {
-        return idEstudiante;
+    public Long getIdCurso() {
+        return idCurso;
     }
 
-    public Bimestre idEstudiante(Long idEstudiante) {
-        this.idEstudiante = idEstudiante;
+    public Bimestre idCurso(Long idCurso) {
+        this.idCurso = idCurso;
         return this;
     }
 
-    public void setIdEstudiante(Long idEstudiante) {
-        this.idEstudiante = idEstudiante;
+    public void setIdCurso(Long idCurso) {
+        this.idCurso = idCurso;
     }
 
     public Long getIdDocente() {
@@ -668,6 +671,19 @@ public class Bimestre implements Serializable {
     public void setNotaDecir6(Integer notaDecir6) {
         this.notaDecir6 = notaDecir6;
     }
+
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
+
+    public Bimestre estudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+        return this;
+    }
+
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -694,7 +710,7 @@ public class Bimestre implements Serializable {
     public String toString() {
         return "Bimestre{" +
             "id=" + getId() +
-            ", idEstudiante=" + getIdEstudiante() +
+            ", idCurso=" + getIdCurso() +
             ", idDocente=" + getIdDocente() +
             ", bimestre=" + getBimestre() +
             ", paralelo='" + getParalelo() + "'" +

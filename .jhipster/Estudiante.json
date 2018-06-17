@@ -3,18 +3,49 @@
     "relationships": [],
     "fields": [
         {
+            "fieldName": "ci",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paterno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "materno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "genero",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechaNacimiento",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nacionalidad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "Long"
+        },
+        {
             "fieldName": "matricula",
             "fieldType": "String"
         },
         {
             "fieldName": "tipo",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "idPersona",
-            "fieldType": "Long"
         }
-
     ],
     "changelogDate": "00000000000700",
     "dto": "no",

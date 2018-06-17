@@ -143,12 +143,12 @@ public class EstudianteResource {
      * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of estudiantes in body
      */
-    @GetMapping("/estudiantes/all")
+    /*@GetMapping("/estudiantes/all")
     @Timed
     public ResponseEntity<List<EstudianteDTO>> getAllEstudiantesPersonas(Pageable pageable) {
         log.debug("REST request to get a page of Estudiantes");
         Page<EstudianteDTO> page = estudianteRepository.findAllStudents(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/estudiantes/all");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
-    }
+    }*/
 }
