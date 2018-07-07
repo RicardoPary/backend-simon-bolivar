@@ -1,11 +1,11 @@
 id;descripcion;nombre;fecha;hora;lugar;orden_dia;detalle
-1;reunion en homenaje al dia del maestro;reunion dia del maestro;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
-2;reunion en homenaje al dia del maestro;reunion dia del maestro;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
-3;reunion en homenaje al dia del maestro;reunion dia del maestro;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
-4;reunion en homenaje al dia del maestro;reunion dia del maestro;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
-5;reunion en homenaje al dia del maestro;reunion dia del maestro;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
-6;reunion en homenaje al dia del maestro;reunion dia del maestro;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
-7;reunion en homenaje al dia del maestro;reunion dia del maestro;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
+1;Reunion general para hablar temas sobre el dia de la madre;Reunion dia de la madre;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
+2;Reunion general para habler temas sobre el dia del maestro;Reunion dia del maestro;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
+3;Reunion general para temas de infraestructura del colegio;Reunion general;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
+4;Reunion para elegir mesa directiva;Reunion curso 4to C;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
+5;Asamblea general aniversario del colegio;Asamblea general;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
+6;Reunion para tema del desayuno escolar;Reunion curso 5to A;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
+7;Reunion para hablar sobre el uniforme de la prepromocion;Reunion pre promocion;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
 8;reunion en homenaje al dia del maestro;reunion dia del maestro;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
 9;reunion en homenaje al dia del maestro;reunion dia del maestro;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
 10;reunion en homenaje al dia del maestro;reunion dia del maestro;25/02/2018;15:00;colegio;rendicion de cuentas;reunion
