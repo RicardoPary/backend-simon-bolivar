@@ -1,13 +1,10 @@
 id;nombre;sigla;descripcion;id_curso;id_docente
-1;Educacion Fisica;EDU;materia de secundaria;1;1
-2;Matematicas;MAT;materia de secundaria;1;1
-3;Ingles;ING;materia de secundaria;1;1
-4;Musica;MUS;materia de secundaria;1;1
-5;Quimica;QMC;materia de secundaria;1;1
-6;Espanol;ESP;materia de secundaria;1;1
-7;Artes Plasticas;ART;materia de secundaria;1;1
-8;Biologia;BIO;materia de secundaria;1;1
-9;Civica;CIV;materia de secundaria;1;1
-10;Historia;HIS;materia de secundaria;1;1
-11;Ciencias Naturales;CNT;materia de secundaria;1;1
-12;Educacion Fisica;EDF;materia de secundaria;1;1
+1;comunicacion y lengua (lengua castellana originaria y lengua extranjera);EDU;materia de secundaria;1;1
+2;ciencias sociales;MAT;materia de secundaria;1;1
+3;educacion fisica y deportes;ING;materia de secundaria;1;1
+4;educacion musical;MUS;materia de secundaria;1;1
+5;artes plasticas y visuales;QMC;materia de secundaria;1;1
+6;matematicas;ESP;materia de secundaria;1;1
+7;tecnica tecnologia general;ART;materia de secundaria;1;1
+8;ciencias naturales;BIO;materia de secundaria;1;1
+9;valores espiritualidades y religion;CIV;materia de secundaria;1;1
